@@ -14,6 +14,7 @@ import { verbose } from './scanner/util';
 import { join } from 'path';
 import postCommitStatus from './commitStatus/github/commitStatus';
 import Generator, { ReportFormat } from './report/generator';
+import processLabels from './labels';
 
 enum ExitCode {
   ValidationError = 1,
@@ -147,6 +148,8 @@ export default {
           }
           const appMapData = await fs.readFile(file, 'utf8');
           const appMap = buildAppMap(appMapData).normalize().build();
+
+          processLabels(appMap);
 
           process.stderr.write(formatter.appMap(appMap));
 
