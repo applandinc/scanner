@@ -31,7 +31,7 @@ class Options {
   }
 }
 
-function scanner(options: Options = new Options()): Assertion {
+function scanner(options: Options = new Options()): Assertion<Event> {
   return Assertion.assert(
     'update-in-get-request',
     'Data update performed in GET or HEAD request',
@@ -57,7 +57,7 @@ function scanner(options: Options = new Options()): Assertion {
         return `Data update performed in ${httpServerRequest!.route}: ${e.sqlQuery}`;
       }
     },
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) => !!e.sqlQuery;
       assertion.description = `Data update performed in GET or HEAD request`;
     }

@@ -1,14 +1,16 @@
 import { Event } from '@appland/models';
 import { Scope } from 'src/types';
-import ScopeImpl from './scopeImpl';
-import ScopeIterator from './scopeIterator';
+import AppMapContext from './appMapContext';
+import EventScopeImpl from './eventScopeImpl';
+import EventScopeIterator from './eventScopeIterator';
 
-export default class RootScope extends ScopeIterator {
-  *scopes(events: Generator<Event>): Generator<Scope> {
+export default class RootScope extends EventScopeIterator {
+  *scopes(context: AppMapContext): Generator<Scope<Event>> {
+    const events = context.callEvents();
     for (const event of events) {
       if (event.isCall()) {
         if (!event.parent) {
-          yield new ScopeImpl(event);
+          yield new EventScopeImpl(event);
 
           this.advanceToReturnEvent(event, events);
         }

@@ -1,18 +1,18 @@
-import { EventFilter, ScopeName, Matcher } from './types';
+import { ObjectFilter, Matcher } from './types';
 
-export default class Assertion {
-  public where?: EventFilter;
-  public include: EventFilter[];
-  public exclude: EventFilter[];
+export default class Assertion<T> {
+  public where?: ObjectFilter<T>;
+  public include: ObjectFilter<T>[];
+  public exclude: ObjectFilter<T>[];
   public description?: string;
   public options?: any;
 
-  static assert(
+  static assert<T>(
     id: string,
     summaryTitle: string,
-    matcher: Matcher,
-    cb?: (assertion: Assertion) => void
-  ): Assertion {
+    matcher: Matcher<T>,
+    cb?: (assertion: Assertion<T>) => void
+  ): Assertion<T> {
     const assertion = new Assertion(id, summaryTitle, matcher);
     if (cb) {
       cb(assertion);
@@ -20,7 +20,7 @@ export default class Assertion {
     return assertion;
   }
 
-  constructor(public id: string, public summaryTitle: string, public matcher: Matcher) {
+  constructor(public id: string, public summaryTitle: string, public matcher: Matcher<T>) {
     this.include = [];
     this.exclude = [];
   }

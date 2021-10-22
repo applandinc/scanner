@@ -16,14 +16,14 @@ const validatedBy = (iterator: Iterator<EventNavigator>): boolean => {
   return false;
 };
 
-const scanner = (): Assertion => {
+const scanner = (): Assertion<Event> => {
   return Assertion.assert(
     'save-without-validation',
     '`save` calls without validation',
     // TODO: ensure that the object id on the 'validate' is the same as the object id on the 'save'
     // TODO: if validate happens in a preceding event, this is also OK
     (event: Event) => !validatedBy(new EventNavigator(event).descendants()),
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) => e.isFunction && ['save', 'save!'].includes(e.methodId!);
       assertion.description = `'save' must be preceded by 'valid?' or 'validate'`;
     }

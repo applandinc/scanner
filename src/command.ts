@@ -15,6 +15,7 @@ import { join } from 'path';
 import postCommitStatus from './commitStatus/github/commitStatus';
 import Generator, { ReportFormat } from './report/generator';
 import processLabels from './labels';
+import AppMapContext from './scope/appMapContext';
 
 enum ExitCode {
   ValidationError = 1,
@@ -148,15 +149,14 @@ export default {
           }
           const appMapData = await fs.readFile(file, 'utf8');
           const appMap = buildAppMap(appMapData).normalize().build();
-
-          processLabels(appMap);
+          const context = new AppMapContext(appMap, processLabels(appMap));
 
           process.stderr.write(formatter.appMap(appMap));
 
           assertionPrototypes.forEach((assertionPrototype: AssertionPrototype) => {
             index++;
             const matchCount = findings.length;
-            checker.check(appMap, assertionPrototype, findings);
+            checker.check(context, assertionPrototype, findings);
             const newMatches = findings.slice(matchCount, findings.length);
             newMatches.forEach((match) => (match.appMapFile = file));
 

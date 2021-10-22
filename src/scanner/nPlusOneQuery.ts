@@ -11,7 +11,7 @@ class Options {
   constructor(public warningLimit = 5, public errorLimit = 10, public whitelist: string[] = []) {}
 }
 
-function scanner(options: Options = new Options()): Assertion {
+function scanner(options: Options = new Options()): Assertion<Event> {
   const sqlCount: Record<string, number> = {};
   const warnings = new Set<string>();
   const errors = new Set<string>();
@@ -55,7 +55,7 @@ function scanner(options: Options = new Options()): Assertion {
     'n-plus-one-query',
     'N+1 SQL queries',
     matcher,
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) => {
         if (!e.sqlQuery) {
           return false;

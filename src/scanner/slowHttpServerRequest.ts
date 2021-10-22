@@ -5,12 +5,12 @@ class Options {
   constructor(public timeAllowed = 1) {}
 }
 
-function scanner(options: Options = new Options()): Assertion {
+function scanner(options: Options = new Options()): Assertion<Event> {
   return Assertion.assert(
     'slow-http-server-request',
     'Slow HTTP server requests',
     (e: Event) => e.elapsedTime! > options.timeAllowed,
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) => !!e.httpServerRequest && e.elapsedTime !== undefined;
       assertion.description = `Slow HTTP server request (> ${options.timeAllowed * 1000}ms)`;
     }

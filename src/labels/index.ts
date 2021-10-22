@@ -1,9 +1,10 @@
 import { AppMap } from '@appland/models';
-import getDataObjectLabels, { DataObject } from './dataObject';
+import { DataObject } from './dataObject';
 import DataObjectGraphCollection from './dataObjectGraphCollection';
+import DataObjectSummary from './dataObjectSummary';
 import getEventLabels from './event';
 
-export default function processLabels(appMap: AppMap): void {
+export default function processLabels(appMap: AppMap): readonly DataObjectSummary[] {
   const dataObjects = new DataObjectGraphCollection();
   const { events } = appMap;
 
@@ -42,4 +43,6 @@ export default function processLabels(appMap: AppMap): void {
 
   // Finally, we can process the data objects themselves
   dataObjects.label();
+
+  return dataObjects.summarize();
 }

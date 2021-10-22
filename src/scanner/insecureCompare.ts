@@ -38,7 +38,7 @@ function stringEquals(e: Event): string | boolean | import('../types').MatchResu
   return true;
 }
 
-const scanner = function (): Assertion {
+const scanner = function (): Assertion<Event> {
   return Assertion.assert(
     'insecure-compare',
     'Insecure comparison of secrets',
@@ -50,7 +50,7 @@ const scanner = function (): Assertion {
         return stringEquals(e);
       }
     },
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) =>
         e.isFunction &&
         (e.codeObject.labels.has('string.equals') || e.codeObject.labels.has('secret'));

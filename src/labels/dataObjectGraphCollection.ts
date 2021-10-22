@@ -1,6 +1,7 @@
 import { Event } from '@appland/models';
 import getDataObjectLabels, { DataObject } from './dataObject';
 import DataObjectGraph from './dataObjectGraph';
+import DataObjectSummary from './dataObjectSummary';
 
 export default class DataObjectGraphCollection {
   private allGraphs: DataObjectGraph[] = [];
@@ -49,27 +50,15 @@ export default class DataObjectGraphCollection {
     this.allGraphs.forEach((graph) => {
       graph.nodes.forEach((node) => {
         if (node.dataObject) {
-          node.dataObject.labels = getDataObjectLabels(node.dataObject);
+          node.dataObject.labels = getDataObjectLabels(node.dataObject, node.event);
         }
       });
     });
   }
 
-  toJSON(): {
-    nodes: { id: number; label: string }[];
-    links: { source: number; target: number }[];
-  } {
-    return this.allGraphs.reduce(
-      (acc, graph) => {
-        const g = graph.toJSON();
-        acc.nodes.push(...g.nodes);
-        acc.links.push(...g.links);
-        return acc;
-      },
-      { nodes: [], links: [] } as {
-        nodes: { id: number; label: string }[];
-        links: { source: number; target: number }[];
-      }
-    );
+  summarize(): readonly DataObjectSummary[] {
+    return this.allGraphs
+      .map((graph) => graph.summarize())
+      .filter((summary) => summary.labels.size > 0);
   }
 }

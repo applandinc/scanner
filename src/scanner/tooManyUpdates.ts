@@ -9,7 +9,7 @@ class Options {
   ) {}
 }
 
-function scanner(options: Options = new Options()): Assertion {
+function scanner(options: Options = new Options()): Assertion<Event> {
   const sqlPatterns = options.queryIncludes.map((pattern) => new RegExp(pattern, 'i'));
 
   const isUpdate = (event: Event): boolean => {
@@ -44,7 +44,7 @@ function scanner(options: Options = new Options()): Assertion {
         }
       }
     },
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) => !!e.sqlQuery || !!e.httpServerRequest;
       assertion.description = `Too many SQL and RPC updates performed in one transaction`;
     }

@@ -48,12 +48,12 @@ class Options {
   }
 }
 
-function scanner(options: Options = new Options()): Assertion {
+function scanner(options: Options = new Options()): Assertion<Event> {
   return Assertion.assert(
     'missing-authentication',
     'Unauthenticated HTTP server requests',
     (event: Event) => !authenticatedBy(new EventNavigator(event).descendants()),
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.options = options;
       assertion.where = (e: Event) => {
         return (

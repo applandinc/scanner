@@ -1,24 +1,26 @@
 import { AppMap, Event } from '@appland/models';
 import Assertion from './assertion';
+import DataObjectSummary from './labels/dataObjectSummary';
+import { ScopeName } from './scopes';
 
-export type ScopeName = 'all' | 'root' | 'command' | 'http_server_request';
-
-interface Scope {
-  scope: Event;
-  events: () => Generator<Event>;
+interface Scope<T> {
+  scope: T;
+  scopedObjects: () => Generator<T>;
+  retrieveFindings(appMap: AppMap, assertion: Assertion<T>): Finding[];
 }
 
 export type Level = 'warning' | 'error';
 
-type EventFilter = (e: Event, appMap: AppMap) => boolean;
+type ObjectFilter<T> = (obj: T, appMap: AppMap) => boolean;
+type EventFilter = ObjectFilter<Event>;
+type DataFilter = ObjectFilter<DataObjectSummary>;
 
 export interface MatchResult {
   level: Level;
   message?: string;
 }
 
-type Matcher = (e: Event) => boolean | string | MatchResult[] | undefined;
-
+type Matcher<T> = (obj: T) => boolean | string | MatchResult[] | undefined;
 export interface Finding {
   appMapName: string;
   appMapFile?: string;
@@ -45,5 +47,5 @@ interface AssertionConfig {
 interface AssertionPrototype {
   config: AssertionConfig;
   scope: ScopeName;
-  build(): Assertion;
+  build(): Assertion<unknown>;
 }

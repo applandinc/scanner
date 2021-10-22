@@ -1,10 +1,8 @@
 import { Event } from '@appland/models';
 import { DataObject } from './dataObject';
-
-let ID = 0;
+import DataObjectSummary from './dataObjectSummary';
 
 class DataObjectNode {
-  public id = ID++;
   constructor(public readonly event: Event, public readonly dataObject?: DataObject) {}
 }
 
@@ -71,16 +69,18 @@ export default class DataObjectGraph {
     return Object.keys(this.valueTable);
   }
 
-  toJSON(): {
-    nodes: { id: number; label: string }[];
-    links: { source: number; target: number }[];
-  } {
-    return {
-      nodes: this._nodes.map((node) => ({
-        id: node.id,
-        label: `${node.dataObject?.value}\n${node.dataObject?.object_id}`,
-      })),
-      links: this._edges.map((edge) => ({ source: edge.from.id, target: edge.to.id })),
-    };
+  summarize(): DataObjectSummary {
+    return new DataObjectSummary(
+      this.values,
+      this._nodes.map((node) => node.event),
+      this._nodes.map((node) => node.dataObject).filter(Boolean) as readonly DataObject[],
+      this._nodes.reduce((set, node) => {
+        if (node.dataObject) {
+          node.dataObject.labels?.forEach((label) => set.add(label));
+        }
+        return set;
+      }, new Set<string>()),
+      this
+    );
   }
 }

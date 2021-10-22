@@ -6,7 +6,7 @@ class Options {
   constructor(public selector: string = '*', public packageNames: string[] = []) {}
 }
 
-function scanner(options: Options): Assertion {
+function scanner(options: Options): Assertion<Event> {
   const selectorExp = minimatch.makeRe(options.selector);
   const packageNamesStr = options.packageNames.join(' or ');
 
@@ -24,7 +24,7 @@ function scanner(options: Options): Assertion {
         return `Code object ${e.codeObject.id} was invoked from ${parentPackage}, not from ${packageNamesStr}`;
       }
     },
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) => {
         return (
           !!e.parent && !!e.parent!.codeObject.packageOf && selectorExp.test(e.codeObject.fqid)

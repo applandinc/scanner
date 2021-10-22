@@ -20,7 +20,7 @@ class Options {
   }
 }
 
-function scanner(options: Options): Assertion {
+function scanner(options: Options): Assertion<Event> {
   return Assertion.assert(
     'query-from-invalid-package',
     'Queries from invalid packages',
@@ -31,7 +31,7 @@ function scanner(options: Options): Assertion {
         }`;
       }
     },
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) =>
         !!e.sqlQuery &&
         !!e.parent &&

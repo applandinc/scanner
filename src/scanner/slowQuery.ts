@@ -32,12 +32,12 @@ class Options {
   }
 }
 
-function scanner(options: Options = new Options()): Assertion {
+function scanner(options: Options = new Options()): Assertion<Event> {
   return Assertion.assert(
     'slow-query',
     'Slow SQL queries',
     (e: Event) => e.elapsedTime! > options.timeAllowed,
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) =>
         !!e.sqlQuery &&
         !!e.elapsedTime &&

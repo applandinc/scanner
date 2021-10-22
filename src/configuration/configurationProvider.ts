@@ -4,18 +4,18 @@ import { Script } from 'vm';
 import Assertion from '../assertion';
 import { AssertionConfig, AssertionPrototype, Configuration } from 'src/types';
 
-function populateAssertion(assertion: Assertion, config: AssertionConfig): void {
+function populateAssertion(assertion: Assertion<unknown>, config: AssertionConfig): void {
   if (config.include && config.include.length > 0) {
     assertion.include = config.include
       .map((fn) => new Script(fn))
-      .map((script) => (event, appMap) => {
+      .map((script) => (event: unknown, appMap) => {
         return script.runInNewContext({ event, appMap, console });
       });
   }
   if (config.exclude && config.exclude.length > 0) {
     assertion.exclude = config.exclude
       .map((fn) => new Script(fn))
-      .map((script) => (event, appMap) => script.runInNewContext({ event, appMap }));
+      .map((script) => (event: unknown, appMap) => script.runInNewContext({ event, appMap }));
   }
   if (config.description) {
     assertion.description = config.description;

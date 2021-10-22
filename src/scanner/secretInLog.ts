@@ -50,7 +50,7 @@ const findInLog = (e: Event): MatchResult[] | undefined => {
   }
 };
 
-const scanner = function (): Assertion {
+const scanner = function (): Assertion<Event> {
   return Assertion.assert(
     'secret-in-log',
     'Secret in log',
@@ -62,7 +62,7 @@ const scanner = function (): Assertion {
         return findInLog(e);
       }
     },
-    (assertion: Assertion): void => {
+    (assertion: Assertion<Event>): void => {
       assertion.where = (e: Event) =>
         e.codeObject.labels.has('log') || e.codeObject.labels.has('secret');
       assertion.description = `Log contains secret-like text`;
