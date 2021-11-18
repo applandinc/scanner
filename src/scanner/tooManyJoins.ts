@@ -1,10 +1,9 @@
-import { Event } from '@appland/models';
+import { Event, Database } from '@appland/models';
 import { AssertionSpec, MatchResult } from '../types';
 import * as types from './types';
 import Assertion from '../assertion';
-import { countJoins, SQLCount, sqlStrings } from '../database';
 
-export interface JoinCount extends SQLCount {
+export interface JoinCount extends Database.SQLCount {
   joins: number;
 }
 
@@ -17,13 +16,13 @@ function scanner(options: Options = new Options()): Assertion {
   const joinCount: Record<string, JoinCount> = {};
 
   const matcher = (command: Event): MatchResult[] | undefined => {
-    for (const sqlEvent of sqlStrings(command)) {
+    for (const sqlEvent of Database.sqlStrings(command)) {
       let occurrence = joinCount[sqlEvent.sql];
 
       if (!occurrence) {
         occurrence = {
           count: 1,
-          joins: countJoins(sqlEvent.sql),
+          joins: Database.countJoins(sqlEvent.sql),
           events: [sqlEvent.event],
         };
         joinCount[sqlEvent.sql] = occurrence;

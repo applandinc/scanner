@@ -1,8 +1,7 @@
-import { Event } from '@appland/models';
+import { Event, Database } from '@appland/models';
 import { AssertionSpec, Level, MatchResult } from '../types';
 import * as types from './types';
 import Assertion from '../assertion';
-import { SQLCount, sqlStrings } from '../database';
 
 class Options implements types.NPlusOneQuery.Options {
   constructor(public warningLimit = 5, public errorLimit = 10) {}
@@ -10,10 +9,10 @@ class Options implements types.NPlusOneQuery.Options {
 
 // TODO: clean up according to https://github.com/applandinc/scanner/issues/43
 function scanner(options: Options = new Options()): Assertion {
-  const sqlCount: Record<string, SQLCount> = {};
+  const sqlCount: Record<string, Database.SQLCount> = {};
 
   const matcher = (command: Event): MatchResult[] | undefined => {
-    for (const sqlEvent of sqlStrings(command)) {
+    for (const sqlEvent of Database.sqlStrings(command)) {
       let occurrence = sqlCount[sqlEvent.sql];
       if (!occurrence) {
         occurrence = {

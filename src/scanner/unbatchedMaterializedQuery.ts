@@ -1,5 +1,4 @@
-import { buildQueryAST, Event, EventNavigator } from '@appland/models';
-import { isSelect } from '../database';
+import { Database, buildQueryAST, Event, EventNavigator } from '@appland/models';
 import { AssertionSpec } from '../types';
 import Assertion from '../assertion';
 
@@ -68,7 +67,7 @@ function scanner(): Assertion {
   return Assertion.assert(
     'unbatched-materialized-query',
     'Unbatched materialized SQL query',
-    (e: Event) => isSelect(e.sqlQuery!) && !isBatched(e) && isMaterialized(e),
+    (e: Event) => Database.isSelect(e.sqlQuery!) && !isBatched(e) && isMaterialized(e),
     (assertion: Assertion): void => {
       assertion.where = (e: Event) => !!e.sqlQuery;
       assertion.description = `Unbatched materialized SQL query`;
