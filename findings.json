@@ -1,0 +1,3380 @@
+[
+  {
+    "appMapName": "Microposts_controller can get microposts as JSON",
+    "scannerId": "unbatched-materialized-query",
+    "scannerTitle": "Unbatched materialized SQL query",
+    "event": {
+      "id": 171,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"microposts\".* FROM \"microposts\" WHERE \"microposts\".\"user_id\" = ? ORDER BY \"microposts\".\"created_at\" DESC",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "cd17019c105fcbe54446e68c6185625dee8c565d98e1b8444693e2e14b369609",
+    "scope": {
+      "id": 133,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/microposts",
+        "normalized_path_info": "/microposts",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=5r9Cxq51mTy9Qd97HdImEVrPDBr4Y0rYqTYuTydQTU%2BtWs1RqMyHYAJlyQy%2ByJOvYgPajwQmf0BTVKnhpeh6aIRV57YtH2RYNy7e8oaOFIN4wL%2FqgFi7WFLz9ewKDZVVlGzAV9vyaWi9lQ9kn1avF%2F5WGH9AgYQB4PtgwmPUMD3iytO7izHqac2qKB9eq3H5f1cQvjVe4Ar3Xjeb1Cacyi611w%3D%3D--ZrJLKMFSSmfFlWjC--Vs9xtrWfGPNNcCCEwJ9v5Q%3D%3D; remember_token=9KpRfrKMHnaNLMjkA6AvPw; user_id=%2BM%2BcECDvjHVP7ItxTqtfS3wJfNjZiX3uCuq2l22rRDYm9ziFcA%2BSjFR6qyHypx6bQt2mz4GDZSgxXCOShvXEUiDXTTiKIIo%3D--moegMyxR9CnNYV4a--iySm2amNB3MQlgYW0UMCbA%3D%3D"
+        }
+      }
+    },
+    "condition": "Unbatched materialized SQL query",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Microposts_controller_can_get_microposts_as_JSON.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 351,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 351,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "message": "Started GET \"/password_resets/4gbBMiPc_pFGB9alIjPzAA/edit?email=\" for 127.0.0.1 at 2021-11-18 10:54: contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 357,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 353,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/password_resets/4gbBMiPc_pFGB9alIjPzAA/edit",
+        "normalized_path_info": "/password_resets/{id}/edit",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=0ecyaVL8YFUkFjHu1Bmid%2FFylk%2B134SuBopT4jjn2K0a9QIJfoh%2F%2BZ6Uh9MCorKVSpEfwdSCTf2%2FJ9ieCkIZZrbD8dsLzZoUPjoRRRLJMiyWoItqUyzncPEhEItL%2BdJtZnMW07%2FiiKDphUHlijvv9ZbBSSzruTHn81Amtedgmnidq7yd3DcZlET3Qv34sPnatfNTXSy9E2mPX%2FcKTiBk2YsvXhjYd2d%2BHwnjlpJXOocl5bPb80rdJpdEUBU%2FlvmNN9nmgq0skwhT2GtCUUvrQjB9Xsi5MsrjFd3DRjTGjg6OWjFGEvSsI0FeBpm%2BMkN9EsCYdjfm24Ja2%2Bmp%2BHtL--jrGHrJLsQ%2F0RaMK%2F--FtYiAD0F3%2BYTjsj%2BNCnkrw%3D%3D"
+        }
+      }
+    },
+    "message": "  Parameters: {\"email\"=>\"\", \"id\"=>\"4gbBMiPc_pFGB9alIjPzAA\"}\n contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 427,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 427,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "message": "Started GET \"/password_resets/4gbBMiPc_pFGB9alIjPzAA/edit?email=michael%40example.com\" for 127.0.0.1 contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 433,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 429,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/password_resets/4gbBMiPc_pFGB9alIjPzAA/edit",
+        "normalized_path_info": "/password_resets/{id}/edit",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=5lF7U58MBXZKUTXGZkb7oNS8zGHVm0vqOxpIqooRMD7jotnv8d%2FD9IaPGfusAOm4UIqvwxGFD5JAAgLZe8DKg4nrdDtIalZT5cxeW3YKM6kO6Aw%2BueOKcWbptahGN8sLwN%2FdvXWWWP1TKyErMOHzyJO3poJ%2F5SkF6gjr%2BYFyIzfS71RndICEmCC5zamrEky2bMR%2Fm2jdYy1%2BaVq%2FDC%2FQ2jhw7cMOAVOJjw42zc868vkgahjZXqSG%2FZspMF%2F%2Bl9fhNkmiwWrEuGYpcY9CdykZEm3XaofOMxXJaP3pyF%2FtsBf1ub9GWsa8RZU8FkP%2FL7do19PbkJ5sKqsbT4Oh5o8H--6HSdVZIKaMwp1qy0--eJHyW32sGZCnevDL4Gsirw%3D%3D"
+        }
+      }
+    },
+    "message": "  Parameters: {\"email\"=>\"michael@example.com\", \"id\"=>\"4gbBMiPc_pFGB9alIjPzAA\"}\n contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 561,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 561,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "message": "Started GET \"/password_resets/4gbBMiPc_pFGB9alIjPzAA/edit?email=michael%40example.com\" for 127.0.0.1 contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 567,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 563,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/password_resets/4gbBMiPc_pFGB9alIjPzAA/edit",
+        "normalized_path_info": "/password_resets/{id}/edit",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=VbQx52s4uEobcITGmxtyEYn37VHaVXPzZta9lNki9d%2BOC8ec0MPq53T20syS3NwK%2B6KtHlyI6WA3uIMA090lHg58Rwdg%2BZ8sAwYsoDB0wg22Wb99n60%2F8EQet1zJCFBE0IPIOvSLkQNYvDsLHW8nvc7d761Y8e1j2OCJWQUwT3FpPr9pOhWA%2FGAnpg7Oade%2B6HlB3qE4q7ZxweezBkUd3k9WyXeuDlLTyGeBy70ZAZ3y%2B7SDqo9y3jFeuewlVQ1UysJMb9fMC6246JONc4vyMC%2FwXagmH73zocAoCKoCsXsJXae2uvWBCwSniFahNHzVWSGLfNuf1VOVhKSsTFiR--%2BNK0AOF2uI4RAwzh--%2FIgC09CwD1UJ9gl5p0Ddjw%3D%3D"
+        }
+      }
+    },
+    "message": "  Parameters: {\"email\"=>\"michael@example.com\", \"id\"=>\"4gbBMiPc_pFGB9alIjPzAA\"}\n contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 679,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 679,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "message": "Started PATCH \"/password_resets/4gbBMiPc_pFGB9alIjPzAA\" for 127.0.0.1 at 2021-11-18 10:54:34 -0500\n contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 809,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 809,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "message": "Started PATCH \"/password_resets/4gbBMiPc_pFGB9alIjPzAA\" for 127.0.0.1 at 2021-11-18 10:54:34 -0500\n contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Password_resets password resets",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 919,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 919,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "message": "Started PATCH \"/password_resets/4gbBMiPc_pFGB9alIjPzAA\" for 127.0.0.1 at 2021-11-18 10:54:34 -0500\n contains secret 4gbBMiPc_pFGB9alIjPzAA",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Password_resets_password_resets.appmap.json"
+  },
+  {
+    "appMapName": "Users_controller should get new",
+    "scannerId": "slow-http-server-request",
+    "scannerTitle": "Slow HTTP server requests",
+    "event": {
+      "id": 37,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/signup",
+        "normalized_path_info": "/signup",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+        }
+      }
+    },
+    "hash": "0552bff0abf759ea09cd6e53f7731e4c145c442bd594a86cbaf578c1ac128915",
+    "scope": {
+      "id": 37,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/signup",
+        "normalized_path_info": "/signup",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+        }
+      }
+    },
+    "condition": "Slow HTTP server request (> 500ms)",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_controller_should_get_new.appmap.json"
+  },
+  {
+    "appMapName": "Users_index index as admin including pagination and delete links",
+    "scannerId": "unbatched-materialized-query",
+    "scannerTitle": "Unbatched materialized SQL query",
+    "event": {
+      "id": 682,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"microposts\".* FROM \"microposts\" WHERE \"microposts\".\"user_id\" = ? ORDER BY \"microposts\".\"created_at\" DESC",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "cd17019c105fcbe54446e68c6185625dee8c565d98e1b8444693e2e14b369609",
+    "scope": {
+      "id": 633,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "DELETE",
+        "path_info": "/users/950961012",
+        "normalized_path_info": "/users/{id}",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=C31f2cIdNraz2nIe999IF1AbhxsiykS14hszAQv2GZxdzxPoJgCYY6daxtOI3%2BCbxS5bEKUH4t6i%2B6mVBnZ02wVnxuavMZ1mNH7x%2FYUX%2B8NHvaUZfDZ1xilZskqOvQTQJ9QP7zP9Jcp%2BkaMZuHLl9jfBGXEbG7j7DB5oIx36%2FuHzC%2FmnPTOtCfSGzBkT6sR01T3m25PVaelKaor8I1SahTpaHA%3D%3D--iNmy%2B1X3OYgdQyoW--V3Q8t4IChY%2BjcwaTwLD4ig%3D%3D; remember_token=GJ0rihY3_kkD2MUUVo46ig; user_id=Es3IJC3zEoS1Hf%2BZjfYezpU4U0z9cYRBdJqnYWdgbsplYpuaVlRTYxvtwI93OZp3SHBFQv6t56unD19wDH7f%2FPGwIzkz1Dc%3D--Ra0UtfvqoVIM8%2Fof--b%2FPUP2ZxrxFFpWukhOQ9CA%3D%3D"
+        }
+      }
+    },
+    "condition": "Unbatched materialized SQL query",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_index_index_as_admin_including_pagination_and_delete_links.appmap.json"
+  },
+  {
+    "appMapName": "Users_login login with valid information followed by logout",
+    "scannerId": "n-plus-one-query",
+    "scannerTitle": "N+1 SQL queries",
+    "event": {
+      "id": 294,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "3d37917094c653a707d7a049381e9467097441d6b3037686a31fafc5d7042dd6",
+    "scope": {
+      "id": 189,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/users/762146111",
+        "normalized_path_info": "/users/{id}",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=VESAg7LdGpQq0qKEBxLeYPFmw62abV2l5h1YFv8%2BhRO1ZzQMJ6cciayl7%2F%2BWCzD9FzfP%2B8Crvbd0cFADfmEcT24Brz4IEPr7wrqb2HUxtVO3yn0HLLgU%2BBau66vC7MK1EICumYOIpgY5JNEluRCs2yjZ88EuPkpVKSrz13BJQqjT2H2WdfFperM8e%2BQ3D%2BTYY3KGDpdkuZixCDbntGJ3r7f1qQ%3D%3D--%2F7jgHvYkGWs5urQq--KLIHfyIU5XRVsfqptFYlCQ%3D%3D"
+        }
+      }
+    },
+    "message": "30 occurrences of SQL: SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "groupMessage": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "occurranceCount": 30,
+    "relatedEvents": [
+      {
+        "id": 294,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 308,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 322,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 336,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 350,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 364,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 378,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 392,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 406,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 420,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 434,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 448,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 462,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 476,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 490,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 504,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 518,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 532,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 546,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 560,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 574,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 588,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 602,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 616,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 630,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 644,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 658,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 672,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 686,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 700,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      }
+    ],
+    "condition": "SQL query should not be repeated within the same command",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_login_login_with_valid_information_followed_by_logout.appmap.json"
+  },
+  {
+    "appMapName": "Users_profile profile display while anonyomus",
+    "scannerId": "missing-authentication",
+    "scannerTitle": "Unauthenticated HTTP server requests",
+    "event": {
+      "id": 37,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/users/762146111",
+        "normalized_path_info": "/users/{id}",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+        }
+      }
+    },
+    "hash": "55634d2b1d43a497c3c9f8610ad0db5ae6ad47096d5ff334223068e9f27625c8",
+    "scope": {
+      "id": 37,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/users/762146111",
+        "normalized_path_info": "/users/{id}",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+        }
+      }
+    },
+    "condition": "HTTP server request must be authenticated",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_profile_profile_display_while_anonyomus.appmap.json"
+  },
+  {
+    "appMapName": "Users_profile profile display while anonyomus",
+    "scannerId": "n-plus-one-query",
+    "scannerTitle": "N+1 SQL queries",
+    "event": {
+      "id": 118,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "3d37917094c653a707d7a049381e9467097441d6b3037686a31fafc5d7042dd6",
+    "scope": {
+      "id": 37,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/users/762146111",
+        "normalized_path_info": "/users/{id}",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5"
+        }
+      }
+    },
+    "message": "30 occurrences of SQL: SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "groupMessage": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "occurranceCount": 30,
+    "relatedEvents": [
+      {
+        "id": 118,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 134,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 150,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 166,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 182,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 198,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 214,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 230,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 246,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 262,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 278,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 294,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 310,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 326,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 342,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 358,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 374,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 390,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 406,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 422,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 438,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 454,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 470,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 486,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 502,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 518,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 534,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 550,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 566,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 582,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      }
+    ],
+    "condition": "SQL query should not be repeated within the same command",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_profile_profile_display_while_anonyomus.appmap.json"
+  },
+  {
+    "appMapName": "Users_signup valid signup information with account activation",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 359,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 359,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "message": "Started GET \"/account_activations/208kmoYAAlwbPs4ZIpBAaw/edit?email=wrong\" for 127.0.0.1 at 2021-11- contains secret 208kmoYAAlwbPs4ZIpBAaw",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_signup_valid_signup_information_with_account_activation.appmap.json"
+  },
+  {
+    "appMapName": "Users_signup valid signup information with account activation",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 365,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 361,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/account_activations/208kmoYAAlwbPs4ZIpBAaw/edit",
+        "normalized_path_info": "/account_activations/{id}/edit",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=RmT658dVIWDgPKnhEHyzduZ7EGaf%2BhEUdre6ojMb6%2BmVxg3bMeKkOVLK4nzaetjvvFJEtUZrw8UXtboozCUiMGdpZdhgHaI06sGxEIS3e5%2FVkv9YpHLnSuZqwOCnmhyIv%2B1ovjK04E1SaisrU6JDs%2FVU1aA8KpsPdGwu6zbWzNgrSKSJYQSr%2FpC5KLkVVIrOdft1BxLhz2rhCCC3dl8wq06sggjQqjv2qx%2FDjUJEfrh23QEaJLLr1NdxsTCYJvUZvy39Pzn5hFuqQOBMLnuGmA2iiDGIYu0kDAQXJZ9oNQml%2FyYLfvX7--8ssIUHVH9P4T0cDs--AKKSnpU9E45p%2F7KXWewJwg%3D%3D"
+        }
+      }
+    },
+    "message": "  Parameters: {\"email\"=>\"wrong\", \"id\"=>\"208kmoYAAlwbPs4ZIpBAaw\"}\n contains secret 208kmoYAAlwbPs4ZIpBAaw",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_signup_valid_signup_information_with_account_activation.appmap.json"
+  },
+  {
+    "appMapName": "Users_signup valid signup information with account activation",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 421,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 421,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "message": "Started GET \"/account_activations/208kmoYAAlwbPs4ZIpBAaw/edit?email=user%40example.com\" for 127.0.0. contains secret 208kmoYAAlwbPs4ZIpBAaw",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_signup_valid_signup_information_with_account_activation.appmap.json"
+  },
+  {
+    "appMapName": "Users_signup valid signup information with account activation",
+    "scannerId": "secret-in-log",
+    "scannerTitle": "Secret in log",
+    "event": {
+      "id": 427,
+      "event": "call",
+      "thread_id": 4900,
+      "defined_class": "Logger::LogDevice",
+      "method_id": "write",
+      "path": "/Users/kgilpin/.rbenv/versions/3.0.2/lib/ruby/3.0.0/logger/log_device.rb",
+      "lineno": 31,
+      "static": false,
+      "receiver": {
+        "class": "Logger::LogDevice",
+        "object_id": 13360,
+        "value": "#<Logger::LogDevice:0x00007fa842a03b78>"
+      }
+    },
+    "hash": "39be8a8abe8fbaec18377544ab7273b81f8800a65af1c35320bfb1313c3f2370",
+    "scope": {
+      "id": 423,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/account_activations/208kmoYAAlwbPs4ZIpBAaw/edit",
+        "normalized_path_info": "/account_activations/{id}/edit",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=CXvrQkT5CO5IYGQ5RC4QZVkZA93OILi%2FbC1Bz1%2BmW5FnOO1Ms4PXi4HJ0%2BY3kIn4hl1dHLsTA%2BznmTr5bg7s56qVsi1AdyxQdY5fJYh5gFuCVZ3h0t514gC4TWLWZfFpzEEKjlPMc%2FnlrIQByEmXbUVslVFNTmuwb8oCZddW1LJEgdEtqJmt7UJm98oLdyDaWyUs4poOdIbjBnYpfV2PTaKIBzspkquNjnIJFnHug7EnEdHMVcAO6vNv%2FwgkEgvIsWcneFtclQ%2Bz3TX%2BGawnbF0JuVLNDx69z5l4y6f%2FXAOq5lmJZfJM--lTaC6ZfhZ7KKo0HR--jCv5rPy9tcMSJpZoTwVyPA%3D%3D"
+        }
+      }
+    },
+    "message": "  Parameters: {\"email\"=>\"user@example.com\", \"id\"=>\"208kmoYAAlwbPs4ZIpBAaw\"}\n contains secret 208kmoYAAlwbPs4ZIpBAaw",
+    "condition": "Log contains secret-like text",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Users_signup_valid_signup_information_with_account_activation.appmap.json"
+  },
+  {
+    "appMapName": "Microposts_interface micropost interface",
+    "scannerId": "n-plus-one-query",
+    "scannerTitle": "N+1 SQL queries",
+    "event": {
+      "id": 152,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "26c8138f0d556d886911ccc227ce8f1f12c919852f5a89b846b6271f5c876a55",
+    "scope": {
+      "id": 127,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/",
+        "normalized_path_info": "",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=Y21umO6Z00le6yhO%2FOS8Or9%2BVKn039d7vigBMpAEQJ9je%2BMEumNWSSanRp9FevVVnWMCxM7CL47i2L80JEUKrmz3CBNSKuULF99XfdV%2BZ93UdfmVwYTLs89iv9b83uGD1EDhNaZIgLg18pN1frjNCPZg3q%2BsOYh%2BMIYJvNFYmBvFZ2b7MXN3BLHwnabyvwNnQxGjfsGtpnHemOHQJdbe5hBnwA%3D%3D--SyybLikgHxEblYmt--m0C07HLwjiXocz8uikalxQ%3D%3D; remember_token=6AnmIvJQ81cIjuIIh219VQ; user_id=3jBtIY1ZZKYRSIqYBTZJWvEwfDFLn3zvzbkwDfn1GcZX6KY%2BlvzLBtAUKsdmRg1KtwwzUrflf7LMaOWxeXAYPG3nmdbgRZo%3D--y6U4dI5udYCBVmsS--NbvMovLt1U4qAe0jnZ95Qg%3D%3D"
+        }
+      }
+    },
+    "message": "31 occurrences of SQL: SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+    "groupMessage": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+    "occurranceCount": 31,
+    "relatedEvents": [
+      {
+        "id": 152,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 269,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 289,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 309,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 329,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 349,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 369,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 389,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 409,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 429,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 449,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 469,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 489,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 509,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 529,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 549,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 569,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 589,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 609,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 629,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 649,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 669,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 689,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 709,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 729,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 749,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 769,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 789,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 809,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 829,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 849,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      }
+    ],
+    "condition": "SQL query should not be repeated within the same command",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json"
+  },
+  {
+    "appMapName": "Microposts_interface micropost interface",
+    "scannerId": "n-plus-one-query",
+    "scannerTitle": "N+1 SQL queries",
+    "event": {
+      "id": 277,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "3d37917094c653a707d7a049381e9467097441d6b3037686a31fafc5d7042dd6",
+    "scope": {
+      "id": 127,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/",
+        "normalized_path_info": "",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=Y21umO6Z00le6yhO%2FOS8Or9%2BVKn039d7vigBMpAEQJ9je%2BMEumNWSSanRp9FevVVnWMCxM7CL47i2L80JEUKrmz3CBNSKuULF99XfdV%2BZ93UdfmVwYTLs89iv9b83uGD1EDhNaZIgLg18pN1frjNCPZg3q%2BsOYh%2BMIYJvNFYmBvFZ2b7MXN3BLHwnabyvwNnQxGjfsGtpnHemOHQJdbe5hBnwA%3D%3D--SyybLikgHxEblYmt--m0C07HLwjiXocz8uikalxQ%3D%3D; remember_token=6AnmIvJQ81cIjuIIh219VQ; user_id=3jBtIY1ZZKYRSIqYBTZJWvEwfDFLn3zvzbkwDfn1GcZX6KY%2BlvzLBtAUKsdmRg1KtwwzUrflf7LMaOWxeXAYPG3nmdbgRZo%3D--y6U4dI5udYCBVmsS--NbvMovLt1U4qAe0jnZ95Qg%3D%3D"
+        }
+      }
+    },
+    "message": "30 occurrences of SQL: SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "groupMessage": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "occurranceCount": 30,
+    "relatedEvents": [
+      {
+        "id": 277,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 297,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 317,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 337,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 357,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 377,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 397,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 417,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 437,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 457,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 477,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 497,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 517,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 537,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 557,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 577,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 597,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 617,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 637,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 657,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 677,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 697,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 717,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 737,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 757,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 777,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 797,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 817,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 837,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 857,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      }
+    ],
+    "condition": "SQL query should not be repeated within the same command",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json"
+  },
+  {
+    "appMapName": "Microposts_interface micropost interface",
+    "scannerId": "n-plus-one-query",
+    "scannerTitle": "N+1 SQL queries",
+    "event": {
+      "id": 965,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "26c8138f0d556d886911ccc227ce8f1f12c919852f5a89b846b6271f5c876a55",
+    "scope": {
+      "id": 939,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "POST",
+        "path_info": "/microposts",
+        "normalized_path_info": "/microposts",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=neaNzwmQJnccX6Zh%2FO%2Fodchm85bIqgUP7o%2B7YpkVkubwtY3VG53MpCE0REJOn35ZtKRauHsMS71L4coAbeZIhYe80TAgywPDeIX1ls61Sf4pN1vQkoPZVYm8tyUhj6OV0Az8RNcEyH120l8F2S8de5oNqoEeb%2B3aW8KxZDEvXZUGN1msSBOh7w9B2LJz2qDb1b%2BmEDaF97aMyaGCbhVb54%2FpFw%3D%3D--av4nQYkxheKDte5P--k66IB96wF1%2FaOQ7F8eXV6A%3D%3D; remember_token=6AnmIvJQ81cIjuIIh219VQ; user_id=3jBtIY1ZZKYRSIqYBTZJWvEwfDFLn3zvzbkwDfn1GcZX6KY%2BlvzLBtAUKsdmRg1KtwwzUrflf7LMaOWxeXAYPG3nmdbgRZo%3D--y6U4dI5udYCBVmsS--NbvMovLt1U4qAe0jnZ95Qg%3D%3D"
+        }
+      }
+    },
+    "message": "31 occurrences of SQL: SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+    "groupMessage": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+    "occurranceCount": 31,
+    "relatedEvents": [
+      {
+        "id": 965,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1086,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1106,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1126,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1146,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1166,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1186,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1206,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1226,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1246,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1266,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1286,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1306,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1326,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1346,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1366,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1386,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1406,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1426,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1446,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1466,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1486,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1506,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1526,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1546,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1566,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1586,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1606,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1626,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1646,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1666,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      }
+    ],
+    "condition": "SQL query should not be repeated within the same command",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json"
+  },
+  {
+    "appMapName": "Microposts_interface micropost interface",
+    "scannerId": "n-plus-one-query",
+    "scannerTitle": "N+1 SQL queries",
+    "event": {
+      "id": 1094,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "3d37917094c653a707d7a049381e9467097441d6b3037686a31fafc5d7042dd6",
+    "scope": {
+      "id": 939,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "POST",
+        "path_info": "/microposts",
+        "normalized_path_info": "/microposts",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=neaNzwmQJnccX6Zh%2FO%2Fodchm85bIqgUP7o%2B7YpkVkubwtY3VG53MpCE0REJOn35ZtKRauHsMS71L4coAbeZIhYe80TAgywPDeIX1ls61Sf4pN1vQkoPZVYm8tyUhj6OV0Az8RNcEyH120l8F2S8de5oNqoEeb%2B3aW8KxZDEvXZUGN1msSBOh7w9B2LJz2qDb1b%2BmEDaF97aMyaGCbhVb54%2FpFw%3D%3D--av4nQYkxheKDte5P--k66IB96wF1%2FaOQ7F8eXV6A%3D%3D; remember_token=6AnmIvJQ81cIjuIIh219VQ; user_id=3jBtIY1ZZKYRSIqYBTZJWvEwfDFLn3zvzbkwDfn1GcZX6KY%2BlvzLBtAUKsdmRg1KtwwzUrflf7LMaOWxeXAYPG3nmdbgRZo%3D--y6U4dI5udYCBVmsS--NbvMovLt1U4qAe0jnZ95Qg%3D%3D"
+        }
+      }
+    },
+    "message": "30 occurrences of SQL: SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "groupMessage": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "occurranceCount": 30,
+    "relatedEvents": [
+      {
+        "id": 1094,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1114,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1134,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1154,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1174,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1194,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1214,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1234,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1254,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1274,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1294,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1314,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1334,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1354,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1374,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1394,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1414,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1434,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1454,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1474,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1494,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1514,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1534,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1554,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1574,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1594,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1614,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1634,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1654,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 1674,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      }
+    ],
+    "condition": "SQL query should not be repeated within the same command",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json"
+  },
+  {
+    "appMapName": "Microposts_interface micropost interface",
+    "scannerId": "n-plus-one-query",
+    "scannerTitle": "N+1 SQL queries",
+    "event": {
+      "id": 2004,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "26c8138f0d556d886911ccc227ce8f1f12c919852f5a89b846b6271f5c876a55",
+    "scope": {
+      "id": 1979,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/",
+        "normalized_path_info": "",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=qtrnQOb5VrnKfqP2RDtPIRZ5cEbFbrhiN3jeL8umyl9K36jJqqt8BT0s8vLlY8wEsDeaOIgIKwAtWqZ74Xcm0cenl89l35YoeTKxkvxyjkRpgjQcpkOmAssCSzg36%2BRYPpHngiOzIQnRx7mhQzeNhZWWabWoD%2FGF%2Fv%2FfDqJWvX%2F4Ob2VwmAAUItkQnHz9lk53lYMvHfBiekRKuT920IhAoPYu88ze6U%2BmpxtPLK8PSajPtNlanBLCcB7tQrkSA5QgqpwlyDenYdPM%2FwBOo1Kism%2F%2BQbISx%2B4D3RaOMm28g3fnx7mdKGacp8UR4UaLw7%2FUlZVKOOfWvd5Hh4%3D--5j8ehh%2FtDnrAlb9y--90dsa6QPYD5HqREWPLywmw%3D%3D; remember_token=6AnmIvJQ81cIjuIIh219VQ; user_id=3jBtIY1ZZKYRSIqYBTZJWvEwfDFLn3zvzbkwDfn1GcZX6KY%2BlvzLBtAUKsdmRg1KtwwzUrflf7LMaOWxeXAYPG3nmdbgRZo%3D--y6U4dI5udYCBVmsS--NbvMovLt1U4qAe0jnZ95Qg%3D%3D"
+        }
+      }
+    },
+    "message": "31 occurrences of SQL: SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+    "groupMessage": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+    "occurranceCount": 31,
+    "relatedEvents": [
+      {
+        "id": 2004,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2121,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2151,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2171,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2191,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2211,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2231,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2251,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2271,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2291,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2311,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2331,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2351,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2371,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2391,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2411,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2431,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2451,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2471,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2491,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2511,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2531,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2551,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2571,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2591,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2611,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2631,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2651,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2671,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2691,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2711,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"users\".* FROM \"users\" WHERE \"users\".\"id\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      }
+    ],
+    "condition": "SQL query should not be repeated within the same command",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json"
+  },
+  {
+    "appMapName": "Microposts_interface micropost interface",
+    "scannerId": "n-plus-one-query",
+    "scannerTitle": "N+1 SQL queries",
+    "event": {
+      "id": 2129,
+      "event": "call",
+      "thread_id": 4900,
+      "sql_query": {
+        "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+        "database_type": "sqlite",
+        "server_version": "3.36.0"
+      }
+    },
+    "hash": "3d37917094c653a707d7a049381e9467097441d6b3037686a31fafc5d7042dd6",
+    "scope": {
+      "id": 1979,
+      "event": "call",
+      "thread_id": 4900,
+      "http_server_request": {
+        "request_method": "GET",
+        "path_info": "/",
+        "normalized_path_info": "",
+        "headers": {
+          "Host": "www.example.com",
+          "Accept": "text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5",
+          "Cookie": "_sample_app_session=qtrnQOb5VrnKfqP2RDtPIRZ5cEbFbrhiN3jeL8umyl9K36jJqqt8BT0s8vLlY8wEsDeaOIgIKwAtWqZ74Xcm0cenl89l35YoeTKxkvxyjkRpgjQcpkOmAssCSzg36%2BRYPpHngiOzIQnRx7mhQzeNhZWWabWoD%2FGF%2Fv%2FfDqJWvX%2F4Ob2VwmAAUItkQnHz9lk53lYMvHfBiekRKuT920IhAoPYu88ze6U%2BmpxtPLK8PSajPtNlanBLCcB7tQrkSA5QgqpwlyDenYdPM%2FwBOo1Kism%2F%2BQbISx%2B4D3RaOMm28g3fnx7mdKGacp8UR4UaLw7%2FUlZVKOOfWvd5Hh4%3D--5j8ehh%2FtDnrAlb9y--90dsa6QPYD5HqREWPLywmw%3D%3D; remember_token=6AnmIvJQ81cIjuIIh219VQ; user_id=3jBtIY1ZZKYRSIqYBTZJWvEwfDFLn3zvzbkwDfn1GcZX6KY%2BlvzLBtAUKsdmRg1KtwwzUrflf7LMaOWxeXAYPG3nmdbgRZo%3D--y6U4dI5udYCBVmsS--NbvMovLt1U4qAe0jnZ95Qg%3D%3D"
+        }
+      }
+    },
+    "message": "30 occurrences of SQL: SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "groupMessage": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+    "occurranceCount": 30,
+    "relatedEvents": [
+      {
+        "id": 2129,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2159,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2179,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2199,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2219,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2239,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2259,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2279,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2299,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2319,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2339,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2359,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2379,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2399,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2419,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2439,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2459,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2479,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2499,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2519,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2539,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2559,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2579,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2599,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2619,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2639,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2659,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2679,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2699,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      },
+      {
+        "id": 2719,
+        "event": "call",
+        "thread_id": 4900,
+        "sql_query": {
+          "sql": "SELECT \"active_storage_attachments\".* FROM \"active_storage_attachments\" WHERE \"active_storage_attachments\".\"record_id\" = ? AND \"active_storage_attachments\".\"record_type\" = ? AND \"active_storage_attachments\".\"name\" = ? LIMIT ?",
+          "database_type": "sqlite",
+          "server_version": "3.36.0"
+        }
+      }
+    ],
+    "condition": "SQL query should not be repeated within the same command",
+    "appMapFile": "/Users/kgilpin/source/land-of-apps/sample_app_6th_ed/tmp/appmap/minitest/Microposts_interface_micropost_interface.appmap.json"
+  }
+]

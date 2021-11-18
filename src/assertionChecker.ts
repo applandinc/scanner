@@ -100,6 +100,8 @@ export default class AssertionChecker {
     const buildFinding = (
       matchEvent: Event | undefined = undefined,
       message: string | undefined = undefined,
+      groupMessage: string | undefined = undefined,
+      occurranceCount: number | undefined = undefined,
       relatedEvents: Event[] | undefined = undefined
     ): Finding => {
       const findingEvent = matchEvent || event;
@@ -111,6 +113,8 @@ export default class AssertionChecker {
         hash: findingEvent.hash,
         scope,
         message,
+        groupMessage,
+        occurranceCount,
         relatedEvents,
         condition: assertion.description || assertion.matcher.toString(),
       };
@@ -126,7 +130,13 @@ export default class AssertionChecker {
       findings.push(finding);
     } else if (matchResult) {
       matchResult.forEach((mr) => {
-        const finding = buildFinding(mr.event, mr.message, mr.relatedEvents);
+        const finding = buildFinding(
+          mr.event,
+          mr.message,
+          mr.groupMessage,
+          mr.occurranceCount,
+          mr.relatedEvents
+        );
         findings.push(finding);
       });
     }
