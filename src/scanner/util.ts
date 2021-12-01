@@ -9,6 +9,37 @@ function verbose(v: boolean | null = null): boolean {
   return isVerbose;
 }
 
+/*
+function matchPattern(pattern: RegExp | string | undefined): RegExp {
+  if (!pattern || pattern === '' ) {
+    return null;
+  }
+
+  const makeRegExp = (): RegExp | null => {
+    if (pattern instanceof RegExp) {
+      return pattern;
+    }
+    if (pattern.charAt(0) !== '/') {
+      return null;
+    }
+    let flags = '';
+    while (pattern.charAt(pattern.length - 1) !== '/') {
+      flags += pattern.charAt(pattern.length - 1);
+      pattern = pattern.slice(0, pattern.length - 1);
+    }
+    try {
+      return new RegExp(pattern.slice(1, pattern.length - 1), flags);
+    } catch {
+      return null;
+    }
+  };
+  const makePattern = (): RegExp => {
+    return new RegExp(pattern.toString().replace('/', '\\/').replace('*', '.*'));
+  };
+  return makeRegExp() || makePattern();
+}
+*/
+
 function capitalize(str: string): string {
   if (!str || str === '') {
     return str;
