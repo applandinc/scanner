@@ -16,6 +16,7 @@ import Generator, { ReportFormat } from './report/generator';
 import RuleChecker from './ruleChecker';
 import { ScanResults } from './report/scanResults';
 import { parseConfigFile, loadConfig } from './configuration/configurationProvider';
+import { generatePublishArtifact } from './report/publisher';
 
 enum ExitCode {
   ValidationError = 1,
@@ -35,6 +36,7 @@ interface CommandOptions {
   pullRequestComment?: string;
   reportFormat: ReportFormat;
   reportFile?: string;
+  publishToken?: string;
 }
 
 export default {
@@ -86,6 +88,10 @@ export default {
     args.option('report-file', {
       describe: 'file name for findings report',
     });
+    args.option('publish-token', {
+      describe:
+        'secret token for publishing findings to AppMap (alternatively, use environment variable APPMAP_TOKEN)',
+    });
 
     return args.strict();
   },
@@ -102,6 +108,7 @@ export default {
       pullRequestComment,
       reportFormat,
       reportFile,
+      publishToken,
     } = options as unknown as CommandOptions;
 
     if (isVerbose) {
@@ -185,6 +192,10 @@ export default {
 
       const scanSummary = new ScanResults(configData, appMapMetadata, findings, checks);
       const summaryText = reportGenerator.generate(scanSummary, findings, appMapMetadata);
+
+      if (publishToken) {
+        await generatePublishArtifact(findings, publishToken, appmapDir as string);
+      }
 
       if (pullRequestComment && findings.length > 0) {
         try {
