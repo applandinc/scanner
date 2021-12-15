@@ -196,11 +196,11 @@ export default {
 
       const reportGenerator = new Generator(formatter, reportFormat, reportFile, ide);
 
-      const scanSummary = new ScanResults(configData, appMapMetadata, findings, checks);
-      const summaryText = reportGenerator.generate(scanSummary, findings, appMapMetadata);
+      const scanResults = new ScanResults(configData, appMapMetadata, findings, checks);
+      const summaryText = reportGenerator.generate(scanResults, appMapMetadata);
 
       if (publish) {
-        await generatePublishArtifact(findings, appmapDir as string, appId);
+        await generatePublishArtifact(scanResults, appmapDir as string, appId);
       }
 
       if (pullRequestComment && findings.length > 0) {

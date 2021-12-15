@@ -18,15 +18,12 @@ export default class Generator {
     private ide: string | undefined
   ) {}
 
-  generate(
-    scanSummary: ScanResults,
-    findings: Finding[],
-    appMapMetadata: Record<string, Metadata>
-  ): string {
+  generate(scanSummary: ScanResults, appMapMetadata: Record<string, Metadata>): string {
     if (this.reportFormat === 'text' && !this.reportFile) {
       this.writeln();
     }
 
+    const { findings } = scanSummary;
     if (findings.length > 0) {
       if (this.reportFormat === 'text') {
         this.writeln(`${findings.length} findings:`);

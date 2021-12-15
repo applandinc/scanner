@@ -7,10 +7,10 @@ import { createHash } from 'crypto';
 import yaml from 'js-yaml';
 import * as path from 'path';
 import FormData from 'form-data';
-import { Finding } from 'src/types';
 import { createGzip } from 'zlib';
 import { buildAppMap } from '@appland/models';
 import { Settings } from '@appland/client';
+import { ScanResults } from './scanResults';
 
 async function getAppId(appMapPath: string): Promise<string | undefined> {
   let searchPath = path.resolve(appMapPath);
@@ -31,11 +31,12 @@ async function getAppId(appMapPath: string): Promise<string | undefined> {
 }
 
 export async function generatePublishArtifact(
-  findings: Finding[],
+  scanResults: ScanResults,
   appMapPath: string,
   appIdOverride?: string
 ): Promise<void> {
   const normalizedFilePaths: { [key: string]: string } = {};
+  const { findings } = scanResults;
   for (const finding of findings) {
     if (!finding.appMapFile) {
       continue;
@@ -72,7 +73,7 @@ export async function generatePublishArtifact(
     return clone;
   });
 
-  tarStream.entry({ name: 'app.scanner.json' }, JSON.stringify(clonedFindings));
+  tarStream.entry({ name: 'app.scanner.json' }, JSON.stringify({ findings: clonedFindings }));
   tarStream.finalize();
 
   const gzip = createGzip();
@@ -93,20 +94,28 @@ export async function generatePublishArtifact(
         ...form.getHeaders(),
       },
     }).on('response', async (res) => {
+      let responseData;
+      if (res.headers['content-type']?.startsWith('application/json')) {
+        const chunks = [];
+        for await (const chunk of res) {
+          chunks.push(chunk);
+        }
+        const responseBody = Buffer.concat(chunks).toString();
+        try {
+          responseData = JSON.parse(responseBody);
+        } catch {
+          // Pass
+        }
+      }
+
       if (res.statusCode && res.statusCode < 300) {
-        console.log(res.headers);
+        const jobId = responseData.id;
+        console.log(`Uploaded scan ${jobId} to ${Settings.baseURL}${res.headers.location}`);
         resolve();
       } else {
         let message;
-        if (res.headers['content-type']?.startsWith('application/json')) {
-          const chunks = [];
-          for await (const chunk of res) {
-            chunks.push(chunk);
-          }
-          const responseBody = Buffer.concat(chunks).toString();
-          message = responseBody;
+        if (responseData) {
           try {
-            const responseData = JSON.parse(responseBody);
             message = responseData.error.message;
           } catch {
             // Pass
