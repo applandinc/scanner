@@ -36,7 +36,8 @@ interface CommandOptions {
   pullRequestComment?: string;
   reportFormat: ReportFormat;
   reportFile?: string;
-  publishToken?: string;
+  publish?: boolean;
+  app: string;
 }
 
 export default {
@@ -88,9 +89,13 @@ export default {
     args.option('report-file', {
       describe: 'file name for findings report',
     });
-    args.option('publish-token', {
+    args.option('publish', {
+      describe: 'publish findings to AppMap Server',
+      type: 'boolean',
+    });
+    args.option('app', {
       describe:
-        'secret token for publishing findings to AppMap (alternatively, use environment variable APPMAP_TOKEN)',
+        'name of the app to publish the findings for. By default, this is determined by looking in appmap.yml',
     });
 
     return args.strict();
@@ -108,7 +113,8 @@ export default {
       pullRequestComment,
       reportFormat,
       reportFile,
-      publishToken,
+      publish,
+      app: appId,
     } = options as unknown as CommandOptions;
 
     if (isVerbose) {
@@ -193,8 +199,8 @@ export default {
       const scanSummary = new ScanResults(configData, appMapMetadata, findings, checks);
       const summaryText = reportGenerator.generate(scanSummary, findings, appMapMetadata);
 
-      if (publishToken) {
-        await generatePublishArtifact(findings, publishToken, appmapDir as string);
+      if (publish) {
+        await generatePublishArtifact(findings, appmapDir as string, appId);
       }
 
       if (pullRequestComment && findings.length > 0) {

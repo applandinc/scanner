@@ -1,6 +1,8 @@
+import { request as httpRequest } from 'node:http';
+import { request as httpsRequest } from 'node:https';
+import { URL } from 'node:url';
 import { pack } from 'tar-stream';
 import { promises as fs, constants as fsConstants } from 'fs';
-import { request } from 'http';
 import { createHash } from 'crypto';
 import yaml from 'js-yaml';
 import * as path from 'path';
@@ -8,6 +10,7 @@ import FormData from 'form-data';
 import { Finding } from 'src/types';
 import { createGzip } from 'zlib';
 import { buildAppMap } from '@appland/models';
+import { Settings } from '@appland/client';
 
 async function getAppId(appMapPath: string): Promise<string | undefined> {
   let searchPath = path.resolve(appMapPath);
@@ -29,7 +32,6 @@ async function getAppId(appMapPath: string): Promise<string | undefined> {
 
 export async function generatePublishArtifact(
   findings: Finding[],
-  apiKey: string,
   appMapPath: string,
   appIdOverride?: string
 ): Promise<void> {
@@ -80,28 +82,40 @@ export async function generatePublishArtifact(
   form.append('findings_data', gzip, 'findings.tgz');
   form.append('app_id', appId);
 
+  process.stderr.write(`Uploading findings to application '${appId}' at ${Settings.baseURL}\n`);
+  const publishFindingsURL = new URL([Settings.baseURL, 'api/scanner_jobs'].join('/'));
+  const requestFunction = publishFindingsURL.protocol === 'https:' ? httpsRequest : httpRequest;
   return new Promise((resolve, reject) => {
-    const req = request({
-      hostname: 'localhost',
-      port: 3000,
-      path: '/api/scanner_jobs',
+    const req = requestFunction(publishFindingsURL, {
       method: 'POST',
-      timeout: 9999999,
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${Settings.apiKey}`,
         ...form.getHeaders(),
       },
-    });
-
-    form.pipe(req);
-
-    req.on('response', (res) => {
+    }).on('response', async (res) => {
       if (res.statusCode && res.statusCode < 300) {
         console.log(res.headers);
         resolve();
       } else {
-        reject(new Error(`got unexpected status code ${res.statusCode}`));
+        let message;
+        if (res.headers['content-type']?.startsWith('application/json')) {
+          const chunks = [];
+          for await (const chunk of res) {
+            chunks.push(chunk);
+          }
+          const responseBody = Buffer.concat(chunks).toString();
+          message = responseBody;
+          try {
+            const responseData = JSON.parse(responseBody);
+            message = responseData.error.message;
+          } catch {
+            // Pass
+          }
+        }
+        const errorMsg = [`HTTP ${res.statusCode}`, message].filter(Boolean).join(': ');
+        reject(new Error(errorMsg));
       }
     });
+    form.pipe(req);
   });
 }
