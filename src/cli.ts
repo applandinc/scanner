@@ -7,7 +7,6 @@ import yargs, { Argv, Arguments } from 'yargs';
 import { verbose } from './rules/util';
 import { join } from 'path';
 import postCommitStatus from './integration/github/commitStatus';
-import postPullRequestComment from './integration/github/postPullRequestComment';
 import Generator from './report/generator';
 import { ScanResults } from './report/scanResults';
 import { parseConfigFile, loadConfig } from './configuration/configurationProvider';
@@ -19,8 +18,6 @@ import scan from './cli/scan';
 import { readFile, writeFile } from 'fs/promises';
 import UploadOptions from './cli/uploadOptions';
 import UpdatePRStatusOptions from './cli/updatePRStatusOptions';
-import summaryReport from './report/summaryReport';
-import { FindingStatusListItem } from '@appland/client';
 
 yargs(process.argv.slice(2))
   .command(

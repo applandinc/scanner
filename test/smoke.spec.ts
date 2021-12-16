@@ -1,6 +1,6 @@
 import { join } from 'path';
 import sinon from 'sinon';
-import Scanner from '../src/command';
+import Scanner from '../src/cli';
 import { fixtureAppMapFileName } from './util';
 import { readFileSync, unlinkSync } from 'fs';
 
