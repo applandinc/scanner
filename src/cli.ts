@@ -18,42 +18,11 @@ import { ExitCode } from './cli/exitCode';
 import scan from './cli/scan';
 import { readFile, writeFile } from 'fs/promises';
 import UploadOptions from './cli/uploadOptions';
+import UpdatePRStatusOptions from './cli/updatePRStatusOptions';
+import summaryReport from './report/summaryReport';
+import { FindingStatusListItem } from '@appland/client';
 
 yargs(process.argv.slice(2))
-  .command(
-    'upload',
-    'Upload Findings to the AppMap Server',
-    (args: Argv): Argv => {
-      args.option('appmap-dir', {
-        describe: 'directory to recursively inspect for AppMaps',
-        alias: 'd',
-      });
-      args.option('report-file', {
-        describe: 'file name for findings report',
-        default: 'appland-findings.json',
-      });
-      args.option('app', {
-        describe:
-          'name of the app to publish the findings for. By default, this is determined by looking in appmap.yml',
-      });
-      return args.strict();
-    },
-    async function (options: Arguments) {
-      const {
-        verbose: isVerbose,
-        reportFile,
-        appMapDir,
-        app: appId,
-      } = options as unknown as UploadOptions;
-
-      if (isVerbose) {
-        verbose(true);
-      }
-
-      const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
-      await generatePublishArtifact(scanResults, appMapDir as string, appId);
-    }
-  )
   .command(
     'scan',
     'Scan AppMaps for code behavior findings',
@@ -103,8 +72,6 @@ yargs(process.argv.slice(2))
         config,
         verbose: isVerbose,
         ide,
-        commitStatus,
-        pullRequestComment,
         reportFile,
       } = options as unknown as ScanOptions;
 
@@ -113,10 +80,6 @@ yargs(process.argv.slice(2))
       }
 
       try {
-        if (commitStatus) {
-          postCommitStatus('pending', 'Validation is in progress...');
-        }
-
         if (appmapFile && appmapDir) {
           throw new ValidationError('Use --appmap-dir or --appmap-file, but not both');
         }
@@ -144,34 +107,12 @@ yargs(process.argv.slice(2))
 
         const scanResults = new ScanResults(configData, appMapMetadata, findings, checks);
 
-        const summaryText = reportGenerator.generate(scanResults, appMapMetadata);
+        reportGenerator.generate(scanResults, appMapMetadata);
 
         await writeFile(reportFile, JSON.stringify(scanResults, null, 2));
 
-        if (pullRequestComment && findings.length > 0) {
-          try {
-            await postPullRequestComment(summaryText);
-          } catch (err) {
-            console.warn('Unable to post pull request comment');
-          }
-        }
-
-        if (commitStatus) {
-          return findings.length === 0
-            ? await postCommitStatus('success', `${files.length * checks.length} checks passed`)
-            : await postCommitStatus('failure', `${findings.length} findings`);
-        }
-
         return process.exit(findings.length === 0 ? 0 : ExitCode.Finding);
       } catch (err) {
-        if (commitStatus) {
-          try {
-            await postCommitStatus('error', 'There was an error while running AppMap scanner');
-          } catch (err) {
-            console.warn('Unable to post commit status');
-          }
-        }
-
         if (err instanceof ValidationError) {
           console.warn(err.message);
           return process.exit(ExitCode.ValidationError);
@@ -185,6 +126,68 @@ yargs(process.argv.slice(2))
         }
 
         throw err;
+      }
+    }
+  )
+  .command(
+    'upload',
+    'Upload Findings to the AppMap Server',
+    (args: Argv): Argv => {
+      args.option('appmap-dir', {
+        describe: 'directory to recursively inspect for AppMaps',
+        alias: 'd',
+      });
+      args.option('report-file', {
+        describe: 'file name for findings report',
+        default: 'appland-findings.json',
+      });
+      args.option('app', {
+        describe:
+          'name of the app to publish the findings for. By default, this is determined by looking in appmap.yml',
+      });
+      return args.strict();
+    },
+    async function (options: Arguments) {
+      const {
+        verbose: isVerbose,
+        reportFile,
+        appMapDir,
+        app: appId,
+      } = options as unknown as UploadOptions;
+
+      if (isVerbose) {
+        verbose(true);
+      }
+
+      const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
+      await generatePublishArtifact(scanResults, appMapDir as string, appId);
+    }
+  )
+  .command(
+    'update-pr-status',
+    'Update pull request status',
+    (args: Argv): Argv => {
+      args.option('report-file', {
+        describe: 'file name for findings report',
+        default: 'appland-findings.json',
+      });
+      return args.strict();
+    },
+    async function (options: Arguments) {
+      const { verbose: isVerbose, reportFile } = options as unknown as UpdatePRStatusOptions;
+
+      if (isVerbose) {
+        verbose(true);
+      }
+
+      const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
+      const summaryText = summaryReport(scanResults, false);
+
+      if (scanResults.findings.length > 0) {
+        await postPullRequestComment(summaryText);
+        await postCommitStatus('failure', `${scanResults.findings.length} findings`);
+      } else {
+        await postCommitStatus('success', `${scanResults.summary.numChecks} checks passed`);
       }
     }
   )
