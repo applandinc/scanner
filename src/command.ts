@@ -1,44 +1,20 @@
-import { buildAppMap, Metadata } from '@appland/models';
 import { glob as globCallback } from 'glob';
 import { promisify } from 'util';
-import { promises as fs, constants as fsConstants, PathLike } from 'fs';
-import ProgressFormatter from './formatter/progressFormatter';
-import PrettyFormatter from './formatter/prettyFormatter';
 import { ValidationError, AbortError } from './errors';
-import { Finding } from './types';
 import { Argv, Arguments } from 'yargs';
-import chalk from 'chalk';
 import { verbose } from './rules/util';
 import { join } from 'path';
 import postCommitStatus from './integration/github/commitStatus';
 import postPullRequestComment from './integration/github/postPullRequestComment';
-import Generator, { ReportFormat } from './report/generator';
-import RuleChecker from './ruleChecker';
+import Generator from './report/generator';
 import { ScanResults } from './report/scanResults';
 import { parseConfigFile, loadConfig } from './configuration/configurationProvider';
 import { generatePublishArtifact } from './report/publisher';
-
-enum ExitCode {
-  ValidationError = 1,
-  AbortError = 2,
-  RuntimeError = 3,
-  Finding = 10,
-}
-
-interface CommandOptions {
-  verbose?: boolean;
-  appmapDir?: string;
-  appmapFile?: string;
-  config: string;
-  progressFormat: string;
-  ide?: string;
-  commitStatus?: string;
-  pullRequestComment?: string;
-  reportFormat: ReportFormat;
-  reportFile?: string;
-  publish?: boolean;
-  app: string;
-}
+import validateFile from './cli/validateFile';
+import CommandOptions from './cli/commandOptions';
+import { ExitCode } from './cli/exitCode';
+import scan from './cli/scan';
+import { writeFile } from 'fs/promises';
 
 export default {
   command: '$0',
@@ -63,11 +39,6 @@ export default {
       default: join(__dirname, './sampleConfig/default.yml'),
       alias: 'c',
     });
-    args.option('progress-format', {
-      describe: 'progress output format',
-      default: 'progress',
-      options: ['progress', 'pretty'],
-    });
     args.option('ide', {
       describe: 'choose your IDE protocol to open AppMaps directly in your IDE.',
       options: ['vscode', 'x-mine', 'idea', 'pycharm'],
@@ -81,13 +52,9 @@ export default {
         'set your repository hosting system to post pull request comment with findings summary',
       options: ['github'],
     });
-    args.option('report-format', {
-      describe: 'reporting format',
-      default: 'text',
-      options: ['text', 'json'],
-    });
     args.option('report-file', {
       describe: 'file name for findings report',
+      default: 'appland-findings.json',
     });
     args.option('publish', {
       describe: 'publish findings to AppMap Server',
@@ -106,12 +73,10 @@ export default {
       appmapDir,
       appmapFile,
       config,
-      progressFormat,
       verbose: isVerbose,
       ide,
       commitStatus,
       pullRequestComment,
-      reportFormat,
       reportFile,
       publish,
       app: appId,
@@ -120,16 +85,6 @@ export default {
     if (isVerbose) {
       verbose(true);
     }
-
-    const validateFile = async (kind: string, path: string) => {
-      try {
-        return fs.access(path as PathLike, fsConstants.R_OK);
-      } catch {
-        throw new ValidationError(
-          `AppMap ${kind} ${chalk.red(path)} does not exist, or is not readable.`
-        );
-      }
-    };
 
     try {
       if (commitStatus) {
@@ -154,50 +109,18 @@ export default {
         files = [appmapFile];
       }
 
-      const checker = new RuleChecker();
-      const formatter =
-        progressFormat === 'progress' ? new ProgressFormatter() : new PrettyFormatter();
-
       const configData = await parseConfigFile(config);
       const checks = await loadConfig(configData);
 
-      const appMapMetadata: Record<string, Metadata> = {};
-      const findings: Finding[] = [];
+      const { appMapMetadata, findings } = await scan(files, checks);
 
-      await Promise.all(
-        files.map(async (file: string) => {
-          // TODO: Improve this by respecting .gitignore, or similar.
-          // For now, this addresses the main problem of encountering appmap-js and its appmap.json files
-          // in a bundled node_modules.
-          if (file.split('/').includes('node_modules')) {
-            return null;
-          }
-          const appMapData = await fs.readFile(file, 'utf8');
-          const appMap = buildAppMap(appMapData).normalize().build();
-          appMapMetadata[file] = appMap.metadata;
-
-          process.stderr.write(formatter.appMap(appMap));
-
-          await Promise.all(
-            checks.map(async (check) => {
-              const matchCount = findings.length;
-              await checker.check(file, appMap, check, findings);
-              const newMatches = findings.slice(matchCount, findings.length);
-              newMatches.forEach((match) => (match.appMapFile = file));
-
-              const message = formatter.result(check, newMatches);
-              if (message) {
-                process.stderr.write(message);
-              }
-            })
-          );
-        })
-      );
-
-      const reportGenerator = new Generator(formatter, reportFormat, reportFile, ide);
+      const reportGenerator = new Generator(ide);
 
       const scanResults = new ScanResults(configData, appMapMetadata, findings, checks);
+
       const summaryText = reportGenerator.generate(scanResults, appMapMetadata);
+
+      await writeFile(reportFile, JSON.stringify(scanResults, null, 2));
 
       if (publish) {
         await generatePublishArtifact(scanResults, appmapDir as string, appId);

@@ -35,6 +35,11 @@ export async function generatePublishArtifact(
   appMapPath: string,
   appIdOverride?: string
 ): Promise<void> {
+  const appId = appIdOverride || (await getAppId(appMapPath));
+  if (!appId) {
+    throw new Error('No application identifier could be resolved');
+  }
+
   const normalizedFilePaths: { [key: string]: string } = {};
   const { findings } = scanResults;
   for (const finding of findings) {
@@ -46,10 +51,13 @@ export async function generatePublishArtifact(
     normalizedFilePaths[finding.appMapFile] = `${hash}.appmap.json`;
   }
 
-  const appId = appIdOverride || (await getAppId(appMapPath));
-  if (!appId) {
-    throw new Error('No application identifier could be resolved');
-  }
+  const clonedFindings = findings.map((finding) => {
+    const clone = { ...finding };
+    if (clone.appMapFile) {
+      clone.appMapFile = normalizedFilePaths[clone.appMapFile];
+    }
+    return clone;
+  });
 
   const relevantFilePaths = [
     ...new Set(findings.filter((f) => f.appMapFile).map((f) => f.appMapFile)),
@@ -65,14 +73,6 @@ export async function generatePublishArtifact(
     );
   }
 
-  const clonedFindings = findings.map((finding) => {
-    const clone = { ...finding };
-    if (clone.appMapFile) {
-      clone.appMapFile = normalizedFilePaths[clone.appMapFile];
-    }
-    return clone;
-  });
-
   tarStream.entry({ name: 'app.scanner.json' }, JSON.stringify({ findings: clonedFindings }));
   tarStream.finalize();
 
@@ -85,6 +85,7 @@ export async function generatePublishArtifact(
 
   process.stderr.write(`Uploading findings to application '${appId}' at ${Settings.baseURL}\n`);
   const publishFindingsURL = new URL([Settings.baseURL, 'api/scanner_jobs'].join('/'));
+
   const requestFunction = publishFindingsURL.protocol === 'https:' ? httpsRequest : httpRequest;
   return new Promise((resolve, reject) => {
     const req = requestFunction(publishFindingsURL, {

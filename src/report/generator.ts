@@ -1,37 +1,22 @@
-import * as fs from 'fs';
 import chalk from 'chalk';
 import { ideLink } from '../rules/util';
-import { Finding } from '../types';
-import Formatter from '../formatter/formatter';
 import { ScanResults } from './scanResults';
 import { Metadata } from '@appland/models';
-
-export type ReportFormat = 'text' | 'json';
+import summaryReport from './summaryReport';
 
 export default class Generator {
-  private fileCreated = false;
-
-  constructor(
-    private formatter: Formatter,
-    private reportFormat: ReportFormat,
-    private reportFile: string | undefined,
-    private ide: string | undefined
-  ) {}
+  constructor(private ide: string | undefined) {}
 
   generate(scanSummary: ScanResults, appMapMetadata: Record<string, Metadata>): string {
-    if (this.reportFormat === 'text' && !this.reportFile) {
-      this.writeln();
-    }
+    this.writeln();
 
     const { findings } = scanSummary;
     if (findings.length > 0) {
-      if (this.reportFormat === 'text') {
-        this.writeln(`${findings.length} findings:`);
-      }
+      this.writeln(`${findings.length} findings:`);
 
       findings.forEach((finding) => {
         const filePath =
-          this.ide && finding.appMapFile && !this.reportFile
+          this.ide && finding.appMapFile
             ? ideLink(finding.appMapFile, this.ide, finding.event.id)
             : finding.appMapFile;
         let eventMsg = `\tEvent:\t${finding.event.id} - ${finding.event.toString()}`;
@@ -39,36 +24,27 @@ export default class Generator {
           eventMsg += ` (${finding.event.elapsedTime}s)`;
         }
 
-        if (this.reportFormat === 'text') {
-          const message = finding.message;
-          this.writeln(this.reportFile ? message : chalk.magenta(message));
-          this.writeln(`\tLink:\t${this.reportFile ? filePath : chalk.blue(filePath)}`);
-          this.writeln(`\tRule:\t${finding.ruleId}`);
-          this.writeln(`\tAppMap name:\t${appMapMetadata[finding.appMapFile].name}`);
-          this.writeln(eventMsg);
-          this.writeln(`\tScope:\t${finding.scope.id} - ${finding.scope.toString()}`);
-          if (finding.relatedEvents) {
-            this.writeln(`\tRelated events:`);
-            for (const event of finding.relatedEvents) {
-              this.writeln(`\t\t${event.id} - ${event.codeObject.packageOf}/${event.toString()}`);
-            }
+        const message = finding.message;
+        this.writeln(chalk.magenta(message));
+        this.writeln(`\tLink:\t${chalk.blue(filePath)}`);
+        this.writeln(`\tRule:\t${finding.ruleId}`);
+        this.writeln(`\tAppMap name:\t${appMapMetadata[finding.appMapFile].name}`);
+        this.writeln(eventMsg);
+        this.writeln(`\tScope:\t${finding.scope.id} - ${finding.scope.toString()}`);
+        if (finding.relatedEvents) {
+          this.writeln(`\tRelated events:`);
+          for (const event of finding.relatedEvents) {
+            this.writeln(`\t\t${event.id} - ${event.codeObject.packageOf}/${event.toString()}`);
           }
-          this.writeln();
         }
+        this.writeln();
       });
     }
 
-    const colouredSummary = this.formatter.summary(scanSummary);
-    this.formatter.disableColors();
-    const summary = this.formatter.summary(scanSummary);
+    const colouredSummary = summaryReport(scanSummary, true);
+    const summary = summaryReport(scanSummary, false);
 
-    if (this.reportFormat === 'text') {
-      this.write(this.reportFile ? summary : colouredSummary);
-    }
-
-    if (this.reportFormat === 'json') {
-      this.write(JSON.stringify(scanSummary, null, 2));
-    }
+    this.write(colouredSummary);
 
     return summary;
   }
@@ -82,17 +58,6 @@ export default class Generator {
   }
 
   private writeText(text: string): void {
-    if (this.reportFile) {
-      const options = this.fileCreated ? { flag: 'a+' } : {};
-      fs.writeFileSync(this.reportFile, text, options);
-
-      if (!this.fileCreated) {
-        this.fileCreated = true;
-      }
-
-      return;
-    }
-
     process.stdout.write(text);
   }
 }
