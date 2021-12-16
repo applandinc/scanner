@@ -1,6 +1,6 @@
 export default interface UploadOptions {
   verbose?: boolean;
   reportFile: string;
-  appMapDir: string;
+  appmapDir: string;
   app?: string;
 }

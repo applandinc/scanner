@@ -151,7 +151,7 @@ yargs(process.argv.slice(2))
       const {
         verbose: isVerbose,
         reportFile,
-        appMapDir,
+        appmapDir,
         app: appId,
       } = options as unknown as UploadOptions;
 
@@ -159,13 +159,19 @@ yargs(process.argv.slice(2))
         verbose(true);
       }
 
+      if (!appmapDir) {
+        throw new ValidationError('--appmap-dir is required');
+      }
+
+      await validateFile('directory', appmapDir!);
+
       const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
-      await generatePublishArtifact(scanResults, appMapDir as string, appId);
+      await generatePublishArtifact(scanResults, appmapDir as string, appId);
     }
   )
   .command(
-    'update-pr-status',
-    'Update pull request status',
+    'update-commit-status',
+    'Update commit status based on the scan results',
     (args: Argv): Argv => {
       args.option('report-file', {
         describe: 'file name for findings report',
@@ -181,13 +187,18 @@ yargs(process.argv.slice(2))
       }
 
       const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
-      const summaryText = summaryReport(scanResults, false);
+      // const summaryText = summaryReport(scanResults, false);
 
       if (scanResults.findings.length > 0) {
-        await postPullRequestComment(summaryText);
-        await postCommitStatus('failure', `${scanResults.findings.length} findings`);
+        // await postPullRequestComment(summaryText);
+        await postCommitStatus(
+          'failure',
+          `${scanResults.summary.numChecks} checks, ${scanResults.findings.length} findings`
+        );
+        console.log(`Commit status updated to: failure (${scanResults.findings.length} findings).`);
       } else {
         await postCommitStatus('success', `${scanResults.summary.numChecks} checks passed`);
+        console.log(`Commit status updated to: success.`);
       }
     }
   )
