@@ -1,4 +1,4 @@
-export default interface CommandOptions {
+export default interface ScanOptions {
   verbose?: boolean;
   appmapDir?: string;
   appmapFile?: string;
@@ -7,6 +7,4 @@ export default interface CommandOptions {
   commitStatus?: string;
   pullRequestComment?: string;
   reportFile: string;
-  publish?: boolean;
-  app?: string;
 }
