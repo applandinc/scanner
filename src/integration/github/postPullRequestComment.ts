@@ -19,8 +19,11 @@ export default function postPullRequestComment(comment: string): Promise<any> {
   const octokat = require('octokat');
   const octo = new octokat({ token: token() });
 
-  return octo
-    .repos(owner(), repo())
-    .issues(pullRequestNumber())
-    .comments.create({ body: `### AppMap Scanner\n${comment}` });
+  return (
+    octo
+      .repos(owner(), repo())
+      // BUG: pull request number passed as an issue number.
+      .issues(pullRequestNumber())
+      .comments.create({ body: `### AppMap Scanner\n${comment}` })
+  );
 }
