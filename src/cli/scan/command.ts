@@ -2,24 +2,28 @@ import { glob as globCallback } from 'glob';
 import { readFile, writeFile } from 'fs/promises';
 import { join } from 'path';
 import { promisify } from 'util';
-import { Arguments, Argv } from 'yargs';
+import yargs, { Arguments, Argv } from 'yargs';
 
 import { buildAppMap, Metadata } from '@appland/models';
+import { FindingStatusListItem } from '@appland/client';
 
 import { loadConfig, parseConfigFile } from '../../configuration/configurationProvider';
 import { AbortError, ValidationError } from '../../errors';
-import Generator from '../../report/generator';
 import { ScanResults } from '../../report/scanResults';
 import { verbose } from '../../rules/util';
 import Check from '../../check';
+import fetchStatus from '../../integration/appland/fetchStatus';
+import { newFindings } from '../../findings';
 import RuleChecker from '../../ruleChecker';
 import { Finding } from '../../types';
+import summaryReport from '../../report/summaryReport';
 
 import { ExitCode } from '../exitCode';
 import validateFile from '../validateFile';
 import progressReporter from '../progressReporter';
 
 import CommandOptions from './options';
+import resolveAppId from '../resolveAppId';
 
 type Result = {
   appMapMetadata: Record<string, Metadata>;
@@ -76,6 +80,16 @@ export default {
       default: join(__dirname, './sampleConfig/default.yml'),
       alias: 'c',
     });
+    args.option('fail', {
+      describe: 'exit with non-zero status if there are any new findings',
+      default: false,
+      type: 'boolean',
+    });
+    args.option('interactive', {
+      alias: 'i',
+      default: false,
+      type: 'boolean',
+    });
     args.option('ide', {
       describe: 'choose your IDE protocol to open AppMaps directly in your IDE.',
       options: ['vscode', 'x-mine', 'idea', 'pycharm'],
@@ -93,6 +107,15 @@ export default {
       describe: 'file name for findings report',
       default: 'appland-findings.json',
     });
+    args.option('report-new-findings', {
+      describe: 'whether to report only new findings',
+      default: true,
+      type: 'boolean',
+    });
+    args.option('app', {
+      describe:
+        'name of the app to publish the findings for. By default, this is determined by looking in appmap.yml',
+    });
 
     return args.strict();
   },
@@ -102,7 +125,11 @@ export default {
       appmapFile,
       config,
       verbose: isVerbose,
-      ide,
+      fail,
+      reportNewFindings,
+      interactive,
+      app: appIdArg,
+      /* ide, */
       reportFile,
     } = options as unknown as CommandOptions;
 
@@ -129,20 +156,48 @@ export default {
         files = [appmapFile];
       }
 
+      const appId = await resolveAppId(appIdArg, appmapDir);
+
       const configData = await parseConfigFile(config);
       const checks = await loadConfig(configData);
 
-      const { appMapMetadata, findings } = await scan(files, checks);
+      const [rawScanResults, findingStatuses] = await Promise.all<
+        ScanResults,
+        FindingStatusListItem[]
+      >([
+        (async (): Promise<ScanResults> => {
+          const { appMapMetadata, findings } = await scan(files, checks);
+          return new ScanResults(configData, appMapMetadata, findings, checks);
+        })(),
+        fetchStatus.bind(null, appId)(),
+      ]);
 
-      const reportGenerator = new Generator(ide);
+      let scanResults;
+      if (reportNewFindings) {
+        scanResults = rawScanResults.withFindings(
+          newFindings(rawScanResults.findings, findingStatuses)
+        );
+      } else {
+        scanResults = rawScanResults;
+      }
 
-      const scanResults = new ScanResults(configData, appMapMetadata, findings, checks);
-
-      reportGenerator.generate(scanResults, appMapMetadata);
+      const colouredSummary = summaryReport(scanResults, true);
+      // const reportGenerator = new Generator(ide);
+      // reportGenerator.generate(scanResults, appMapMetadata);
+      process.stdout.write('\n');
+      process.stdout.write(colouredSummary);
+      process.stdout.write('\n');
 
       await writeFile(reportFile, JSON.stringify(scanResults, null, 2));
 
-      return process.exit(findings.length === 0 ? 0 : ExitCode.Finding);
+      if (interactive && process.stdout.isTTY) {
+      } else {
+        if (scanResults.findings.length > 0) {
+          if (fail) {
+            yargs.exit(1, new Error(`${scanResults.findings.length} findings`));
+          }
+        }
+      }
     } catch (err) {
       if (err instanceof ValidationError) {
         console.warn(err.message);

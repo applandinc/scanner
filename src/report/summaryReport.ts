@@ -43,7 +43,5 @@ export default function (summary: ScanResults, colorize: boolean): string {
       });
     });
 
-  result.push('');
-
   return result.join('\n');
 }

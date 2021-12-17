@@ -54,8 +54,8 @@ export default {
     const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
     // const summaryText = summaryReport(scanResults, false);
 
-    const findingStatus = await fetchStatus(appId);
-    const findings = newFindings(scanResults.findings, findingStatus);
+    const findingStatuses = await fetchStatus(appId);
+    const findings = newFindings(scanResults.findings, findingStatuses);
     if (findings.length > 0) {
       // await postPullRequestComment(summaryText);
       await postCommitStatus(
