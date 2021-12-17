@@ -1,4 +1,4 @@
-import { Arguments, Argv } from 'yargs';
+import yargs, { Arguments, Argv } from 'yargs';
 import { readFile } from 'fs/promises';
 
 import { ScanResults } from '../../report/scanResults';
@@ -15,6 +15,11 @@ export default {
   command: 'update-commit-status',
   describe: 'Update commit status based on the scan results',
   builder(args: Argv): Argv {
+    args.option('fail', {
+      describe: 'exit with non-zero status if there are any new findings',
+      default: false,
+      type: 'boolean',
+    });
     args.option('report-file', {
       describe: 'file containing the findings report',
       default: 'appland-findings.json',
@@ -33,6 +38,7 @@ export default {
   async handler(options: Arguments): Promise<void> {
     const {
       verbose: isVerbose,
+      fail,
       reportFile,
       appmapDir,
       app: appIdArg,
@@ -57,6 +63,10 @@ export default {
         `${scanResults.summary.numChecks} checks, ${findings.length} findings`
       );
       console.log(`Commit status updated to: failure (${findings.length} findings).`);
+
+      if (fail) {
+        yargs.exit(1, new Error(`${findings.length} findings`));
+      }
     } else {
       await postCommitStatus('success', `${scanResults.summary.numChecks} checks passed`);
       console.log(`Commit status updated to: success.`);
