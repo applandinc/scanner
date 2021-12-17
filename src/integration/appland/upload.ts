@@ -2,44 +2,15 @@ import { request as httpRequest } from 'node:http';
 import { request as httpsRequest } from 'node:https';
 import { URL } from 'node:url';
 import { pack } from 'tar-stream';
-import { promises as fs, constants as fsConstants } from 'fs';
+import { promises as fs } from 'fs';
 import { createHash } from 'crypto';
-import yaml from 'js-yaml';
-import * as path from 'path';
 import FormData from 'form-data';
 import { createGzip } from 'zlib';
 import { buildAppMap } from '@appland/models';
 import { Settings } from '@appland/client';
-import { ScanResults } from './scanResults';
+import { ScanResults } from '../../report/scanResults';
 
-async function getAppId(appMapPath: string): Promise<string | undefined> {
-  let searchPath = path.resolve(appMapPath);
-  while (searchPath !== '/' && searchPath !== '.') {
-    const configPath = path.join(searchPath, 'appmap.yml');
-
-    try {
-      await fs.access(configPath, fsConstants.R_OK);
-    } catch {
-      searchPath = path.dirname(searchPath);
-      continue;
-    }
-
-    const configContent = await fs.readFile(configPath, 'utf-8');
-    const config = yaml.load(configContent) as { name?: string };
-    return config.name;
-  }
-}
-
-export async function generatePublishArtifact(
-  scanResults: ScanResults,
-  appMapPath: string,
-  appIdOverride?: string
-): Promise<void> {
-  const appId = appIdOverride || (await getAppId(appMapPath));
-  if (!appId) {
-    throw new Error('No application identifier could be resolved');
-  }
-
+export default async function (scanResults: ScanResults, appId: string): Promise<void> {
   const normalizedFilePaths: { [key: string]: string } = {};
   const { findings } = scanResults;
   for (const finding of findings) {

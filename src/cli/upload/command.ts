@@ -2,13 +2,15 @@ import { Arguments, Argv } from 'yargs';
 import { readFile } from 'fs/promises';
 
 import { ValidationError } from '../../errors';
-import { generatePublishArtifact } from '../../report/publisher';
+import upload from '../../integration/appland/upload';
 import { ScanResults } from '../../report/scanResults';
 import { verbose } from '../../rules/util';
 
 import validateFile from '../validateFile';
 
 import CommandOptions from './options';
+import resolveAppId from '../resolveAppId';
+import { resolve } from 'path/posix';
 
 export default {
   command: 'upload',
@@ -33,20 +35,17 @@ export default {
       verbose: isVerbose,
       reportFile,
       appmapDir,
-      app: appId,
+      app: appIdArg,
     } = options as unknown as CommandOptions;
 
     if (isVerbose) {
       verbose(true);
     }
 
-    if (!appmapDir) {
-      throw new ValidationError('--appmap-dir is required');
-    }
-
-    await validateFile('directory', appmapDir!);
+    if (appmapDir) await validateFile('directory', appmapDir!);
+    const appId = await resolveAppId(appIdArg, appmapDir);
 
     const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
-    await generatePublishArtifact(scanResults, appmapDir as string, appId);
+    await upload(scanResults, appId);
   },
 };
