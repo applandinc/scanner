@@ -1,4 +1,4 @@
-export default interface ScanOptions {
+export default interface CommandOptions {
   verbose?: boolean;
   appmapDir?: string;
   appmapFile?: string;

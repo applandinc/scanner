@@ -1,7 +1,7 @@
 import { join } from 'path';
 import sinon from 'sinon';
-import Scanner from '../src/cli';
-import { fixtureAppMapFileName } from './util';
+import Command from '../../src/cli/scan/command';
+import { fixtureAppMapFileName } from '../util';
 import { readFileSync, unlinkSync } from 'fs';
 
 describe('smoke test', () => {
@@ -9,31 +9,15 @@ describe('smoke test', () => {
     sinon.restore();
   });
 
-  it('runs as expected with YAML config', async () => {
+  it('runs with standard options', async () => {
     sinon.stub(process.stdout, 'write');
     const processExit = sinon.stub(process, 'exit');
-    await Scanner.handler({
+    const reportFile = 'appland-findings.json';
+    await Command.handler({
       appmapFile: fixtureAppMapFileName(
         'org_springframework_samples_petclinic_owner_OwnerControllerTests_testInitCreationForm.appmap.json'
       ),
-      format: 'progress',
-      config: join(__dirname, '..', 'src', 'sampleConfig', 'default.yml'), // need to pass it explicitly
-    } as any);
-
-    expect(processExit.calledWith(0)).toBe(true);
-  });
-
-  it('generates JSON report', async () => {
-    sinon.stub(process.stdout, 'write');
-    const processExit = sinon.stub(process, 'exit');
-    const reportFile = 'report.json';
-    await Scanner.handler({
-      appmapFile: fixtureAppMapFileName(
-        'org_springframework_samples_petclinic_owner_OwnerControllerTests_testInitCreationForm.appmap.json'
-      ),
-      format: 'progress',
-      config: join(__dirname, '..', 'src', 'sampleConfig', 'default.yml'), // need to pass it explicitly
-      reportFormat: 'json',
+      config: join(__dirname, '..', '..', 'src', 'sampleConfig', 'default.yml'), // need to pass it explicitly
       reportFile: reportFile,
     } as any);
 

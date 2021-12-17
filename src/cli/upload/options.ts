@@ -1,4 +1,4 @@
-export default interface UploadOptions {
+export default interface CommandOptions {
   verbose?: boolean;
   reportFile: string;
   appmapDir: string;
