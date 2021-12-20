@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs';
+import CICommand from './cli/ci/command';
 import ScanCommand from './cli/scan/command';
-import UploadCommand from './cli/upload/command';
-import UpdateCommitStatus from './cli/updateCommitStatus/command';
 
 yargs(process.argv.slice(2))
   .option('verbose', {
@@ -11,8 +10,7 @@ yargs(process.argv.slice(2))
     alias: 'v',
   })
   .command(ScanCommand)
-  .command(UploadCommand)
-  .command(UpdateCommitStatus)
+  .command(CICommand)
   .fail((msg, err, yargs) => {
     if (msg) {
       console.log(yargs.help());

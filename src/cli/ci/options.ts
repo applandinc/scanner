@@ -1,10 +1,10 @@
 export default interface CommandOptions {
-  all?: boolean;
   app?: string;
   appmapDir?: string;
-  appmapFile?: string;
   config: string;
-  ide?: string;
+  fail?: boolean;
   reportFile: string;
+  upload: boolean;
+  updateCommitStatus: boolean;
   verbose?: boolean;
 }

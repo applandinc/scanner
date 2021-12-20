@@ -6,8 +6,9 @@ import { ValidationError } from '../errors';
 
 export default async function (
   appIdArg: string | undefined,
-  appMapPath: string | undefined
-): Promise<string> {
+  appMapPath: string | undefined,
+  failOnError = true
+): Promise<string | undefined> {
   if (appIdArg) {
     return appIdArg;
   }
@@ -30,5 +31,7 @@ export default async function (
     }
   }
 
-  throw new ValidationError('app id was not provided and could not be resolved');
+  if (failOnError) {
+    throw new ValidationError('app id was not provided and could not be resolved');
+  }
 }

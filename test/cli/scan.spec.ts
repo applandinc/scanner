@@ -3,6 +3,7 @@ import sinon from 'sinon';
 import Command from '../../src/cli/scan/command';
 import { fixtureAppMapFileName } from '../util';
 import { readFileSync, unlinkSync } from 'fs';
+import { ScanResults } from '../../src/report/scanResults';
 
 describe('smoke test', () => {
   afterEach(() => {
@@ -11,7 +12,6 @@ describe('smoke test', () => {
 
   it('runs with standard options', async () => {
     sinon.stub(process.stdout, 'write');
-    const processExit = sinon.stub(process, 'exit');
     const reportFile = 'appland-findings.json';
     await Command.handler({
       appmapFile: fixtureAppMapFileName(
@@ -21,32 +21,25 @@ describe('smoke test', () => {
       reportFile: reportFile,
     } as any);
 
-    expect(processExit.calledWith(0)).toBe(true);
-    const findingsReport = JSON.parse(readFileSync(reportFile).toString());
-    expect(findingsReport.summary).toBeTruthy();
-    const appMapMetadata = findingsReport.summary.appMapMetadata;
-    delete findingsReport.summary['appMapMetadata'];
-    expect(appMapMetadata).toBeTruthy();
+    const scanResults = JSON.parse(readFileSync(reportFile).toString()) as ScanResults;
+    expect(scanResults.summary).toBeTruthy();
+    const appMapMetadata = scanResults.summary.appMapMetadata;
     expect(appMapMetadata.apps).toEqual(['spring-petclinic']);
-    expect(findingsReport).toEqual({
-      appMaps: {},
-      findings: [],
-      configuration: {
-        checks: [
-          { rule: 'circularDependency' },
-          { rule: 'http500' },
-          { rule: 'missingContentType' },
-          { rule: 'nPlusOneQuery' },
-        ],
-      },
-      summary: {
-        numAppMaps: 1,
-        numChecks: 4,
-        numFindings: 0,
-        rules: ['circular-dependency', 'http-5xx', 'missing-content-type', 'n-plus-one-query'],
-        ruleLabels: [],
-      },
-    });
+    const checks = scanResults.configuration.checks;
+    expect(checks.map((check) => check.rule).sort()).toEqual([
+      'circularDependency',
+      'http500',
+      'missingContentType',
+      'nPlusOneQuery',
+    ]);
+    expect(Object.keys(scanResults).sort()).toEqual([
+      'appMapMetadata',
+      'appMaps',
+      'checks',
+      'configuration',
+      'findings',
+      'summary',
+    ]);
     unlinkSync(reportFile);
   });
 });

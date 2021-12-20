@@ -54,7 +54,7 @@ export default async function (scanResults: ScanResults, appId: string): Promise
   form.append('findings_data', gzip, 'findings.tgz');
   form.append('app_id', appId);
 
-  process.stderr.write(`Uploading findings to application '${appId}' at ${Settings.baseURL}\n`);
+  process.stderr.write(`Uploading findings to application '${appId}'\n`);
   const publishFindingsURL = new URL([Settings.baseURL, 'api/scanner_jobs'].join('/'));
 
   const requestFunction = publishFindingsURL.protocol === 'https:' ? httpsRequest : httpRequest;
@@ -81,8 +81,9 @@ export default async function (scanResults: ScanResults, appId: string): Promise
       }
 
       if (res.statusCode && res.statusCode < 300) {
-        const jobId = responseData.id;
-        console.log(`Uploaded scan ${jobId} to ${Settings.baseURL}${res.headers.location}`);
+        console.log(
+          `Uploaded ${scanResults.findings.length} findings to ${Settings.baseURL}${res.headers.location}`
+        );
         resolve();
       } else {
         let message;

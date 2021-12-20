@@ -2,7 +2,7 @@ import { glob as globCallback } from 'glob';
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
 import { promisify } from 'util';
-import { Arguments, Argv } from 'yargs';
+import yargs, { Arguments, Argv } from 'yargs';
 
 import { FindingStatusListItem } from '@appland/client';
 
@@ -11,27 +11,25 @@ import { AbortError, ValidationError } from '../../errors';
 import { ScanResults } from '../../report/scanResults';
 import { verbose } from '../../rules/util';
 import fetchStatus from '../../integration/appland/fetchStatus';
+import upload from '../../integration/appland/upload';
+import postCommitStatus from '../../integration/github/commitStatus';
 import { newFindings } from '../../findings';
 import summaryReport from '../../report/summaryReport';
 
 import { ExitCode } from '../exitCode';
+import resolveAppId from '../resolveAppId';
 import validateFile from '../validateFile';
 
 import CommandOptions from './options';
-import resolveAppId from '../resolveAppId';
 import scan from '../scan';
 
 export default {
-  command: 'scan',
-  describe: 'Scan AppMaps for code behavior findings',
+  command: 'ci',
+  describe: 'Scan AppMaps, report findings to AppMap Server, and update SCM status',
   builder(args: Argv): Argv {
     args.option('appmap-dir', {
       describe: 'directory to recursively inspect for AppMaps',
       alias: 'd',
-    });
-    args.option('appmap-file', {
-      describe: 'single file to scan',
-      alias: 'f',
     });
     args.option('config', {
       describe:
@@ -39,27 +37,24 @@ export default {
       default: join(__dirname, './sampleConfig/default.yml'),
       alias: 'c',
     });
-    args.option('ide', {
-      describe: 'choose your IDE protocol to open AppMaps directly in your IDE.',
-      options: ['vscode', 'x-mine', 'idea', 'pycharm'],
+    args.option('fail', {
+      describe: 'exit with non-zero status if there are any new findings',
+      default: false,
+      type: 'boolean',
     });
-    args.option('commit-status', {
-      describe: 'set your repository hosting system to post commit status',
-      options: ['github'],
+    args.option('update-commit-status', {
+      describe: 'update commit status in SCM system',
+      default: true,
+      type: 'boolean',
     });
-    args.option('pull-request-comment', {
-      describe:
-        'set your repository hosting system to post pull request comment with findings summary',
-      options: ['github'],
+    args.option('upload', {
+      describe: 'upload findings to AppMap server',
+      default: true,
+      type: 'boolean',
     });
     args.option('report-file', {
       describe: 'file name for findings report',
       default: 'appland-findings.json',
-    });
-    args.option('all', {
-      describe: 'report all findings, including duplicates of known findings',
-      default: false,
-      type: 'boolean',
     });
     args.option('app', {
       describe:
@@ -71,13 +66,13 @@ export default {
   async handler(options: Arguments): Promise<void> {
     const {
       appmapDir,
-      appmapFile,
       config,
       verbose: isVerbose,
-      all: reportAllFindings,
+      fail,
       app: appIdArg,
-      /* ide, */
       reportFile,
+      upload: doUpload,
+      updateCommitStatus,
     } = options as unknown as CommandOptions;
 
     if (isVerbose) {
@@ -85,23 +80,15 @@ export default {
     }
 
     try {
-      if (appmapFile && appmapDir) {
-        throw new ValidationError('Use --appmap-dir or --appmap-file, but not both');
-      }
-      if (!appmapFile && !appmapDir) {
-        throw new ValidationError('Either --appmap-dir or --appmap-file is required');
+      if (!appmapDir) {
+        throw new ValidationError('--appmap-dir is required');
       }
 
-      let files: string[] = [];
-      if (appmapDir) {
-        await validateFile('directory', appmapDir!);
-        const glob = promisify(globCallback);
-        files = await glob(`${appmapDir}/**/*.appmap.json`);
-      }
-      if (appmapFile) {
-        await validateFile('file', appmapFile);
-        files = [appmapFile];
-      }
+      await validateFile('directory', appmapDir!);
+      const glob = promisify(globCallback);
+      const files = await glob(`${appmapDir}/**/*.appmap.json`);
+
+      const appId = (await resolveAppId(appIdArg, appmapDir, true))!;
 
       const configData = await parseConfigFile(config);
       const checks = await loadConfig(configData);
@@ -114,34 +101,45 @@ export default {
           const { appMapMetadata, findings } = await scan(files, checks);
           return new ScanResults(configData, appMapMetadata, findings, checks);
         })(),
-        (async (): Promise<FindingStatusListItem[]> => {
-          const appId = await resolveAppId(appIdArg, appmapDir, false);
-          if (!appId) {
-            return [];
-          }
-
-          return await fetchStatus(appId);
-        })(),
+        fetchStatus.bind(null, appId)(),
       ]);
 
       // Always report the raw data
       await writeFile(reportFile, JSON.stringify(rawScanResults, null, 2));
 
-      let scanResults;
-      if (reportAllFindings) {
-        scanResults = rawScanResults;
-      } else {
-        scanResults = rawScanResults.withFindings(
-          newFindings(rawScanResults.findings, findingStatuses)
-        );
-      }
+      const scanResults = rawScanResults.withFindings(
+        newFindings(rawScanResults.findings, findingStatuses)
+      );
 
       const colouredSummary = summaryReport(scanResults, true);
-      // const reportGenerator = new Generator(ide);
-      // reportGenerator.generate(scanResults, appMapMetadata);
       process.stdout.write('\n');
       process.stdout.write(colouredSummary);
       process.stdout.write('\n');
+
+      if (doUpload) {
+        await upload(scanResults, appId);
+      }
+
+      if (updateCommitStatus) {
+        if (scanResults.findings.length > 0) {
+          await postCommitStatus(
+            'failure',
+            `${scanResults.summary.numChecks} checks, ${scanResults.findings.length} findings. See CI job log for details.`
+          );
+          console.log(
+            `Commit status updated to: failure (${scanResults.findings.length} findings)`
+          );
+        } else {
+          await postCommitStatus('success', `${scanResults.summary.numChecks} checks passed`);
+          console.log(`Commit status updated to: success.`);
+        }
+      }
+
+      if (fail) {
+        if (scanResults.findings.length > 0) {
+          yargs.exit(1, new Error(`${scanResults.findings.length} findings`));
+        }
+      }
     } catch (err) {
       if (err instanceof ValidationError) {
         console.warn(err.message);
