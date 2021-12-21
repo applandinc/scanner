@@ -2,6 +2,7 @@
 
 import yargs from 'yargs';
 import CICommand from './cli/ci/command';
+import UploadCommand from './cli/upload/command';
 import ScanCommand from './cli/scan/command';
 
 yargs(process.argv.slice(2))
@@ -10,6 +11,7 @@ yargs(process.argv.slice(2))
     alias: 'v',
   })
   .command(ScanCommand)
+  .command(UploadCommand)
   .command(CICommand)
   .fail((msg, err, yargs) => {
     if (msg) {
