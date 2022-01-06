@@ -109,6 +109,17 @@ yarn scanner -d tmp/appmap --report=json --report-file=report.json
 
 ## CI integration
 
+The `scanner ci` command provides an all-in-one solution for running a scan and reporting its
+results during CI.
+
+The steps performed are:
+
+- Run a scan
+- Update GitHub commit status (optional, enabled by default).
+- Upload scan results to AppLand (optional, enabled by default).
+
+### Updating GitHub commit status
+
 When using Appmap Scanner in CI you can post findings summary as a commit status and/or a PR comment
 (currently only GitHub is supported). In order to allow access to your repo you need to create a
 [personal token](https://github.com/settings/tokens/new) with following privileges and add it as a
@@ -117,16 +128,28 @@ When using Appmap Scanner in CI you can post findings summary as a commit status
 - `repo` for posting PR comments
 - `repo:status` for posting commit statuses
 
-### Commit status
+This feature is enabled by default. To disable this feature, use the `--update-commit-status=false`
+command line option.
 
-```bash
-yarn scanner -d tmp/appmap --commit-status=github
-```
+### Uploading scan results to AppLand
 
-### PR comment
+When enabled, AppMap Scanner will upload AppMap data and scan results to [AppLand](https://app.land)
+for simplified triage, management and investigation of findings.
 
-```bash
-yarn scanner -d tmp/appmap --pull-request-comment=github
+To configure AppMap Scanner to upload scan results to AppLand, you'll first need an API key. You can
+generate a new API key via your [account settings page](https://app.land/user). The API key may be
+provided to the CLI either via the `APPLAND_API_KEY` environment variable or the `--api-key` command
+line option.
+
+This feature is enabled by default. To disable this feature, use the `--upload=false` command line
+option.
+
+### Example
+
+```sh
+$ GH_TOKEN=ghp_EXAMPLEaNg78ZEXirCZBO8NXljS59HGT9CnQ \
+  APPLAND_API_KEY=ZXhhbXBsZTo0ZTBjMmM5ZC1hOTNlLTQ2OGQtODMzMS0wNjZlNThkMTc3YTIK \
+  scanner ci -d tmp/appmap
 ```
 
 ## New scanner ideas
