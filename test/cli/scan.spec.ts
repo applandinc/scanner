@@ -1,4 +1,3 @@
-import { join } from 'path';
 import nock from 'nock';
 import sinon from 'sinon';
 import Command from '../../src/cli/scan/command';
@@ -13,7 +12,6 @@ const StandardOptions = {
   appmapFile: fixtureAppMapFileName(
     'org_springframework_samples_petclinic_owner_OwnerControllerTests_testInitCreationForm.appmap.json'
   ),
-  config: join(__dirname, '..', '..', 'src', 'sampleConfig', 'default.yml'), // need to pass it explicitly
   reportFile: ReportFile,
   app: AppId,
 };
@@ -52,7 +50,7 @@ describe('scan', () => {
     const appMapMetadata = scanResults.summary.appMapMetadata;
     expect(appMapMetadata.apps).toEqual(['spring-petclinic']);
     const checks = scanResults.configuration.checks;
-    ['circularDependency', 'http500', 'nPlusOneQuery'].forEach((rule) =>
+    ['http500', 'nPlusOneQuery'].forEach((rule) =>
       expect(checks.map((check) => check.rule)).toContain(rule)
     );
     expect(Object.keys(scanResults).sort()).toEqual([

@@ -2,7 +2,7 @@
 
 import { readFile } from 'fs/promises';
 import { exit } from 'process';
-import { allRules } from './util';
+import { allRules } from '../src/configuration/ruleEnumerator';
 
 const noDocRules: string[] = [];
 Promise.all(

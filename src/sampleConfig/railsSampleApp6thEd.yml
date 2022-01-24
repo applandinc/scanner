@@ -1,6 +1,4 @@
 checks:
-  - rule: authzBeforeAuthn
-  - rule: http500
   - rule: illegalPackageDependency
     properties:
       callerPackages:
@@ -8,10 +6,6 @@ checks:
       calleePackage:
         equal: app/controllers
   - rule: insecureCompare
-  - rule: missingAuthentication
-  - rule: missingContentType
-  - rule: nPlusOneQuery
-  - rule: secretInLog
   - rule: slowFunctionCall
     properties:
       timeAllowed: 0.2
@@ -23,7 +17,3 @@ checks:
   - rule: slowQuery
     properties:
       timeAllowed: 0.05
-  - rule: tooManyJoins
-  - rule: tooManyUpdates
-  - rule: unbatchedMaterializedQuery
-  - rule: updateInGetRequest

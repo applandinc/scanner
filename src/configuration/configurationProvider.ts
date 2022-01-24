@@ -7,6 +7,7 @@ import options_schema from './schema/options.json';
 import match_pattern_config_schema from './schema/match-pattern-config.json';
 import { capitalize, verbose } from '../rules/lib/util';
 import { buildFilters as buildEventFilterArray } from '../rules/lib/matchEvent';
+import { allRules } from './ruleEnumerator';
 import Configuration from './types/configuration';
 import CheckConfig from './types/checkConfig';
 import Check from '../check';
@@ -14,7 +15,12 @@ import Check from '../check';
 const ajv = new Ajv();
 ajv.addSchema(match_pattern_config_schema);
 
-async function buildBuiltinCheck(config: CheckConfig): Promise<Check> {
+type RuleDef = {
+  ruleFile: string;
+  rule: Rule;
+};
+
+async function buildCheck(config: CheckConfig): Promise<Check> {
   const rule: Rule = (await import(`../rules/${config.rule}`)).default;
 
   let options: any;
@@ -73,7 +79,12 @@ const validate = (validator: ValidateFunction, data: any, context: string): void
   }
 };
 
-export async function loadConfig(config: Configuration): Promise<Check[]> {
+export async function loadConfig(config: Configuration, enableDefault = true): Promise<Check[]> {
+  const disabledRuleIds = new Set(config.disableDefault);
+
+  config.checks ||= [];
+  config.disableDefault ||= [];
+
   config.checks
     .filter((check) => check.properties)
     .forEach((check) => {
@@ -93,7 +104,26 @@ export async function loadConfig(config: Configuration): Promise<Check[]> {
       validate(ajv.compile(propertiesSchema), check.properties || {}, `${ruleId} properties`);
     });
 
-  return Promise.all(config.checks.map(async (c: CheckConfig) => buildBuiltinCheck(c)));
+  if (enableDefault) {
+    const builtinChecks = (
+      await Promise.all<RuleDef>(
+        allRules().map(async (ruleFile) => {
+          const rule = (await import(`../rules/${ruleFile}`)).default as Rule;
+          return {
+            ruleFile: ruleFile,
+            rule: rule,
+          } as RuleDef;
+        })
+      )
+    )
+      .filter((ruleDef) => ruleDef.rule.enabled === true)
+      .filter((ruleDef) => !disabledRuleIds.has(ruleDef.rule.id))
+      .map((ruleDef) => ({ rule: ruleDef.ruleFile.split('.')[0] } as CheckConfig));
+
+    config.checks.splice(0, 0, ...builtinChecks);
+  }
+
+  return Promise.all(config.checks.map(async (c: CheckConfig) => buildCheck(c)));
 }
 
 export async function parseConfigFile(configPath: string): Promise<Configuration> {

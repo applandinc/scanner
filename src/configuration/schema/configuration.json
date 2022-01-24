@@ -64,10 +64,17 @@
             "$ref": "#/definitions/CheckConfig"
           },
           "type": "array"
+        },
+        "disableDefault": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
         }
       },
       "required": [
-        "checks"
+        "checks",
+        "disableDefault"
       ],
       "type": "object"
     },

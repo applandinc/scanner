@@ -78,7 +78,9 @@ export default class RuleChecker {
     }
     if (verbose()) {
       console.warn(
-        `Asserting ${checkInstance.ruleId} on ${event.codeObject.fqid} event ${event.toString()}`
+        `Asserting ${checkInstance.ruleId} on ${appMapFile} ${
+          event.codeObject.fqid
+        } ${event.toString()}`
       );
     }
 

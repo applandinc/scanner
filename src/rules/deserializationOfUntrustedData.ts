@@ -69,6 +69,7 @@ export default {
   title: 'Deserialization of untrusted data',
   labels: [DeserializeUnsafe, DeserializeSafe, Sanitize],
   impactDomain: 'Security',
+  enabled: true,
   enumerateScope: false,
   references: {
     'CWE-502': new URL('https://cwe.mitre.org/data/definitions/502.html'),

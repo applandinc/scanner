@@ -19,6 +19,7 @@ import { ExitCode } from '../exitCode';
 import resolveAppId from '../resolveAppId';
 import validateFile from '../validateFile';
 import { default as buildScanner } from '../scan/scanner';
+import Configuration from '../../configuration/types/configuration';
 
 import CommandOptions from './options';
 import scanArgs from '../scanArgs';
@@ -74,7 +75,9 @@ export default {
 
       const appId = await resolveAppId(appIdArg, appmapDir);
 
-      const configData = await parseConfigFile(config);
+      const configData = config
+        ? await parseConfigFile(config)
+        : ({ checks: [], disableDefault: [] } as Configuration);
 
       const scanner = buildScanner(false, configData, files);
 

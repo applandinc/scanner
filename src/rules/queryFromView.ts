@@ -27,6 +27,7 @@ export default {
   Options,
   impactDomain: 'Maintainability',
   enumerateScope: true,
+  enabled: true,
   references: {
     'CWE-1057': new URL('https://cwe.mitre.org/data/definitions/1057.html'),
   },

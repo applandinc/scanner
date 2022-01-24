@@ -45,6 +45,7 @@ export default {
   labels: [HTTPSessionClear, SecurityLogout],
   impactDomain: 'Security',
   enumerateScope: false,
+  enabled: true,
   references: {
     'CWE-488': new URL('https://cwe.mitre.org/data/definitions/488.html'),
     'OWASP - Session fixation': new URL('https://owasp.org/www-community/attacks/Session_fixation'),

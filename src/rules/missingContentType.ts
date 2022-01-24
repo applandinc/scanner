@@ -28,5 +28,6 @@ export default {
   scope: 'http_server_request',
   impactDomain: 'Stability',
   enumerateScope: false,
+  enabled: true,
   build,
 } as Rule;

@@ -4,7 +4,7 @@ import { readFile, writeFile } from 'fs/promises';
 import { dump } from 'js-yaml';
 
 import { Rule } from '../src/types';
-import { allRules, ruleFilePath } from './util';
+import { allRules, ruleFilePath } from '../src/configuration/ruleEnumerator';
 
 function toTitleWord(word: string): string {
   if (['http', 'rpc', 'sql'].includes(word.toLowerCase())) {
@@ -40,7 +40,7 @@ const labelRules: Record<string, Rule[]> = {};
 
 Promise.all(
   allRules().map(async (ruleFileName: string) => {
-    const rule: Rule = (await import(ruleFilePath('..', ruleFileName))).default;
+    const rule: Rule = (await import(ruleFilePath(ruleFileName))).default;
 
     (rule.labels || []).forEach((label) => {
       if (!labelRules[label]) labelRules[label] = [];

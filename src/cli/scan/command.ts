@@ -82,7 +82,9 @@ export default {
         files = [appmapFile];
       }
 
-      const configData = await parseConfigFile(config);
+      const configData = config
+        ? await parseConfigFile(config)
+        : { checks: [], disableDefault: [] };
 
       const scanner = buildScanner(reportAllFindings, configData, files);
 

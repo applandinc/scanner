@@ -66,6 +66,7 @@ export default {
   scope: 'command',
   impactDomain: 'Performance',
   enumerateScope: false,
+  enabled: true,
   Options,
   references: {
     'CWE-1073': new URL('https://cwe.mitre.org/data/definitions/1073.html'),

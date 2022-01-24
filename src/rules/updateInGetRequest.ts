@@ -67,6 +67,7 @@ export default {
   scope: 'http_server_request',
   labels: [Audit],
   impactDomain: 'Maintainability',
+  enabled: true,
   Options,
   build,
 } as Rule;

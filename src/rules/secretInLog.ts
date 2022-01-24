@@ -68,6 +68,7 @@ export default {
   labels: [Secret, Log],
   impactDomain: 'Security',
   enumerateScope: true,
+  enabled: true,
   references: {
     'CWE-532': new URL('https://cwe.mitre.org/data/definitions/532.html'),
   },

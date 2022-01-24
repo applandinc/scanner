@@ -48,6 +48,7 @@ export default {
   scope: 'http_server_request' as ScopeName,
   impactDomain: 'Security',
   enumerateScope: false,
+  enabled: true,
   references: {
     'CWE-863': new URL('https://cwe.mitre.org/data/definitions/863.html'),
   },

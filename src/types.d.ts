@@ -124,6 +124,8 @@ interface Rule {
   enumerateScope: boolean;
   impactDomain?: ImpactDomain;
   references?: Record<string, URL>;
+  // Whether to activate the rule by default.
+  enabled?: boolean;
   // User-defined options for the rule.
   Options?: any;
   // Function to instantiate the rule logic from configured options.

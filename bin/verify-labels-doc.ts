@@ -3,7 +3,7 @@
 import { readFile } from 'fs/promises';
 import { exit } from 'process';
 import { Rule } from '../src/types';
-import { allRules, ruleFilePath } from './util';
+import { allRules, ruleFilePath } from '../src/configuration/ruleEnumerator';
 
 const labels = new Set<string>();
 const noDocLabels: string[] = [];
@@ -11,7 +11,7 @@ Promise.all(
   allRules().map(async (ruleFileName: string) => {
     let rule: Rule;
     try {
-      rule = (await import(ruleFilePath('..', ruleFileName))).default;
+      rule = (await import(ruleFilePath(ruleFileName))).default;
     } catch (err) {
       return null;
     }

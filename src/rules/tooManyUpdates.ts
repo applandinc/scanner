@@ -67,6 +67,7 @@ export default {
   title: 'Too many SQL and RPC updates performed in one command',
   scope: 'command',
   enumerateScope: false,
+  enabled: true,
   impactDomain: 'Maintainability',
   references: {
     'CWE-1048': new URL('https://cwe.mitre.org/data/definitions/1048.html'),

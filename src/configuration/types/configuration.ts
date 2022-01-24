@@ -5,4 +5,6 @@ import CheckConfig from './checkConfig';
  */
 export default interface Configuration {
   checks: CheckConfig[];
+  // Disable a rule which is enabled by default.
+  disableDefault: string[];
 }

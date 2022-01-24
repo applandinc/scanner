@@ -72,6 +72,7 @@ export default {
   labels: [Public, SecurityAuthentication],
   impactDomain: 'Security',
   enumerateScope: false,
+  enabled: true,
   references: {
     'CWE-306': new URL('https://cwe.mitre.org/data/definitions/306.html'),
   },

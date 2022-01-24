@@ -1,4 +1,3 @@
-import { join } from 'path';
 import { Argv } from 'yargs';
 
 export default function (args: Argv): void {
@@ -7,9 +6,7 @@ export default function (args: Argv): void {
     alias: 'd',
   });
   args.option('config', {
-    describe:
-      'path to assertions config file (TypeScript or YAML, check docs for configuration format)',
-    default: join(__dirname, '../sampleConfig/default.yml'),
+    describe: 'path to YAML file with additional checks',
     alias: 'c',
   });
   args.option('report-file', {

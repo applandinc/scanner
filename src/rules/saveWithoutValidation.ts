@@ -29,6 +29,7 @@ export default {
   title: 'Save without validation',
   enumerateScope: true,
   impactDomain: 'Stability',
+  enabled: true,
   references: {
     'CWE-20': new URL('https://cwe.mitre.org/data/definitions/20.html'),
   },
