@@ -2,9 +2,11 @@ import nock from 'nock';
 
 import * as test from './setup';
 import { AppMap, CreateOptions, UploadAppMapResponse } from '../../src/integration/appland/appMap';
+import { before } from 'mocha';
+import { default as expect } from 'expect';
 
 const AppMapData = {
-  uuid: 'the-uuid',
+  uuid: 'e6756c3c-4132-4296-bb7b-6ba5f2ac56ee',
 };
 
 async function uploadAppMap(data: Buffer, options: CreateOptions): Promise<UploadAppMapResponse> {
@@ -12,6 +14,8 @@ async function uploadAppMap(data: Buffer, options: CreateOptions): Promise<Uploa
 }
 
 describe('appMap', () => {
+  before(test.setupEnvironment);
+
   describe('post', () => {
     it('is created', async () => {
       const data = Buffer.from(JSON.stringify({}));
@@ -27,7 +31,7 @@ describe('appMap', () => {
         )
         .matchHeader('Content-Type', /^multipart\/form-data; boundary/)
         .matchHeader('Accept', /^application\/json;?/)
-        .reply(200, AppMapData, ['Content-Type', 'application/json']);
+        .reply(201, AppMapData, ['Content-Type', 'application/json']);
       expect(await uploadAppMap(data, options)).toEqual(AppMapData);
     });
   });

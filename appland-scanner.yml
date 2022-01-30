@@ -1,0 +1,5 @@
+checks:
+  - rule: incompatibleHttpClientRequest
+    properties:
+      schemata:
+        localhost:3000: file:/Users/kgilpin/source/appland/scanner/openapi/appmap-server.yml

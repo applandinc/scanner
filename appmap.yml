@@ -1,0 +1,8 @@
+name: scanner
+packages:
+  - path: built
+  - path: bin
+  - path: src
+  - path: test
+  - path: types
+  - path: node_modules/nock

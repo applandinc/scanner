@@ -1,0 +1,974 @@
+---
+openapi: 3.0.1
+info:
+  title: AppMap Server API
+  version: v0.28.pre
+paths:
+  '/':
+    get:
+      responses:
+        '200':
+          content: {}
+        '302':
+          content: {}
+  '/api/api_keys':
+    delete:
+      responses:
+        '204':
+          content: {}
+        '401':
+          content: {}
+    post:
+      responses:
+        '201':
+          content: {}
+  '/api/appmaps':
+    get:
+      responses:
+        '200':
+          content: {}
+        '401':
+          content: {}
+        '422':
+          content: {}
+      parameters:
+        - name: code_objects
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: labels
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: mapsets
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: not_code_objects
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: not_labels
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+    post:
+      responses:
+        '201':
+          content: {}
+        '401':
+          content: {}
+        '403':
+          content: {}
+        '422':
+          content: {}
+  '/api/appmaps/create_upload':
+    post:
+      responses:
+        '201':
+          content: {}
+        '422':
+          content: {}
+  '/api/appmaps/{id}':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: String
+          required: true
+        - name: mode
+          in: query
+          schema:
+            type:
+  '/api/mapsets':
+    get:
+      responses:
+        '200':
+          content: {}
+        '401':
+          content: {}
+        '404':
+          content: {}
+        '422':
+          content: {}
+      parameters:
+        - name: app
+          in: query
+          schema:
+            type:
+        - name: mapset
+          in: query
+          schema:
+            type: object
+            properties: {}
+    post:
+      responses:
+        '201':
+          content: {}
+        '401':
+          content: {}
+        '403':
+          content: {}
+        '422':
+          content: {}
+  '/api/scanner_jobs':
+    post:
+      responses:
+        '201':
+          content: {}
+        '401':
+          content: {}
+        '403':
+          content: {}
+        '404':
+          content: {}
+  '/api/{organization_id}/{id}/finding_status':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+  '/api_keys':
+    post:
+      responses:
+        '302':
+          content: {}
+  '/api_keys/new':
+    get:
+      responses:
+        '200':
+          content: {}
+  '/api_keys/{id}':
+    delete:
+      responses:
+        '302':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/applications':
+    post:
+      responses:
+        '302':
+          content: {}
+  '/applications/new':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: organization_id
+          in: query
+          schema:
+            type:
+  '/applications/{id}':
+    get:
+      responses:
+        '200':
+          content: {}
+        '301':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: mapset
+          in: query
+          schema:
+            type:
+        - name: nocache
+          in: query
+          schema:
+            type: string
+    put:
+      responses:
+        '303':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/applications/{id}/component_diagram':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: mapset
+          in: query
+          schema:
+            type:
+        - name: routes
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+  '/applications/{id}/mapsets':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/code/{sha}':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: sha
+          in: path
+          schema:
+            type:
+          required: true
+  '/compare':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: base
+          in: query
+          schema:
+            type:
+        - name: mapset
+          in: query
+          schema:
+            type:
+  '/compare/related_scenarios':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: base
+          in: query
+          schema:
+            type:
+        - name: mapset
+          in: query
+          schema:
+            type:
+        - name: page
+          in: query
+          schema:
+            type:
+        - name: routes
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+  '/configuration':
+    patch:
+      responses:
+        '302':
+          content: {}
+  '/examples':
+    get:
+      responses:
+        '200':
+          content: {}
+  '/js/examples/{id}':
+    get:
+      responses:
+        '303':
+          content: {}
+      parameters:
+        - name: format
+          in: query
+          schema:
+            type:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/login':
+    get:
+      responses:
+        '200':
+          content: {}
+    post:
+      responses:
+        '302':
+          content: {}
+  '/mapsets':
+    post:
+      responses:
+        '201':
+          content: {}
+  '/oauth/{provider}':
+    get:
+      responses:
+        '302':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: provider
+          in: path
+          schema:
+            type:
+          required: true
+  '/oauth/{provider}/confirm':
+    get:
+      responses:
+        '302':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: code
+          in: query
+          schema:
+            type:
+        - name: provider
+          in: path
+          schema:
+            type:
+          required: true
+        - name: state
+          in: query
+          schema:
+            type:
+  '/organizations':
+    post:
+      responses:
+        '302':
+          content: {}
+  '/organizations/new':
+    get:
+      responses:
+        '200':
+          content: {}
+  '/organizations/{id}':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/organizations/{id}/invite':
+    post:
+      responses:
+        '302':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/organizations/{organization_id}/members':
+    post:
+      responses:
+        '302':
+          content: {}
+      parameters:
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+  '/organizations/{organization_id}/members/{id}':
+    delete:
+      responses:
+        '302':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+  '/profile_filters':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: app
+          in: query
+          schema:
+            type:
+        - name: mapset
+          in: query
+          schema:
+            type:
+        - name: organization
+          in: query
+          schema:
+            type:
+        - name: search
+          in: query
+          schema:
+            type:
+  '/scanner_jobs/{id}':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: group_by
+          in: query
+          schema:
+            type:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: include_deferred
+          in: query
+          schema:
+            type:
+  '/scanner_jobs/{id}/finding/{identity_hash}':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: identity_hash
+          in: path
+          schema:
+            type:
+          required: true
+  '/scanner_jobs/{id}/findings/{check_id}':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: check_id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: include_deferred
+          in: query
+          schema:
+            type:
+  '/scanner_jobs/{id}/status/deferred':
+    put:
+      responses:
+        '204':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/scanner_jobs/{id}/status/new':
+    put:
+      responses:
+        '204':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/scenario_uploads':
+    post:
+      responses:
+        '201':
+          content: {}
+        '302':
+          content: {}
+        '404':
+          content: {}
+  '/scenario_uploads/new':
+    get:
+      responses:
+        '303':
+          content: {}
+  '/scenario_uploads/{id}':
+    get:
+      responses:
+        '302':
+          content: {}
+        '303':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: token
+          in: query
+          schema:
+            type:
+  '/scenarios':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: dir
+          in: query
+          schema:
+            type:
+        - name: order
+          in: query
+          schema:
+            type:
+        - name: page_size
+          in: query
+          schema:
+            type:
+        - name: search
+          in: query
+          schema:
+            type:
+  '/scenarios/{id}':
+    delete:
+      responses:
+        '302':
+          content: {}
+        '303':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: finding_hash
+          in: query
+          schema:
+            type:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: process
+          in: query
+          schema:
+            type:
+        - name: state
+          in: query
+          schema:
+            type:
+    head:
+      responses:
+        '200':
+          content: {}
+        '422':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: process
+          in: query
+          schema:
+            type:
+    put:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/scenarios/{id}/download':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/scenarios/{id}/edit':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/scenarios/{id}/share':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+  '/scenarios/{scenario_id}/save_as':
+    post:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: scenario_id
+          in: path
+          schema:
+            type:
+          required: true
+  '/scenarios/{scenario_id}/save_as/new':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: scenario_id
+          in: path
+          schema:
+            type:
+          required: true
+  '/sign_up':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: invitation_token
+          in: query
+          schema:
+            type:
+  '/user':
+    get:
+      responses:
+        '200':
+          content: {}
+        '303':
+          content: {}
+  '/web_resources/{id}':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: mapset
+          in: query
+          schema:
+            type:
+  '/{organization_id}':
+    post:
+      responses:
+        '303':
+          content: {}
+      parameters:
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+  '/{organization_id}/{id}':
+    delete:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+    get:
+      responses:
+        '200':
+          content: {}
+        '302':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: mapset
+          in: query
+          schema:
+            type:
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+    put:
+      responses:
+        '200':
+          content: {}
+        '302':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+  '/{organization_id}/{id}/component_diagram':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: features
+          in: query
+          schema:
+            type:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: mapset
+          in: query
+          schema:
+            type:
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: routes
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+  '/{organization_id}/{id}/delete_form':
+    get:
+      responses:
+        '200':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+  '/{organization_id}/{id}/related_scenarios':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: classes
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: features
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: keywords
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: mapset
+          in: query
+          schema:
+            type:
+        - name: organization_id
+          in: path
+          schema:
+            type:
+          required: true
+        - name: page
+          in: query
+          schema:
+            type:
+        - name: page_size
+          in: query
+          schema:
+            type:
+        - name: routes
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+        - name: search
+          in: query
+          schema:
+            type:
+  '/{organization_id}/{id}/scenarios_list':
+    get:
+      responses:
+        '200':
+          content: {}
+        '404':
+          content: {}
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+          required: true
+        - name: mapset
+          in: query
+          schema:
+            type: number
+        - name: organization_id
+          in: path
+          schema:
+            type: number
+          required: true
+        - name: page
+          in: query
+          schema:
+            type: string
+        - name: page_size
+          in: query
+          schema:
+            type: number
+        - name: search
+          in: query
+          schema:
+            type: string
+components:
+  securitySchemes: {}
+servers:
+  - url: http://{defaultHost}
+    variables:
+      defaultHost:
+        default: localhost:3000
