@@ -47,6 +47,7 @@ function build(options: Options): RuleLogic {
 export default {
   id: 'incompatible-http-client-request',
   title: 'Incompatible HTTP client request',
+  // scope: //http_client_request
   scope: 'http_client_request',
   enumerateScope: false,
   impactDomain: 'Stability',
