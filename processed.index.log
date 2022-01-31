@@ -1,0 +1,639 @@
+Statistical profiling result from isolate-0x118008000-88819-v8.log, (15626 ticks, 254 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     69    0.4%          /usr/lib/system/libsystem_malloc.dylib
+     38    0.2%          /usr/lib/system/libsystem_platform.dylib
+     25    0.2%          /usr/lib/system/libsystem_c.dylib
+     15    0.1%          /usr/lib/system/libsystem_pthread.dylib
+     14    0.1%          /usr/lib/system/libsystem_kernel.dylib
+      7    0.0%          /usr/lib/libc++.1.dylib
+      4    0.0%          /usr/lib/libc++abi.dylib
+      1    0.0%          /usr/lib/system/libdyld.dylib
+      1    0.0%          /usr/lib/system/libdispatch.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+   2514   16.1%   16.3%  LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    512    3.3%    3.3%  RegExp: (^whitespace)|(char$)|(^[oe]$)|(^sym\_)
+    395    2.5%    2.6%  LazyCompile: *peg$decode /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104691
+    324    2.1%    2.1%  LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+    159    1.0%    1.0%  LazyCompile: *trace /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:620
+    146    0.9%    0.9%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:15:18
+    105    0.7%    0.7%  RegExp: (?:(xox[pborsa]-[0-9]{12}-[0-9]{12}-[0-9]{12}-[a-z0-9]{32}))|(?:-----BEGIN RSA PRIVATE KEY-----)|(?:-----BEGIN DSA PRIVATE KEY-----)|(?:-----BEGIN EC PRIVATE KEY-----)|(?:-----BEGIN PGP PRIVATE KEY BLOCK-----)|(?:((?:A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}))|(?:AKIA[0-9A-Z]{16})|(?:^\$2[abxy]?\$(?:0[4-9]|[12][0-9]|3[01])[$][.\/0-9a-zA-Z]{53}$)|(?:amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(?:da2-[a-z0-9]{26})|(?:EAACEdEose0cBA[0-9A-Za-z]+)|(?:[fF][aA][cC][eE][bB][oO][oO][kK].*['|"][0-9a-f]{32}['|"])|(?:[gG][iI][tT][hH][uU][bB].*['|"][0-9a-zA-Z]{35,40}['|"])|(?:gh[pousr]_[A-Za-z0-9]{36,255})|(?:[aA][pP][iI]_?[kK][eE][yY].*['|"][0-9a-zA-Z]{32,45}['|"])|(?:[sS][eE][cC][rR][eE][tT].*['|"][0-9a-zA-Z]{32,45}['|"])|(?:[sS][eE][cC][rR][eE][tT].[\w\-_/]+)|(?:AIza[0-9A-Za-z\-_]{35})|(?:AIza[0-9A-Za-z\-_]{35})|(?:[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com)|(?:AIza[0-9A-Za-z\-_]{35})|(?:[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com)|(?:"type": "service_account")|(?:AIza[0-9A-Za-z\-_]{35})|(?:[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com)|(?:ya29\.[0-9A-Za-z\-_]+)|(?:AIza[0-9A-Za-z\-_]{35})|(?:[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com)|(?:[hH][eE][rR][oO][kK][uU].*[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12})|(?:[0-9a-f]{32}-us[0-9]{1,2})|(?:key-[0-9a-zA-Z]{32})|(?:[a-zA-Z]{3,10}://[^/\s:@]{3,20}:[^/\s:@]{3,20}@.{1,100}["'\s])|(?:access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32})|(?:sk_live_[0-9a-z]{32})|(?:https://hooks\.slack\.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24})|(?:sk_live_[0-9a-zA-Z]{24})|(?:rk_live_[0-9a-zA-Z]{24})|(?:sq0atp-[0-9A-Za-z\-_]{22})|(?:sq0csp-[0-9A-Za-z\-_]{43})|(?:[0-9]+:AA[0-9A-Za-z\-_]{33})|(?:SK[0-9a-fA-F]{32})|(?:[tT][wW][iI][tT][tT][eE][rR].*[1-9][0-9]+-[0-9a-zA-Z]{40})|(?:[tT][wW][iI][tT][tT][eE][rR].*['|"][0-9a-zA-Z]{35,44}['|"])
+    101    0.6%    0.7%  LazyCompile: *traverseChildren /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3971:31
+     91    0.6%    0.6%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:101:47
+     75    0.5%    0.5%  LazyCompile: *where /Users/kgilpin/source/appland/scanner/built/rules/illegalPackageDependency.js:15:19
+     73    0.5%    0.5%  LazyCompile: *visitNode /Users/kgilpin/source/appland/scanner/built/database/visit.js:39:19
+     73    0.5%    0.5%  LazyCompile: *peg$computeLocation /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:103947
+     55    0.4%    0.4%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:113:63
+     43    0.3%    0.3%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/scope/scopeImpl.js:6:18
+     39    0.2%    0.3%  LazyCompile: *get packageOf /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1924:16
+     39    0.2%    0.3%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2314:16
+     38    0.2%    0.2%  LazyCompile: *collectEvent /Users/kgilpin/source/appland/scanner/built/rules/circularDependency.js:70:33
+     38    0.2%    0.2%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+     36    0.2%    0.2%  LazyCompile: *get callEvent /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3365:16
+     35    0.2%    0.2%  LazyCompile: *getSqlLabelFromString /Users/kgilpin/source/appland/scanner/built/database/index.js:126:31
+     35    0.2%    0.2%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/database/index.js:177:39
+     33    0.2%    0.2%  LazyCompile: *Event /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3062:14
+     32    0.2%    0.2%  LazyCompile: *peg$computePosDetails /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:103559
+     32    0.2%    0.2%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/commandScope.js:117:43
+     31    0.2%    0.2%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/scope/commandScope.js:21:18
+     31    0.2%    0.2%  LazyCompile: *resolve path.js:1067:10
+     30    0.2%    0.2%  LazyCompile: *buildCodeObject /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2224:29
+     27    0.2%    0.2%  LazyCompile: *fulfilled /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:5:27
+     27    0.2%    0.2%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/httpServerRequestScope.js:69:43
+     25    0.2%    0.2%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/scope/httpServerRequestScope.js:21:18
+     25    0.2%    0.2%  LazyCompile: *ScopeIterator.advanceToReturnEvent /Users/kgilpin/source/appland/scanner/built/scope/scopeIterator.js:7:61
+     24    0.2%    0.2%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3669:16
+     23    0.1%    0.1%  LazyCompile: *descendants /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3970:15
+     22    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/rootScope.js:69:43
+     21    0.1%    0.1%  LazyCompile: *ignorePackage /Users/kgilpin/source/appland/scanner/built/rules/circularDependency.js:46:23
+     21    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/commandScope.js:69:43
+     19    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/rules/tooManyUpdates.js:71:43
+     17    0.1%    0.1%  LazyCompile: *matcher /Users/kgilpin/source/appland/scanner/built/rules/authzBeforeAuthn.js:37:21
+     17    0.1%    0.1%  LazyCompile: *get labels /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3173:13
+     15    0.1%    0.1%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/scope/rootScope.js:21:18
+     14    0.1%    0.1%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/cli/scan.js:15:18
+     14    0.1%    0.1%  LazyCompile: *findInLog /Users/kgilpin/source/appland/scanner/built/rules/secretInLog.js:73:26
+     14    0.1%    0.1%  LazyCompile: *classLocations /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2072:17
+     14    0.1%    0.1%  LazyCompile: *RuleChecker.checkEvent /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:198:49
+     14    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/scopeImpl.js:5:40
+     13    0.1%    0.1%  LazyCompile: *CodeObject /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1851:14
+     13    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2852:20
+     12    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/scopeImpl.js:50:43
+     12    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:199:57
+     12    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2341:32
+     11    0.1%    0.1%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/rules/tooManyUpdates.js:6:18
+     11    0.1%    0.1%  LazyCompile: *matcher /Users/kgilpin/source/appland/scanner/built/rules/deserializationOfUntrustedData.js:110:21
+     11    0.1%    0.1%  LazyCompile: *get returnEvent /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3369:18
+     10    0.1%    0.1%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/database/index.js:6:18
+     10    0.1%    0.1%  LazyCompile: *matcher /Users/kgilpin/source/appland/scanner/built/rules/logoutWithoutSessionReset.js:36:21
+      9    0.1%    0.1%  LazyCompile: *get id /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1867:9
+      9    0.1%    0.1%  LazyCompile: *get codeObject /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3165:17
+      9    0.1%    0.1%  LazyCompile: *constructDataChainFromEvent /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2103:37
+      9    0.1%    0.1%  LazyCompile: *_loop_1 /Users/kgilpin/source/appland/scanner/built/rules/secretInLog.js:76:28
+      9    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3868:12
+      9    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:8750
+      9    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:27736
+      8    0.1%    0.1%  LazyCompile: *foldStringWord /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:109274
+      8    0.1%    0.1%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/cli/scan.js:121:83
+      7    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/rootScope.js:20:40
+      7    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/rules/circularDependency.js:89:41
+      6    0.0%    0.0%  RegExp: (?:(xox[pborsa]-[0-9]{12}-[0-9]{12}-[0-9]{12}-[a-z0-9]{32}))|(?:-----BEGIN RSA PRIVATE KEY-----)|(?:-----BEGIN DSA PRIVATE KEY-----)|(?:-----BEGIN EC PRIVATE KEY-----)|(?:-----BEGIN PGP PRIVATE KEY BLOCK-----)|(?:((?:A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}))|(?:AKIA[0-9A-Z]{16})|(?:^\$2[abxy]?\$(?:0[4-9]|[12][0-9]|3[01])[$][.\/0-9a-zA-Z]{53}$)|(?:amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})|(?:da2-[a-z0-9]{26})|(?:EAACEdEose0cBA[0-9A-Za-z]+)|(?:[fF][aA][cC][eE][bB][oO][oO][kK].*['|"][0-9a-f]{32}['|"])|(?:[gG][iI][tT][hH][uU][bB].*['|"][0-9a-zA-Z]{35,40}['|"])|(?:gh[pousr]_[A-Za-z0-9]{36,255})|(?:[aA][pP][iI]_?[kK][eE][yY].*['|"][0-9a-zA-Z]{32,45}['|"])|(?:[sS][eE][cC][rR][eE][tT].*['|"][0-9a-zA-Z]{32,45}['|"])|(?:[sS][eE][cC][rR][eE][tT].[\w\-_/]+)|(?:AIza[0-9A-Za-z\-_]{35})|(?:AIza[0-9A-Za-z\-_]{35})|(?:[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com)|(?:AIza[0-9A-Za-z\-_]{35})|(?:[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com)|(?:"type": "service_account")|(?:AIza[0-9A-Za-z\-_]{35})|(?:[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com)|(?:ya29\.[0-9A-Za-z\-_]+)|(?:AIza[0-9A-Za-z\-_]{35})|(?:[0-9]+-[0-9A-Za-z_]{32}\.apps\.googleusercontent\.com)|(?:[hH][eE][rR][oO][kK][uU].*[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12})|(?:[0-9a-f]{32}-us[0-9]{1,2})|(?:key-[0-9a-zA-Z]{32})|(?:[a-zA-Z]{3,10}://[^/\s:@]{3,20}:[^/\s:@]{3,20}@.{1,100}["'\s])|(?:access_token\$production\$[0-9a-z]{16}\$[0-9a-f]{32})|(?:sk_live_[0-9a-z]{32})|(?:https://hooks\.slack\.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24})|(?:sk_live_[0-9a-zA-Z]{24})|(?:rk_live_[0-9a-zA-Z]{24})|(?:sq0atp-[0-9A-Za-z\-_]{22})|(?:sq0csp-[0-9A-Za-z\-_]{43})|(?:[0-9]+:AA[0-9A-Za-z\-_]{33})|(?:SK[0-9a-fA-F]{32})|(?:[tT][wW][iI][tT][tT][eE][rR].*[1-9][0-9]+-[0-9a-zA-Z]{40})|(?:[tT][wW][iI][tT][tT][eE][rR].*['|"][0-9a-zA-Z]{35,44}['|"]) {1}
+      6    0.0%    0.0%  LazyCompile: *where /Users/kgilpin/source/appland/scanner/built/rules/secretInLog.js:133:25
+      6    0.0%    0.0%  LazyCompile: *set linkedEvent /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3330:18
+      6    0.0%    0.0%  LazyCompile: *providesAuthentication /Users/kgilpin/source/appland/scanner/built/rules/lib/util.js:58:32
+      6    0.0%    0.0%  LazyCompile: *keyNode /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:109907
+      6    0.0%    0.0%  LazyCompile: *foldString /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:109019
+      6    0.0%    0.0%  LazyCompile: *CheckInstance.filterEvent /Users/kgilpin/source/appland/scanner/built/checkInstance.js:44:52
+      6    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2313:15
+      5    0.0%    0.0%  RegExp: \s+returning\s+\*
+      5    0.0%    0.0%  LazyCompile: *normalizeString path.js:59:25
+      5    0.0%    0.0%  LazyCompile: *get definedClass /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3202:19
+      5    0.0%    0.0%  LazyCompile: *composeBinary /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:110056
+      5    0.0%    0.0%  LazyCompile: *ancestors /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3393:12
+      5    0.0%    0.0%  LazyCompile: *ancestors /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1988:12
+      5    0.0%    0.0%  LazyCompile: *Socket._writeGeneric net.js:772:42
+      5    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/commandScope.js:20:40
+      5    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3578:26
+      5    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:6087
+      5    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:108064
+      4    0.0%    0.0%  RegExp: ^[^"]
+      4    0.0%    0.0%  RegExp: ^[\-+*\/<>=~!@#%\^&|`]
+      4    0.0%    0.0%  RegExp: ^(stmt)$
+      4    0.0%    0.0%  LazyCompile: *nodeToString /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:109727
+      4    0.0%    0.0%  LazyCompile: *isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+      4    0.0%    0.0%  LazyCompile: *get sql /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3133:10
+      4    0.0%    0.0%  LazyCompile: *__read /Users/kgilpin/source/appland/scanner/built/database/index.js:29:48
+      4    0.0%    0.0%  LazyCompile: *Glob._process /Users/kgilpin/source/appland/scanner/node_modules/glob/glob.js:295:36
+      4    0.0%    0.0%  LazyCompile: *CallNode /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2386:14
+      4    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/rules/circularDependency.js:138:34
+      4    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/cli/scan.js:119:94
+      4    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3701:16
+      4    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+      4    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2321:15
+      4    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1639:14
+      4    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:28049
+      3    0.0%    0.0%  RegExp: ^\[?((?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){6}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:\:\:(?:(?:[0-9A-Fa-f]{1,4})\:){5}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:[0-9A-Fa-f]{1,4}))?\:\:(?:(?:[0-9A-Fa-f]{1,4})\:){4}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,1}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:(?:[0-9A-Fa-f]{1,4})\:){3}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,2}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:(?:[0-9A-Fa-f]{1,4})\:){2}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,3}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:[0-9A-Fa-f]{1,4})\:(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,4}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,5}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,6}(?:[0-9A-Fa-f]{1,4}))?\:\:)))(?:(?:\%25|\%(?![0-9A-Fa-f]{2}))((?:(?:[A-Za-z0-9\-\.\_\~\xA0-\u200D\u2010-\u2029\u202F-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|(?:(?:%[EFef][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f])|(?:%[89A-Fa-f][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f])|(?:%[0-9A-Fa-f][0-9A-Fa-f])))+)))?\]?$
+      3    0.0%    0.0%  RegExp: ^[\n\v\f\r\t ]
+      3    0.0%    0.0%  RegExp: \{?(?:[0-9a-fA-F]-*){32}\}?
+      3    0.0%    0.0%  RegExp: (Statement|Clause)$
+      3    0.0%    0.0%  LazyCompile: *writeGeneric internal/stream_base_commons.js:143:22
+      3    0.0%    0.0%  LazyCompile: *takeWhile /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:194
+      3    0.0%    0.0%  LazyCompile: *sent /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:12:39
+      3    0.0%    0.0%  LazyCompile: *matcher /Users/kgilpin/source/appland/scanner/built/rules/secretInLog.js:125:27
+      3    0.0%    0.0%  LazyCompile: *inflight /Users/kgilpin/source/appland/scanner/node_modules/inflight/inflight.js:7:19
+      3    0.0%    0.0%  LazyCompile: *get parameters /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3169:17
+      3    0.0%    0.0%  LazyCompile: *get isFunction /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3125:17
+      3    0.0%    0.0%  LazyCompile: *get httpClientRequest /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3194:24
+      3    0.0%    0.0%  LazyCompile: *buildId /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2051:10
+      3    0.0%    0.0%  LazyCompile: *__generator /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:11:58
+      3    0.0%    0.0%  LazyCompile: *__awaiter /Users/kgilpin/source/appland/scanner/built/cli/scan.js:2:54
+      3    0.0%    0.0%  LazyCompile: *Tracer /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:355
+      3    0.0%    0.0%  LazyCompile: *RES /Users/kgilpin/source/appland/scanner/node_modules/inflight/inflight.js:18:28
+      3    0.0%    0.0%  LazyCompile: *AppMapIndex.sqlNormalized /Users/kgilpin/source/appland/scanner/built/appMapIndex.js:33:52
+      3    0.0%    0.0%  LazyCompile: *<anonymous> internal/fs/utils.js:662:42
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:7:40
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/rules/circularDependency.js:132:30
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3870:37
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3728:23
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2233:30
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1647:14
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:1359
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:27962
+      3    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:109175
+      2    0.0%    0.0%  RegExp: ^\[?((?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){6}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:\:\:(?:(?:[0-9A-Fa-f]{1,4})\:){5}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:[0-9A-Fa-f]{1,4}))?\:\:(?:(?:[0-9A-Fa-f]{1,4})\:){4}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,1}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:(?:[0-9A-Fa-f]{1,4})\:){3}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,2}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:(?:[0-9A-Fa-f]{1,4})\:){2}(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,3}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:[0-9A-Fa-f]{1,4})\:(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,4}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:(?:(?:[0-9A-Fa-f]{1,4})\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9])\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9][0-9])|(?:0?[1-9][0-9])|0?0?[0-9]))))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,5}(?:[0-9A-Fa-f]{1,4}))?\:\:(?:[0-9A-Fa-f]{1,4}))|(?:(?:(?:(?:[0-9A-Fa-f]{1,4})\:){0,6}(?:[0-9A-Fa-f]{1,4}))?\:\:)))(?:(?:\%25|\%(?![0-9A-Fa-f]{2}))((?:(?:[A-Za-z0-9\-\.\_\~]|(?:(?:%[EFef][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f])|(?:%[89A-Fa-f][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f])|(?:%[0-9A-Fa-f][0-9A-Fa-f])))+)))?\]?$
+      2    0.0%    0.0%  RegExp: ^[a-z0-9$_]
+      2    0.0%    0.0%  RegExp: ^[:@]
+      2    0.0%    0.0%  RegExp: ^(?:([^:\/?#]+):)?(?:\/\/((?:([^\/?#@]*)@)?(\[[^\/?#\]]+\]|[^\/?#:]*)(?:\:(\d*))?))?([^?#]*)(?:\?([^#]*))?(?:#((?:.|\n|\r)*))?
+      2    0.0%    0.0%  LazyCompile: *unescape /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:109536
+      2    0.0%    0.0%  LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:7:22
+      2    0.0%    0.0%  LazyCompile: *set parameters /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3306:17
+      2    0.0%    0.0%  LazyCompile: *set next /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3334:11
+      2    0.0%    0.0%  LazyCompile: *peg$otherExpectation /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:103469
+      2    0.0%    0.0%  LazyCompile: *peg$literalExpectation /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:103135
+      2    0.0%    0.0%  LazyCompile: *onwrite internal/streams/writable.js:394:17
+      2    0.0%    0.0%  LazyCompile: *matcher /Users/kgilpin/source/appland/scanner/built/rules/tooManyJoins.js:26:21
+      2    0.0%    0.0%  LazyCompile: *getStatsFromBinding internal/fs/utils.js:513:29
+      2    0.0%    0.0%  LazyCompile: *get sqlQuery /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3238:15
+      2    0.0%    0.0%  LazyCompile: *get parent /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3157:13
+      2    0.0%    0.0%  LazyCompile: *get httpServerResponse /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3190:25
+      2    0.0%    0.0%  LazyCompile: *get /Users/kgilpin/source/appland/scanner/node_modules/lru-cache/index.js:259:13
+      2    0.0%    0.0%  LazyCompile: *fulfilled /Users/kgilpin/source/appland/scanner/built/cli/scan.js:5:27
+      2    0.0%    0.0%  LazyCompile: *addHiddenProperty /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1604:27
+      2    0.0%    0.0%  LazyCompile: *__generator /Users/kgilpin/source/appland/scanner/built/scope/scopeImpl.js:2:58
+      2    0.0%    0.0%  LazyCompile: *Module._nodeModulePaths internal/modules/cjs/loader.js:597:37
+      2    0.0%    0.0%  LazyCompile: *Graph.addEdge /Users/kgilpin/source/appland/scanner/built/algorithms/dataStructures/graph/Graph.js:38:40
+      2    0.0%    0.0%  LazyCompile: *Glob._processReaddir2 /Users/kgilpin/source/appland/scanner/node_modules/glob/glob.js:372:44
+      2    0.0%    0.0%  LazyCompile: *Glob._processGlobStar2 /Users/kgilpin/source/appland/scanner/node_modules/glob/glob.js:628:45
+      2    0.0%    0.0%  LazyCompile: *CheckInstance /Users/kgilpin/source/appland/scanner/built/checkInstance.js:5:27
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/node_modules/glob/glob.js:367:43
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3872:39
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3730:17
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2365:53
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1646:13
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:6263
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:6218
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:27871
+      2    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:109477
+      1    0.0%    0.0%  RegExp: ^app/models/?
+      1    0.0%    0.0%  RegExp: ^[^']
+      1    0.0%    0.0%  RegExp: ^[\t ]
+      1    0.0%    0.0%  RegExp: ^[0-9]
+      1    0.0%    0.0%  RegExp: ^0x[0-9a-f]+$
+      1    0.0%    0.0%  RegExp: [^\w]+
+      1    0.0%    0.0%  RegExp: -?\b(?:[0-9]+\.)?[0-9]+([eE][+-]?[0-9]+)?\b
+      1    0.0%    0.0%  RegExp: (^|\\|\/)(\.\.?|node_modules)(\\|\/|$)
+      1    0.0%    0.0%  RegExp: (?:(?:%[EFef][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f])|(?:%[89A-Fa-f][0-9A-Fa-f]%[0-9A-Fa-f][0-9A-Fa-f])|(?:%[0-9A-Fa-f][0-9A-Fa-f]))
+      1    0.0%    0.0%  RegExp: (?:#|--).*?(?=\r|\n|$)
+      1    0.0%    0.0%  RegExp: '|\/\*|\*\/|\$(?!\?)
+      1    0.0%    0.0%  RegExp: '{2}
+      1    0.0%    0.0%  RegExp: "{2} {1}
+      1    0.0%    0.0%  RegExp: "{2}
+      1    0.0%    0.0%  LazyCompile: *wrapper /Users/kgilpin/source/appland/scanner/node_modules/wrappy/wrappy.js:19:19
+      1    0.0%    0.0%  LazyCompile: *where /Users/kgilpin/source/appland/scanner/built/rules/saveWithoutValidation.js:20:25
+      1    0.0%    0.0%  LazyCompile: *visit /Users/kgilpin/source/appland/scanner/built/database/visit.js:31:15
+      1    0.0%    0.0%  LazyCompile: *traverseEvent /Users/kgilpin/source/appland/scanner/built/rules/circularDependency.js:106:34
+      1    0.0%    0.0%  LazyCompile: *transform /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3633:19
+      1    0.0%    0.0%  LazyCompile: *set codeObject /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3300:17
+      1    0.0%    0.0%  LazyCompile: *sent /Users/kgilpin/source/appland/scanner/built/scope/scopeImpl.js:3:39
+      1    0.0%    0.0%  LazyCompile: *sent /Users/kgilpin/source/appland/scanner/built/scope/rootScope.js:18:39
+      1    0.0%    0.0%  LazyCompile: *sent /Users/kgilpin/source/appland/scanner/built/scope/commandScope.js:18:39
+      1    0.0%    0.0%  LazyCompile: *peg$classExpectation /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:103238
+      1    0.0%    0.0%  LazyCompile: *makeArray /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:108891
+      1    0.0%    0.0%  LazyCompile: *isUpdate /Users/kgilpin/source/appland/scanner/built/rules/tooManyUpdates.js:53:29
+      1    0.0%    0.0%  LazyCompile: *isReturn /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3361:11
+      1    0.0%    0.0%  LazyCompile: *indexCodeObject /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2213:25
+      1    0.0%    0.0%  LazyCompile: *hasProp /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1311:17
+      1    0.0%    0.0%  LazyCompile: *get locations /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1913:16
+      1    0.0%    0.0%  LazyCompile: *get linkedEvent /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3145:18
+      1    0.0%    0.0%  LazyCompile: *get httpServerRequest /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3186:24
+      1    0.0%    0.0%  LazyCompile: *get children /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3161:15
+      1    0.0%    0.0%  LazyCompile: *flattenAll /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:109400
+      1    0.0%    0.0%  LazyCompile: *findOrCreateCodeObject /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2317:42
+      1    0.0%    0.0%  LazyCompile: *enterVertex /Users/kgilpin/source/appland/scanner/built/algorithms/graph/detect-cycle/index.js:31:31
+      1    0.0%    0.0%  LazyCompile: *dirname path.js:1247:10
+      1    0.0%    0.0%  LazyCompile: *codeObjectFromEvent /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2268:22
+      1    0.0%    0.0%  LazyCompile: *callEvents /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:111:47
+      1    0.0%    0.0%  LazyCompile: *builder /Users/kgilpin/source/appland/scanner/node_modules/chalk/source/index.js:139:18
+      1    0.0%    0.0%  LazyCompile: *build /Users/kgilpin/source/appland/scanner/built/rules/secretInLog.js:123:15
+      1    0.0%    0.0%  LazyCompile: *build /Users/kgilpin/source/appland/scanner/built/rules/saveWithoutValidation.js:17:15
+      1    0.0%    0.0%  LazyCompile: *authenticatedBy /Users/kgilpin/source/appland/scanner/built/rules/missingAuthentication.js:11:32
+      1    0.0%    0.0%  LazyCompile: *applyStyle /Users/kgilpin/source/appland/scanner/node_modules/chalk/source/index.js:161:20
+      1    0.0%    0.0%  LazyCompile: *adopt /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:3:19
+      1    0.0%    0.0%  LazyCompile: *__values /Users/kgilpin/source/appland/scanner/built/rules/secretInLog.js:46:51
+      1    0.0%    0.0%  LazyCompile: *__values /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:38:51
+      1    0.0%    0.0%  LazyCompile: *__generator /Users/kgilpin/source/appland/scanner/built/cli/scan.js:11:58
+      1    0.0%    0.0%  LazyCompile: *Writable.write internal/streams/writable.js:258:36
+      1    0.0%    0.0%  LazyCompile: *ScopeImpl.events /Users/kgilpin/source/appland/scanner/built/scope/scopeImpl.js:47:43
+      1    0.0%    0.0%  LazyCompile: *ScopeImpl /Users/kgilpin/source/appland/scanner/built/scope/scopeImpl.js:43:23
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/rules/tooManyUpdates.js:58:48
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/rules/lib/matchPattern.js:10:25
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:3:80
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:14:40
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/database/index.js:5:40
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/cli/scan.js:119:153
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1304:18
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:1786
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:5222
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4334
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:31808
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104726
+
+ [C++]:
+   ticks  total  nonlib   name
+   7953   50.9%   51.5%  t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+    292    1.9%    1.9%  t __ZN2v88internal11StringShape33DispatchToSpecificTypeWithoutCastIZNS1_22DispatchToSpecificTypeIZNS0_6String3GetEiE19StringGetDispatchertJRiEEET0_S4_DpOT1_E17CastingDispatchertJRS4_S6_EEES7_SA_
+     73    0.5%    0.5%  T _mig_dealloc_reply_port
+     68    0.4%    0.4%  t __ZN2v88internal12StringHasher20HashSequentialStringIhEEjPKT_iy
+     68    0.4%    0.4%  T __kernelrpc_mach_port_set_attributes
+     52    0.3%    0.3%  t _mach_error_string_int
+     47    0.3%    0.3%  t __ZN4node6Buffer12_GLOBAL__N_111StringSliceILNS_8encodingE1EEEvRKN2v820FunctionCallbackInfoINS4_5ValueEEE
+     37    0.2%    0.2%  t __ZN2v88internal12StringHasher20HashSequentialStringItEEjPKT_iy
+     36    0.2%    0.2%  T _mach_get_times
+     34    0.2%    0.2%  T __ZN4node10StreamBase8JSMethodIXadL_ZNS0_11WriteStringILNS_8encodingE1EEEiRKN2v820FunctionCallbackInfoINS4_5ValueEEEEEEEvS9_
+     33    0.2%    0.2%  T __ZN2v88internal9Accessors17ArrayLengthSetterENS_5LocalINS_4NameEEENS2_INS_5ValueEEERKNS_20PropertyCallbackInfoINS_7BooleanEEE
+     32    0.2%    0.2%  t __ZN2v88internal14LookupIteratorC2EPNS0_7IsolateENS0_6HandleINS0_6ObjectEEENS4_INS0_4NameEEEmNS4_INS0_10JSReceiverEEENS1_13ConfigurationE
+     32    0.2%    0.2%  T __ZN4node13native_module15NativeModuleEnv15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+     27    0.2%    0.2%  T __ZN4node10contextify17ContextifyContext15CompileFunctionERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+     24    0.2%    0.2%  T __os_log_simple_parse_type
+     20    0.1%    0.1%  t __ZN2v88internal6String7FlattenEPNS0_7IsolateENS0_6HandleIS1_EENS0_14AllocationTypeE
+     19    0.1%    0.1%  T _platform_task_update_threads
+     16    0.1%    0.1%  t __ZN2v88internal19SequentialStringKeyItE7IsMatchENS0_6StringE
+     15    0.1%    0.1%  T _semaphore_create
+     15    0.1%    0.1%  T _platform_thread_info
+     15    0.1%    0.1%  T _mk_timer_cancel
+     14    0.1%    0.1%  t __platform_thread_deallocate
+     14    0.1%    0.1%  T __kernelrpc_mach_port_request_notification
+     13    0.1%    0.1%  t __ZN4node3url12_GLOBAL__N_15ParseERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+     12    0.1%    0.1%  T _semaphore_destroy
+      9    0.1%    0.1%  t __ZN4node2fsL14OpenFileHandleERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      8    0.1%    0.1%  t __ZN4node2fsL5LStatERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      7    0.0%    0.0%  t __ZN4node2fsL5FStatERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      7    0.0%    0.0%  T _platform_thread_set_state
+      7    0.0%    0.0%  T __kernelrpc_mach_vm_allocate_trap
+      7    0.0%    0.0%  T __ZN4node2fs16NewFSReqCallbackERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      6    0.0%    0.0%  T _platform_thread_perform
+      5    0.0%    0.0%  t __ZN4nodeL9EnvGetterEN2v85LocalINS0_4NameEEERKNS0_20PropertyCallbackInfoINS0_5ValueEEE
+      4    0.0%    0.0%  t __ZNSt3__112__hash_tableIN4node19CleanupHookCallbackENS2_4HashENS2_5EqualENS_9allocatorIS2_EEE14__erase_uniqueIS2_EEmRKT_
+      4    0.0%    0.0%  t __ZN4node2fsL4ReadERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      4    0.0%    0.0%  t __ZN4node2fsL11WriteStringERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      4    0.0%    0.0%  t __ZN2v88internal17PrototypeIterator7AdvanceEv
+      4    0.0%    0.0%  T _host_request_notification
+      3    0.0%    0.0%  t __ZNSt3__112__hash_tableIN4node19CleanupHookCallbackENS2_4HashENS2_5EqualENS_9allocatorIS2_EEE4findIS2_EENS_15__hash_iteratorIPNS_11__hash_nodeIS2_PvEEEERKT_
+      3    0.0%    0.0%  t __ZN2v88internal19SequentialStringKeyIhE7IsMatchENS0_6StringE
+      3    0.0%    0.0%  T _task_restartable_ranges_synchronize
+      3    0.0%    0.0%  T _platform_task_copy_next_thread
+      3    0.0%    0.0%  T __os_log_simple_parse_subsystem
+      3    0.0%    0.0%  T __os_log_simple_parse_message
+      3    0.0%    0.0%  T __ZN4node6crypto4Hash10HashUpdateERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      2    0.0%    0.0%  t __ZZN4node15LibuvStreamWrap10InitializeEN2v85LocalINS1_6ObjectEEENS2_INS1_5ValueEEENS2_INS1_7ContextEEEPvEN3$_08__invokeERKNS1_20FunctionCallbackInfoIS5_EE
+      2    0.0%    0.0%  t __ZN4node2fsL4OpenERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      2    0.0%    0.0%  t __ZN2v88internalL24Builtin_Impl_ArrayConcatENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      2    0.0%    0.0%  t __ZN2v88internal9CopyCharsIhtEEvPT0_PKT_m
+      2    0.0%    0.0%  t __ZN2v88internal12_GLOBAL__N_116Fast_ArrayConcatEPNS0_7IsolateEPNS0_16BuiltinArgumentsE
+      2    0.0%    0.0%  t __ZN2v88internal10JSReceiver11HasPropertyENS0_6HandleIS1_EENS2_INS0_4NameEEE
+      2    0.0%    0.0%  T _pthread_mutex_trylock
+      2    0.0%    0.0%  T _os_packet_get_traffic_class
+      2    0.0%    0.0%  T __os_log_simple_send
+      2    0.0%    0.0%  T __ZN4node7TTYWrap3NewERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      2    0.0%    0.0%  T __ZN4node2fs15FSReqAfterScopeC2EPNS0_9FSReqBaseEP7uv_fs_s
+      2    0.0%    0.0%  T __ZN4node2fs10FileHandle5CloseERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      2    0.0%    0.0%  T __ZN2v88internal25PropertyCallbackArgumentsC1EPNS0_7IsolateENS0_6ObjectES4_NS0_8JSObjectENS_5MaybeINS0_11ShouldThrowEEE
+      1    0.0%    0.0%  t __pthread_mutex_check_init_slow
+      1    0.0%    0.0%  t __ZZN4node2fs10FileHandle12ClosePromiseEvEN3$_08__invokeEP7uv_fs_s
+      1    0.0%    0.0%  t __ZThn8_NK4node22PerIsolatePlatformData30NonNestableDelayedTasksEnabledEv
+      1    0.0%    0.0%  t __ZThn8_N2v88internal23PointersUpdatingVisitorD1Ev
+      1    0.0%    0.0%  t __ZNSt3__127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+      1    0.0%    0.0%  t __ZNSt3__124__put_character_sequenceIcNS_11char_traitsIcEEEERNS_13basic_ostreamIT_T0_EES7_PKS4_m
+      1    0.0%    0.0%  t __ZNSt3__113__vector_baseIN2v88internal15TranslatedFrameENS_9allocatorIS3_EEED2Ev
+      1    0.0%    0.0%  t __ZNSt3__113__tree_removeIPNS_16__tree_node_baseIPvEEEEvT_S5_
+      1    0.0%    0.0%  t __ZNSt3__112__hash_tableImNS_4hashImEENS_8equal_toImEENS_9allocatorImEEE8__rehashEm
+      1    0.0%    0.0%  t __ZNK4node32NonOwningExternalTwoByteResource4dataEv
+      1    0.0%    0.0%  t __ZNK2v88internal10ScopedListIPNS0_9StatementEPvE6CopyToEPNS0_8ZoneListIS3_EEPNS0_4ZoneE
+      1    0.0%    0.0%  t __ZN4node9inspector12_GLOBAL__N_120InspectorConsoleCallERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node6Buffer12_GLOBAL__N_116CreateFromStringERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node6Buffer12_GLOBAL__N_114ByteLengthUtf8ERKN2v820FunctionCallbackInfoINS2_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node2fsL18InternalModuleStatERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node2fsL11WriteBufferERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  t __ZN4node12_GLOBAL__N_19GetErrMapERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  t __ZN2v88internalL21Builtin_Impl_ArrayPopENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      1    0.0%    0.0%  t __ZN2v88internal6Object20GetPropertyOrElementEPNS0_7IsolateENS0_6HandleIS1_EENS4_INS0_4NameEEE
+      1    0.0%    0.0%  t __ZN2v88internal12_GLOBAL__N_124ProbeInstantiationsCacheEPNS0_7IsolateENS0_6HandleINS0_13NativeContextEEEiNS1_11CachingModeE
+      1    0.0%    0.0%  t __ZN2v88internal12_GLOBAL__N_119HandleApiCallHelperILb0EEENS0_11MaybeHandleINS0_6ObjectEEEPNS0_7IsolateENS0_6HandleINS0_10HeapObjectEEESA_NS8_INS0_20FunctionTemplateInfoEEENS8_IS4_EENS0_16BuiltinArgumentsE
+      1    0.0%    0.0%  t __ZN2v84base19TemplateHashMapImplIPvS2_NS0_26HashEqualityThenKeyMatcherIS2_PFbS2_S2_EEENS0_23DefaultAllocationPolicyEE9InsertNewERKS2_jS7_
+      1    0.0%    0.0%  t __ZN2v84base19TemplateHashMapImplIPvS2_NS0_26HashEqualityThenKeyMatcherIS2_PFbS2_S2_EEENS0_23DefaultAllocationPolicyEE6ResizeES7_
+      1    0.0%    0.0%  T _platform_thread_suspend
+      1    0.0%    0.0%  T _macx_backing_store_suspend
+      1    0.0%    0.0%  T __ZZN4node10BaseObject8MakeWeakEvENUlRKN2v816WeakCallbackInfoIS0_EEE_8__invokeES5_
+      1    0.0%    0.0%  T __ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii
+      1    0.0%    0.0%  T __ZNK2v85Value10IsFunctionEv
+      1    0.0%    0.0%  T __ZN4node9AsyncWrap21EmitTraceEventDestroyEv
+      1    0.0%    0.0%  T __ZN4node7binding18GetInternalBindingERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  T __ZN4node6errors13TryCatchScopeD1Ev
+      1    0.0%    0.0%  T __ZN4node3url3URL5ParseEPKcmNS0_15url_parse_stateEPNS0_8url_dataEbPKS5_b
+      1    0.0%    0.0%  T __ZN4node2fs5CloseERKN2v820FunctionCallbackInfoINS1_5ValueEEE
+      1    0.0%    0.0%  T __ZN4node2fs19AfterOpenFileHandleEP7uv_fs_s
+      1    0.0%    0.0%  T __ZN4node2fs10FileHandle8CloseReq7ResolveEv
+      1    0.0%    0.0%  T __ZN4node24MakeLibuvRequestCallbackI7uv_fs_sPFvPS1_EE7WrapperES2_
+      1    0.0%    0.0%  T __ZN4node21InternalCallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi
+      1    0.0%    0.0%  T __ZN4node21InternalCallbackScopeC1EPNS_9AsyncWrapEi
+      1    0.0%    0.0%  T __ZN4node21InternalCallbackScope5CloseEv
+      1    0.0%    0.0%  T __ZN4node12NodePlatform27MonotonicallyIncreasingTimeEv
+      1    0.0%    0.0%  T __ZN4node12NodePlatform18CallOnWorkerThreadENSt3__110unique_ptrIN2v84TaskENS1_14default_deleteIS4_EEEE
+      1    0.0%    0.0%  T __ZN4node11Environment27RunAndClearNativeImmediatesEb
+      1    0.0%    0.0%  T __ZN4node11Environment16RunBootstrappingEv
+      1    0.0%    0.0%  T __ZN4node10StreamBase9GetObjectEv
+      1    0.0%    0.0%  T __ZN2v88internal5ScopeC2EPNS0_4ZoneENS0_9ScopeTypeENS0_6HandleINS0_9ScopeInfoEEE
+      1    0.0%    0.0%  T __ZN2v88internal5Scope28AllocateVariablesRecursivelyEv
+      1    0.0%    0.0%  T __ZN2v88internal5Scope15DeclareVariableEPNS0_11DeclarationEPKNS0_12AstRawStringEiNS0_12VariableModeENS0_12VariableKindENS0_18InitializationFlagEPbSA_SA_
+      1    0.0%    0.0%  T __ZN2v88internal25FunctionCallbackArgumentsC1EPNS0_7IsolateENS0_6ObjectENS0_10HeapObjectES4_S5_Pmi
+      1    0.0%    0.0%  T __ZN2v88internal22HandleScopeImplementer11IterateThisEPNS0_11RootVisitorE
+      1    0.0%    0.0%  T __ZN2v88internal21Builtin_HandleApiCallEiPmPNS0_7IsolateE
+      1    0.0%    0.0%  T __ZN2v88internal19Builtin_ArrayConcatEiPmPNS0_7IsolateE
+      1    0.0%    0.0%  T __ZN2v88internal12AstRawString7CompareEPvS2_
+      1    0.0%    0.0%  T __ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_
+      1    0.0%    0.0%  T __ZN2v87Context4ExitEv
+      1    0.0%    0.0%  T __ZN2v82V818GlobalizeReferenceEPNS_8internal7IsolateEPm
+      1    0.0%    0.0%  T __ZN2v811HandleScopeC1EPNS_7IsolateE
+
+ [Summary]:
+   ticks  total  nonlib   name
+   6058   38.8%   39.2%  JavaScript
+   9140   58.5%   59.2%  C++
+    996    6.4%    6.4%  GC
+    174    1.1%          Shared libraries
+    254    1.6%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+   7897   96.4%   50.5%  t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+    216    2.6%    1.4%  T __ZN2v88internal21Builtin_HandleApiCallEiPmPNS0_7IsolateE
+     21    0.3%    0.1%  T __ZN2v88internal30Builtin_ErrorCaptureStackTraceEiPmPNS0_7IsolateE
+     20    0.2%    0.1%  T __ZN2v88internal19Builtin_ArrayConcatEiPmPNS0_7IsolateE
+     15    0.2%    0.1%  T _semaphore_create
+      6    0.1%    0.0%  T __ZN2v88internal16Builtin_ArrayPopEiPmPNS0_7IsolateE
+      4    0.0%    0.0%  T __kernelrpc_mach_port_request_notification
+      3    0.0%    0.0%  T _mig_dealloc_reply_port
+      2    0.0%    0.0%  T _platform_task_update_threads
+      2    0.0%    0.0%  T __ZN2v88internal23Builtin_DateConstructorEiPmPNS0_7IsolateE
+      1    0.0%    0.0%  t __pthread_mutex_check_init_slow
+      1    0.0%    0.0%  T _host_request_notification
+      1    0.0%    0.0%  T __ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii
+      1    0.0%    0.0%  T __ZN4node3url3URL5ParseEPKcmNS0_15url_parse_stateEPNS0_8url_dataEbPKS5_b
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   7953   50.9%  t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+   4550   57.2%    t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+   1602   35.2%      LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   1600   99.9%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   1599   99.9%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   1599  100.0%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   1433   31.5%      t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+   1147   80.0%        LazyCompile: *peg$decode /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104691
+   1087   94.8%          LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+   1056   97.1%            LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+     31    2.9%            LazyCompile: *isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+     60    5.2%          LazyCompile: ~peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+     60  100.0%            LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+     31    2.2%        LazyCompile: *visitNode /Users/kgilpin/source/appland/scanner/built/database/visit.js:39:19
+     23   74.2%          LazyCompile: *visitNode /Users/kgilpin/source/appland/scanner/built/database/visit.js:39:19
+     19   82.6%            LazyCompile: *visitNode /Users/kgilpin/source/appland/scanner/built/database/visit.js:39:19
+      3   13.0%            LazyCompile: ~visit /Users/kgilpin/source/appland/scanner/built/database/visit.js:31:15
+      1    4.3%            LazyCompile: *visit /Users/kgilpin/source/appland/scanner/built/database/visit.js:31:15
+      6   19.4%          LazyCompile: ~visit /Users/kgilpin/source/appland/scanner/built/database/visit.js:31:15
+      5   83.3%            LazyCompile: ~isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+      1   16.7%            LazyCompile: ~countJoins /Users/kgilpin/source/appland/scanner/built/database/index.js:222:20
+      2    6.5%          LazyCompile: *visit /Users/kgilpin/source/appland/scanner/built/database/visit.js:31:15
+      1   50.0%            LazyCompile: ~isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+      1   50.0%            LazyCompile: ~countJoins /Users/kgilpin/source/appland/scanner/built/database/index.js:222:20
+     25    1.7%        LazyCompile: ~collectEvents /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3865:16
+     25  100.0%          LazyCompile: ~build /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3882:8
+     25  100.0%            LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/scanner/built/cli/scan.js:104:63
+     20    1.4%        LazyCompile: ~bindEvents /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2306:13
+     20  100.0%          LazyCompile: ~AppMap /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2926:14
+     20  100.0%            LazyCompile: ~build /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3882:8
+     15    1.0%        LazyCompile: *Event /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3062:14
+     15  100.0%          LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+     15  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+    272    6.0%      LazyCompile: *Event /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3062:14
+    265   97.4%        LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+    265  100.0%          t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+    265  100.0%            LazyCompile: ~source /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3655:9
+      7    2.6%        LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+      7  100.0%          t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      7  100.0%            LazyCompile: ~source /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3655:9
+    249    5.5%      LazyCompile: ~source /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3655:9
+    249  100.0%        LazyCompile: ~AppMapBuilder /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3639:14
+    249  100.0%          LazyCompile: ~buildAppMap /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3889:21
+    249  100.0%            LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/scanner/built/cli/scan.js:104:63
+    122    2.7%      LazyCompile: ~sizeof /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1659:16
+    122  100.0%        LazyCompile: ~size /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3562:7
+    122  100.0%          LazyCompile: ~build /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3882:8
+    122  100.0%            LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/scanner/built/cli/scan.js:104:63
+     89    2.0%      LazyCompile: *addHiddenProperty /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1604:27
+     82   92.1%        LazyCompile: *Event /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3062:14
+     77   93.9%          LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+     77  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      5    6.1%          LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+      5  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      3    3.4%        LazyCompile: ~Event /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3062:14
+      3  100.0%          LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+      3  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      3    3.4%        LazyCompile: ~CallNode /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2386:14
+      3  100.0%          LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2852:20
+      3  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      1    1.1%        LazyCompile: ~CodeObject /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1851:14
+      1  100.0%          LazyCompile: ~buildCodeObject /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2224:29
+      1  100.0%            LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2228:37
+     61    1.3%      LazyCompile: *traverseChildren /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3971:31
+     31   50.8%        LazyCompile: *descendants /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3970:15
+     31  100.0%          t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+     15   48.4%            LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/scopeImpl.js:50:43
+      9   29.0%            LazyCompile: *matcher /Users/kgilpin/source/appland/scanner/built/rules/deserializationOfUntrustedData.js:110:21
+      3    9.7%            LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/scope/commandScope.js:69:43
+      1    3.2%            LazyCompile: ~validatedBy /Users/kgilpin/source/appland/scanner/built/rules/saveWithoutValidation.js:5:28
+      1    3.2%            LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/deserializationOfUntrustedData.js:110:21
+      1    3.2%            LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/authzBeforeAuthn.js:37:21
+      1    3.2%            LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/database/index.js:177:39
+     30   49.2%        t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+     28   93.3%          LazyCompile: *traverseChildren /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3971:31
+     28  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      2    6.7%          LazyCompile: *descendants /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3970:15
+      2  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+     48    1.1%      LazyCompile: *trace /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:620
+     48  100.0%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     48  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     48  100.0%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   1003   12.6%    LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   1000   99.7%      LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    997   99.7%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    992   99.5%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    988   99.6%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    228    2.9%    LazyCompile: *trace /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:620
+    227   99.6%      LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    227  100.0%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    227  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    226   99.6%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    147    1.8%    LazyCompile: ~peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    145   98.6%      LazyCompile: ~peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    144   99.3%        LazyCompile: ~peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    143   99.3%          LazyCompile: ~peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    139   97.2%            LazyCompile: ~peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      3    2.1%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      2    1.4%      LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      2  100.0%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      2  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      2  100.0%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+
+   2514   16.1%  LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   2449   97.4%    LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   2391   97.6%      LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   2375   99.3%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   2332   98.2%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+   2319   99.4%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     36    1.5%          LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+     36  100.0%            LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+     44    1.8%      LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+     43   97.7%        LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+     43  100.0%          LazyCompile: ~parse /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1039:15
+     39   90.7%            LazyCompile: ~isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+      4    9.3%            LazyCompile: ~AppMapIndex.sqlAST /Users/kgilpin/source/appland/scanner/built/appMapIndex.js:14:45
+      1    2.3%        LazyCompile: *isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+      1  100.0%          LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:52:27
+      1  100.0%            LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+     30    1.2%    LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+     30  100.0%      LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+     30  100.0%        LazyCompile: ~parse /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1039:15
+     25   83.3%          LazyCompile: ~isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+     25  100.0%            LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:52:27
+      5   16.7%          LazyCompile: ~AppMapIndex.sqlAST /Users/kgilpin/source/appland/scanner/built/appMapIndex.js:14:45
+      5  100.0%            LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/tooManyJoins.js:26:21
+
+    512    3.3%  RegExp: (^whitespace)|(char$)|(^[oe]$)|(^sym\_)
+    512  100.0%    t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+    503   98.2%      LazyCompile: *trace /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:620
+    499   99.2%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    499  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    499  100.0%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+
+    395    2.5%  LazyCompile: *peg$decode /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104691
+    355   89.9%    LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+    341   96.1%      LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+    341  100.0%        LazyCompile: ~parse /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1039:15
+    318   93.3%          LazyCompile: ~isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+    318  100.0%            LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:52:27
+     22    6.5%          LazyCompile: ~AppMapIndex.sqlAST /Users/kgilpin/source/appland/scanner/built/appMapIndex.js:14:45
+     22  100.0%            LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/tooManyJoins.js:26:21
+     14    3.9%      LazyCompile: *isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+     14  100.0%        LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:52:27
+     14  100.0%          LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+     14  100.0%            LazyCompile: *step /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:15:18
+     24    6.1%    LazyCompile: ~peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+     24  100.0%      LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+     24  100.0%        LazyCompile: ~parse /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1039:15
+     23   95.8%          LazyCompile: ~isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+     23  100.0%            LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:52:27
+      1    4.2%          LazyCompile: ~AppMapIndex.sqlAST /Users/kgilpin/source/appland/scanner/built/appMapIndex.js:14:45
+      1  100.0%            LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/tooManyJoins.js:26:21
+     16    4.1%    LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+     16  100.0%      LazyCompile: ~parse /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1039:15
+     11   68.8%        LazyCompile: ~isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+     11  100.0%          LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:52:27
+      6   54.5%            LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+      5   45.5%            LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+      5   31.3%        LazyCompile: ~AppMapIndex.sqlAST /Users/kgilpin/source/appland/scanner/built/appMapIndex.js:14:45
+      5  100.0%          LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/tooManyJoins.js:26:21
+      5  100.0%            LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+
+    324    2.1%  LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+    322   99.4%    LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+    322  100.0%      LazyCompile: ~parse /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1039:15
+    274   85.1%        LazyCompile: ~isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+    274  100.0%          LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:52:27
+    263   96.0%            LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+     11    4.0%            LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+     46   14.3%        LazyCompile: ~AppMapIndex.sqlAST /Users/kgilpin/source/appland/scanner/built/appMapIndex.js:14:45
+     46  100.0%          LazyCompile: ~matcher /Users/kgilpin/source/appland/scanner/built/rules/tooManyJoins.js:26:21
+     45   97.8%            LazyCompile: *<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+      1    2.2%            LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/scanner/built/ruleChecker.js:201:47
+
+    292    1.9%  t __ZN2v88internal11StringShape33DispatchToSpecificTypeWithoutCastIZNS1_22DispatchToSpecificTypeIZNS0_6String3GetEiE19StringGetDispatchertJRiEEET0_S4_DpOT1_E17CastingDispatchertJRS4_S6_EEES7_SA_
+    292  100.0%    t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+    290   99.3%      t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+    284   97.9%        LazyCompile: *peg$decode /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104691
+    269   94.7%          LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+    262   97.4%            LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+      7    2.6%            LazyCompile: *isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+     15    5.3%          LazyCompile: ~peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+     15  100.0%            LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+      4    1.4%        LazyCompile: ~peg$decode /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104691
+      3   75.0%          LazyCompile: ~peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+      3  100.0%            LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+      1   25.0%          LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+      1  100.0%            LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+
+    254    1.6%  UNKNOWN
+    154   60.6%    t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+     48   31.2%      t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+     23   47.9%        LazyCompile: *peg$decode /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104691
+     23  100.0%          LazyCompile: *peg$parse /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:4136
+     22   95.7%            LazyCompile: ~sqliteParser /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/index.js:6:223
+      1    4.3%            LazyCompile: *isApplicable /Users/kgilpin/source/appland/scanner/built/rules/unbatchedMaterializedQuery.js:12:22
+     18   37.5%        LazyCompile: *trace /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:620
+     18  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     18  100.0%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      3    6.3%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      3  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      3  100.0%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      2    4.2%        LazyCompile: *Event /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3062:14
+      2  100.0%          LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+      2  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      1    2.1%        LazyCompile: ~classLocations /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2072:17
+      1  100.0%          LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2073:27
+      1  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      1    2.1%        LazyCompile: ~_normalizeIPv6 /Users/kgilpin/source/appland/scanner/node_modules/uri-js/dist/es5/uri.all.js:811:24
+      1  100.0%          LazyCompile: ~_recomposeAuthority /Users/kgilpin/source/appland/scanner/node_modules/uri-js/dist/es5/uri.all.js:951:29
+      1  100.0%            LazyCompile: ~serialize /Users/kgilpin/source/appland/scanner/node_modules/uri-js/dist/es5/uri.all.js:1001:19
+     36   23.4%      LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     36  100.0%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     36  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     36  100.0%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     27   17.5%      LazyCompile: ~source /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3655:9
+     27  100.0%        LazyCompile: ~AppMapBuilder /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3639:14
+     27  100.0%          LazyCompile: ~buildAppMap /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3889:21
+     27  100.0%            LazyCompile: ~<anonymous> /Users/kgilpin/source/appland/scanner/built/cli/scan.js:104:63
+     21   13.6%      LazyCompile: *trace /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:620
+     21  100.0%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     21  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+     21  100.0%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+      4    2.6%      LazyCompile: *Event /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3062:14
+      4  100.0%        LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+      4  100.0%          t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      4  100.0%            LazyCompile: ~source /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3655:9
+      2    1.3%      LazyCompile: ~_addListener events.js:428:22
+      2  100.0%        LazyCompile: ~addListener events.js:496:58
+      2  100.0%          LazyCompile: ~Readable.on internal/streams/readable.js:852:33
+      2  100.0%            LazyCompile: ~once events.js:538:44
+      2    1.3%      LazyCompile: *addHiddenProperty /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:1604:27
+      2  100.0%        LazyCompile: *Event /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3062:14
+      2  100.0%          LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:3668:12
+      2  100.0%            t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      2    1.3%      LazyCompile: *<anonymous> /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2852:20
+      2  100.0%        t __ZN2v88internalL44Builtin_Impl_V8BreakIteratorPrototypeCurrentENS0_16BuiltinArgumentsEPNS0_7IsolateE
+      2  100.0%          LazyCompile: ~CallTree /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2842:14
+      2  100.0%            LazyCompile: ~AppMap /Users/kgilpin/source/appland/appmap-js/packages/models/dist/index.cjs:2926:14
+
+    159    1.0%  LazyCompile: *trace /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/tracer.js:6:620
+    157   98.7%    LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    157  100.0%      LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    156   99.4%        LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    156  100.0%          LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+    154   98.7%            LazyCompile: *peg$parseRule /Users/kgilpin/source/appland/appmap-js/node_modules/@appland/sql-parser/lib/parser.js:6:104784
+

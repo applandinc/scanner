@@ -1,7 +1,7 @@
 import { Event } from '@appland/models';
 import Check from './check';
 import { AbortError } from './errors';
-import { Finding } from './types';
+import { Finding, AppMapIndex } from './types';
 import { verbose } from './rules/lib/util';
 import ScopeIterator from './scope/scopeIterator';
 import RootScope from './scope/rootScope';

@@ -1,0 +1,17 @@
+Without SQL cache:
+
+```
+Performed 7860 checks in 22231ms (353 checks/sec)
+Parse count: 7708
+Normalize count: 8279
+yarn start scan -c ../appland/appland-scanner.yml -d ../appland/tmp/appmap     29.35s user 1.25s system 117% cpu 26.010 total
+```
+
+With SQL cache:
+
+```
+Performed 7860 checks in 7142ms (1100 checks/sec)
+Parse count: 225
+Normalize count: 1331
+yarn start scan -c ../appland/appland-scanner.yml -d ../appland/tmp/appmap     13.88s user 0.87s system 133% cpu 11.047 total
+```
