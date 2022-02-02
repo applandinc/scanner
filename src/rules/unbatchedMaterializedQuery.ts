@@ -1,15 +1,16 @@
-import { parseSQL, Event } from '@appland/models';
-import { Rule, RuleLogic } from '../types';
+import { Event } from '@appland/models';
+import { AppMapIndex, Rule, RuleLogic } from '../types';
 import { visit } from '../database/visit';
 import { URL } from 'url';
+import { AppMap } from '@appland/client';
 
 function isMaterialized(e: Event): boolean {
   return e.ancestors().some(({ labels }) => labels.has(DAOMaterialize));
 }
 
-function isApplicable(e: Event): boolean {
+function isApplicable(e: Event, appMapIndex: AppMapIndex): boolean {
   try {
-    const ast = parseSQL(e.sqlQuery!);
+    const ast = appMapIndex.sqlAST(e);
     let isSelect = false;
     let isCount = false;
     let hasLimitClause = false;
@@ -54,7 +55,7 @@ function isApplicable(e: Event): boolean {
 
 function build(): RuleLogic {
   return {
-    matcher: (e) => isApplicable(e),
+    matcher: (e, appMapIndex: AppMapIndex) => isApplicable(e, appMapIndex),
     where: (e) => !!e.sqlQuery,
   };
 }
