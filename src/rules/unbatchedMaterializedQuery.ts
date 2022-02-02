@@ -2,7 +2,6 @@ import { Event } from '@appland/models';
 import { AppMapIndex, Rule, RuleLogic } from '../types';
 import { visit } from '../database/visit';
 import { URL } from 'url';
-import { AppMap } from '@appland/client';
 
 function isMaterialized(e: Event): boolean {
   return e.ancestors().some(({ labels }) => labels.has(DAOMaterialize));
