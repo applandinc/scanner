@@ -1,5 +1,4 @@
 import { Event } from '@appland/models';
-import { isAbsolute } from 'path';
 
 let isVerbose = false;
 function verbose(v: boolean | null = null): boolean {
@@ -50,38 +49,10 @@ function isFalsey(valueObj: any): boolean {
   return false;
 }
 
-const isTruthy = (valueObj: any): boolean => !isFalsey(valueObj);
+const isTruthy = (valueObj: unknown): boolean => !isFalsey(valueObj);
 
 function providesAuthentication(event: Event, label: string): boolean {
   return event.returnValue && event.labels.has(label) && isTruthy(event.returnValue.value);
-}
-
-function ideLink(filePath: string, ide: string, eventId: number): string {
-  const OSC = '\u001B]';
-  const BEL = '\u0007';
-  const SEP = ';';
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const supportsHyperlinks = require('supports-hyperlinks');
-
-  if (!supportsHyperlinks.stdout) {
-    return filePath;
-  }
-
-  let path: string;
-  if (!isAbsolute(filePath)) {
-    path = `${__dirname}/../../../../../${filePath}`;
-  } else {
-    path = filePath;
-  }
-  const state = { currentView: 'viewFlow', selectedObject: `event:${eventId}` };
-  const encodedState = encodeURIComponent(JSON.stringify(state));
-  const link =
-    ide == 'vscode'
-      ? `vscode://appland.appmap/open?uri=${path}&state=${encodedState}`
-      : `${ide}://open?file=${path}`;
-
-  return [OSC, '8', SEP, SEP, link, BEL, filePath, OSC, '8', SEP, SEP, BEL].join('');
 }
 
 const toRegExp = (value: string | RegExp): RegExp => {
@@ -109,7 +80,6 @@ export {
   emptyValue,
   isFalsey,
   isTruthy,
-  ideLink,
   isRoot,
   providesAuthentication,
   toRegExp,

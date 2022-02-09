@@ -21,6 +21,7 @@ import { default as buildScanner } from './scanner';
 import scanArgs from '../scanArgs';
 import { Metadata } from '@appland/models';
 import { AppMapMetadata } from 'src/report/scanSummary';
+import { detectIde, IDEOptions } from '../detectIde';
 
 export default {
   command: 'scan',
@@ -34,7 +35,8 @@ export default {
     });
     args.option('ide', {
       describe: 'choose your IDE protocol to open AppMaps directly in your IDE.',
-      options: ['vscode', 'x-mine', 'idea', 'pycharm'],
+      options: IDEOptions,
+      default: detectIde(),
     });
     args.option('all', {
       describe: 'report all findings, including duplicates of known findings',
@@ -107,7 +109,7 @@ export default {
         );
       }
 
-      findingsReport(scanResults.findings, scanResults.appMapMetadata, ide);
+      findingsReport(scanResults, ide);
       console.log();
       summaryReport(scanResults, true);
       console.log('\n');

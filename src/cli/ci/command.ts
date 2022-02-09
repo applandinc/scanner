@@ -93,7 +93,7 @@ export default {
         newFindings(rawScanResults.findings, findingStatuses)
       );
 
-      findingsReport(scanResults.findings, scanResults.appMapMetadata);
+      findingsReport(scanResults);
       summaryReport(scanResults, true);
 
       if (doUpload) {

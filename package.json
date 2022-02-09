@@ -67,7 +67,6 @@
     "octokat": "^0.10.0",
     "openapi-diff": "^0.23.5",
     "pretty-format": "^27.4.6",
-    "supports-hyperlinks": "^2.2.0",
     "tar-stream": "^2.2.0",
     "yargs": "^17.1.1"
   },

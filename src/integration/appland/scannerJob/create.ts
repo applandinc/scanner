@@ -15,7 +15,6 @@ import {
 import { create as createMapset } from '../mapset/create';
 import Location from '../location';
 import ScannerJob from '../scannerJob';
-import { verbose } from 'src/rules/lib/util';
 
 type CreateOptions = {
   scan_results: ScanResults;

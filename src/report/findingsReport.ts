@@ -1,27 +1,25 @@
-import { Metadata } from '@appland/models';
 import chalk from 'chalk';
-import { ideLink } from '../rules/lib/util';
-import { Finding } from '../types';
+
+import { IDE } from '../cli/detectIde';
+import ideLink from './ideLink';
+import { ScanResults } from './scanResults';
 
 function writeln(text = ''): void {
   process.stdout.write(text);
   process.stdout.write('\n');
 }
 
-export default function (
-  findings: Finding[],
-  appMapMetadata: Record<string, Metadata>,
-  ide?: string
-): void {
+export default function (scanResults: ScanResults, ide?: IDE): void {
+  const { findings, appMapMetadata } = scanResults;
   if (findings.length === 0) {
     return;
   }
   console.log();
   findings.forEach((finding) => {
-    const filePath =
-      ide && finding.appMapFile
-        ? ideLink(finding.appMapFile, ide, finding.event.id)
-        : finding.appMapFile;
+    const rule = scanResults.checks
+      .map((check) => check.rule)
+      .find((rule) => rule.id === finding.ruleId)!;
+    const fileLink = ideLink(finding, rule, ide);
     let eventMsg = `\tEvent:\t${finding.event.id} - ${finding.event.toString()}`;
     if (finding.event.elapsedTime !== undefined) {
       eventMsg += ` (${finding.event.elapsedTime}s)`;
@@ -29,7 +27,7 @@ export default function (
 
     const message = finding.message;
     writeln(chalk.magenta(message));
-    writeln(`\tLink:\t${chalk.blue(filePath)}`);
+    writeln(`\tLink:\t${chalk.blue(fileLink)}`);
     writeln(`\tRule:\t${finding.ruleId}`);
     writeln(`\tAppMap name:\t${appMapMetadata[finding.appMapFile].name}`);
     writeln(eventMsg);
