@@ -20,14 +20,6 @@ function emptyValue(value: string): boolean {
   return [null, undefined, ''].includes(value);
 }
 
-function responseContentType(event: Event): string | undefined {
-  if (event.httpServerResponse?.headers) {
-    return event.httpServerResponse!.headers!['Content-Type'];
-  } else if (event.httpClientResponse?.headers) {
-    return event.httpClientResponse!.headers!['Content-Type'];
-  }
-}
-
 function appMapDir(appMapFileName: string): string {
   return appMapFileName.substring(0, appMapFileName.length - '.appmap.json'.length);
 }
@@ -113,7 +105,6 @@ export {
   isRoot,
   providesAuthentication,
   toRegExp,
-  responseContentType,
   toRegExpArray,
   verbose,
 };

@@ -18,6 +18,7 @@ export default {
     args.option('appmap-dir', {
       describe: 'base directory of AppMaps',
       alias: 'd',
+      default: '.',
     });
     args.option('report-file', {
       describe: 'file containing the findings report',
@@ -45,7 +46,7 @@ export default {
       verbose(true);
     }
 
-    if (appmapDir) await validateFile('directory', appmapDir!);
+    await validateFile('directory', appmapDir!);
     const appId = await resolveAppId(appIdArg, appmapDir);
 
     const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
