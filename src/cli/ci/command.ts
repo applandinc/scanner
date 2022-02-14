@@ -24,6 +24,7 @@ import scanArgs from '../scanArgs';
 import updateCommitStatus from '../updateCommitStatus';
 import reportUploadURL from '../reportUploadURL';
 import fail from '../fail';
+import { dirname } from 'path';
 
 export default {
   command: 'ci',
@@ -68,12 +69,12 @@ export default {
     if (isVerbose) {
       verbose(true);
     }
-
     try {
       if (!appmapDir) {
         throw new ValidationError('--appmap-dir is required');
       }
 
+      const findingsDir = dirname(reportFile);
       await validateFile('directory', appmapDir!);
       const glob = promisify(globCallback);
       const files = await glob(`${appmapDir}/**/*.appmap.json`);
@@ -98,7 +99,7 @@ export default {
       summaryReport(scanResults, true);
 
       if (doUpload) {
-        const uploadResponse = await upload(rawScanResults, appId, mergeKey, {
+        const uploadResponse = await upload(findingsDir, rawScanResults, appId, mergeKey, {
           maxRetries: 3,
         });
         reportUploadURL(uploadResponse.summary.numFindings, uploadResponse.url);

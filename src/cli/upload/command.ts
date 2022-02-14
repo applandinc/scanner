@@ -7,6 +7,7 @@ import { verbose } from '../../rules/lib/util';
 import validateFile from '../validateFile';
 import resolveAppId from '../resolveAppId';
 import reportUploadURL from '../reportUploadURL';
+import { dirname } from 'path';
 
 import CommandOptions from './options';
 import upload from '../upload';
@@ -18,7 +19,6 @@ export default {
     args.option('appmap-dir', {
       describe: 'base directory of AppMaps',
       alias: 'd',
-      default: '.',
     });
     args.option('report-file', {
       describe: 'file containing the findings report',
@@ -45,12 +45,12 @@ export default {
     if (isVerbose) {
       verbose(true);
     }
-
+    const findingsDir = dirname(reportFile);
     await validateFile('directory', appmapDir!);
     const appId = await resolveAppId(appIdArg, appmapDir);
 
     const scanResults = JSON.parse((await readFile(reportFile)).toString()) as ScanResults;
-    const uploadResponse = await upload(scanResults, appId, mergeKey, {
+    const uploadResponse = await upload(findingsDir, scanResults, appId, mergeKey, {
       maxRetries: 3,
     });
 
