@@ -97,15 +97,21 @@ export default {
       findingsReport(scanResults.findings, scanResults.appMapMetadata);
       summaryReport(scanResults, true);
 
+      let uploadUrl: string | undefined;
       if (doUpload) {
         const uploadResponse = await upload(rawScanResults, appId, mergeKey, {
           maxRetries: 3,
         });
         reportUploadURL(uploadResponse.summary.numFindings, uploadResponse.url);
+        uploadUrl = uploadResponse.url.toString();
       }
 
       if (updateCommitStatusOption) {
-        await updateCommitStatus(scanResults.findings.length, scanResults.summary.numChecks);
+        await updateCommitStatus(
+          scanResults.findings.length,
+          scanResults.summary.numChecks,
+          uploadUrl
+        );
       }
 
       if (failOption) {

@@ -13,7 +13,8 @@ type CommitStatusState = 'pending' | 'success' | 'error' | 'failure';
 
 export default function postCommitStatus(
   state: CommitStatusState,
-  description: string
+  description: string,
+  targetUrl?: string
 ): Promise<any> {
   validateToken();
   validateRepo();
@@ -26,7 +27,8 @@ export default function postCommitStatus(
 
   return octo.repos(owner(), repo()).statuses(sha()).create({
     state: state,
-    context: 'appland/scanner',
+    context: 'AppMap Analysis',
     description: description,
+    target_url: targetUrl,
   });
 }

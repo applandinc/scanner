@@ -51,7 +51,11 @@ export default {
     console.warn(`Merged results to ${mergeResults.url}`);
 
     if (updateCommitStatusOption) {
-      await updateCommitStatus(mergeResults.summary.numFindings, mergeResults.summary.numChecks);
+      await updateCommitStatus(
+        mergeResults.summary.numFindings,
+        mergeResults.summary.numChecks,
+        mergeResults.url.toString()
+      );
     }
 
     if (failOption) {
