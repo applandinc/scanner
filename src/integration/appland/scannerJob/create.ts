@@ -16,6 +16,7 @@ import ScannerJob from '../scannerJob';
 import { RetryOptions } from '../retryOptions';
 import retry from '../retry';
 import { Request } from '@appland/client/dist/src/buildRequest';
+import normalize from '../normalize';
 
 type CreateOptions = {
   mergeKey?: string;
@@ -38,7 +39,7 @@ export async function create(
 
   async function makeRequest(): Promise<IncomingMessage> {
     const payload = JSON.stringify({
-      scan_results: scanResults,
+      scan_results: normalize(scanResults),
       mapset: mapsetId,
       appmap_uuid_by_file_name: appMapUUIDByFileName,
       ...{ merge_key: createOptions.mergeKey },
