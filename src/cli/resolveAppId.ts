@@ -42,7 +42,10 @@ export default async function (
   const appExists = await exists(appId);
   if (!appExists) {
     throw new ValidationError(
-      `App "${appId}" is not valid or does not exist.\nPlease fix the app name in the appmap.yml file, or override it with the --app option.`
+      `App "${appId}" is not valid or does not exist.\n` +
+        'Please fix the app name in the appmap.yml file, or override it with the --app option. ' +
+        'If you are scanning a personal app, ensure to specify a username as part of the app name ' +
+        '(for example: "user@example.com/myapp").'
     );
   }
 
